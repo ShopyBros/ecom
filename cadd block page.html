@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Navigation Bar with Logo</title>
+    <style>
+        /* Basic reset for margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for the navigation bar */
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .title {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        /* Styling for the video section */
+        .video-section {
+            text-align: center; /* Centering the video horizontally */
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .video-section video {
+            max-width: 100%; /* Ensures the video scales properly */
+            height: auto;
+        }
+
+        .video-section h2 {
+            margin-bottom: 10px;
+        }
+
+        /* Styling for the product section */
+        .products {
+            padding: 20px;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centers products horizontally */
+        }
+
+        .product-item {
+            display: inline-block;
+            width: 200px;
+            margin: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: left;
+            background-color: #fff;
+        }
+
+        .product-item img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .product-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-item p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .buy-button {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .buy-button:hover {
+            background-color: #218838;
+        }
+
+        .copy-id-button {
+            display: inline-block;
+            background-color: #000; /* Black color */
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 10px;
+            cursor: pointer;
+            border: none; /* Remove default border if any */
+        }
+
+        .copy-id-button:hover {
+            background-color: #333; /* Slightly lighter black for hover effect */
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .products {
+                padding: 10px;
+            }
+
+            .product-item {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="#home">
+                <img src="logo.jpeg" alt="Cadd Plans Logo">
+            </a>
+            <div class="title">Cadd Plans</div>
+            <ul class="nav-links">
+                <li><a href="#home" aria-label="Home">Home</a></li>
+                <li><a href="#about" aria-label="About">About</a></li>
+                <li><a href="#services" aria-label="Services">Services</a></li>
+                <li><a href="#contact" aria-label="Contact">Contact</a></li>
+                <li><a href="#products" aria-label="Products">Products</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="video-section">
+            <h2>How to Buy Our Products</h2>
+            <video controls>
+                <source src="videos/how-to-buy.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <p>Watch this video to learn how to purchase our products easily.</p>
+        </section>
+        
+        <section class="products" id="products">
+            <!-- Product 1 -->
+            <div class="product-item">
+                <img src="images/product1.jpeg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Price: ₹1</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-item">
+                <img src="images/product2.jpeg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Price: ₹1</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="Clothing 2">Copy Product ID</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-item">
+                <img src="images/product3.jpeg" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>Price: ₹300</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="prod3">Copy Product ID</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-item">
+                <img src="images/product4.jpeg" alt="Product 4">
+                <h3>Product 4</h3>
+                <p>Price: ₹650</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="prod4">Copy Product ID</button>
+            </div>
+        </div>
+            <!-- Product 5 -->
+            <div class="product-item">
+                <img src="images/product5.jpeg" alt="Product 5">
+                <h3>Product 5</h3>
+                <p>Price: ₹900</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="prod5">Copy Product ID</button>
+            </div>
+            <!-- Product 6 -->
+            <div class="product-item">
+                <img src="images/product6.jpeg" alt="Product 6">
+                <h3>Product 6</h3>
+                <p>Price: ₹1200</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="prod6">Copy Product ID</button>
+            </div>
+            <!-- Product 7 -->
+            <div class="product-item">
+                <img src="images/product7.jpeg" alt="Product 7">
+                <h3>Product 7</h3>
+                <p>Price: ₹450</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="prod7">Copy Product ID</button>
+            </div>
+            <!-- Product 8 -->
+            <div class="product-item">
+                <img src="images/product8.jpeg" alt="Product 8">
+                <h3>Product 8</h3>
+                <p>Price: ₹350</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="prod8">Copy Product ID</button>
+            </div>
+            <!-- Product 9 -->
+            <div class="product-item">
+                <img src="images/product9.jpeg" alt="Product 9">
+                <h3>Product 9</h3>
+                <p>Price: ₹800</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="prod9">Copy Product ID</button>
+            </div>
+            <!-- Product 10 -->
+            <div class="product-item">
+                <img src="images/product10.jpeg" alt="Product 10">
+                <h3>Product 10</h3>
+                <p>Price: ₹650</p>
+                <a href="checkout page.html" class="buy-button">Buy Now</a>
+                <button class="copy-id-button" data-id="prod10">Copy Product ID</button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const copyButtons = document.querySelectorAll('.copy-id-button');
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.getAttribute('data-id');
+                    navigator.clipboard.writeText(productId).then(() => {
+                        alert(`Product ID ${productId} copied to clipboard!`);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
