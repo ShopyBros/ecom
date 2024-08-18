@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cadd Plans - Explore our high-quality services.">
+    <meta name="keywords" content="Cadd Plans, services, portfolio, testimonials, team">
+    <meta name="author" content="Your Name">
+    <title>Cadd Plans - Home</title>
+    <style>
+        /* Basic reset for margins and paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styling for the navigation bar */
+        .navbar {
+            background-color: #333;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .navbar img {
+            height: 40px; /* Adjust the size as needed */
+            width: auto;
+        }
+
+        .navbar .title {
+            font-size: 24px;
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+        }
+
+        .nav-links {
+            list-style-type: none;
+            display: flex;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+        }
+
+        .nav-links a:hover, .nav-links a:focus {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        /* Carousel styling */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            max-height: 400px; /* Adjust as needed */
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-image {
+            min-width: 100%;
+            height: auto;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Styling for the home page content */
+        .home-content {
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .home-content img.full-width-image {
+            width: 100%; /* Ensure the image spans full width */
+            height: auto; /* Maintain aspect ratio */
+            margin-bottom: 20px; /* Space between image and following content */
+            object-fit: cover; /* Cover the container without distortion */
+        }
+
+        .home-content h1 {
+            font-size: 36px;
+            margin-top: 40px;
+        }
+
+        .home-content p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px; /* Fixed width for buttons */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .button-item .button-label {
+            padding: 10px;
+            background-color: #f4f4f4;
+            width: 100%;
+            text-align: center;
+            font-size: 16px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Styling for images within button items */
+        .button-item img {
+            width: 150px; /* Fixed size for button images */
+            height: 150px; /* Fixed size for button images */
+            object-fit: cover; /* Ensures the image covers the button area */
+            border: 3px solid #333; /* Add a border around the image */
+            border-radius: 5px; /* Optional: rounded corners for the border */
+            margin-bottom: 10px; /* Space between image and text */
+        }
+
+        .button-item .button-text {
+            padding: 15px;
+            background-color: #fff;
+            text-align: center;
+            color: #333;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        .button-item .button-text:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .home-content {
+                padding: 10px;
+            }
+
+            .button-container {
+                flex-direction: column; /* Stack buttons vertically on small screens */
+            }
+
+            .button-item {
+                width: 100%; /* Full width for buttons on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" aria-label="Main Navigation">
+        <a href="#home" aria-label="Homepage">
+            <img src="logo.jpeg" alt="Company Logo">
+        </a>
+        <div class="title">ShopDis</div>
+        <ul class="nav-links">
+            <li><a href="#home" aria-label="Home">Home</a></li>
+            <li><a href="#about" aria-label="About">About</a></li>
+            <li><a href="#services" aria-label="Services">Services</a></li>
+            <li><a href="#contact" aria-label="Contact">Contact</a></li>
+            <li><a href="#products" aria-label="Products">Products</a></li>
+        </ul>
+    </nav>
+
+    <section class="carousel">
+        <div class="carousel-images">
+            <img src="C:\Users\Rajvendra\Downloads\yqt7n9n1.png" alt="Carousel Image 1" class="carousel-image">
+            <img src="C:\Users\Rajvendra\Downloads\snihjvjc.png" alt="Carousel Image 2" class="carousel-image">
+            <img src="C:\Users\Rajvendra\Downloads\special-price-discount-banner-template-promotion_501916-373.avif" alt="Carousel Image 3" class="carousel-image">
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-control" id="prev">&lt;</button>
+            <button class="carousel-control" id="next">&gt;</button>
+        </div>
+    </section>
+
+    <section class="home-content" id="home">
+        <img class="full-width-image" src="heropic.png" alt="Hero Image">
+        <h1>Welcome to Shop Diss
+        <p>Discover our range of high-quality services designed to meet your needs. Explore the options below to learn more about what we offer.</p>
+
+        <div class="button-container">
+            <div class="button-item">
+                <div class="button-label">ELECTRONICS</div>
+                <a href="https://forms.gle/cdKpcZh9GtzgecVT8" class="button-text">
+                    <img src="C:\Users\Rajvendra\Downloads\OIP (1).jpeg" alt="3D Floor View">
+                    VIEW MORE
+                </a>
+            </div>
+            <div class="button-item">
+                <div class="button-label">CLOTHINGS</div>
+                <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAANAAWw4MMFURVJCUzJMUjRNNlBCSU5GQUM0MlZCTERQTC4u" class="button-text">
+                    <img src="C:\Users\Rajvendra\Downloads\OIP (2).jpeg" alt="3D Elevation">
+                    VIEW MORE
+                </a>
+            </div>
+            <div class="button-item">
+                <div class="button-label">SPORTS AND FITNESS</div>
+                <a href="#services" class="button-text">
+                    <img src="C:\Users\Rajvendra\Downloads\different-items-fitness_144962-2700.avif" alt="2D Ground Floor Plan">
+                    VIEW MORE
+                </a>
+            </div>
+            <div class="button-item">
+                <div class="button-label">BAGS AND FOOTWEARS</div>
+                <a href="#team" class="button-text">
+                    <img src="C:\Users\Rajvendra\Downloads\s-l1600.jpg" alt="2D G+1 Plan">
+                    VIEW MORE
+                </a>
+            </div>
+            <div class="button-item">
+                <div class="button-label">HOME AND KITCHEN</div>
+                <a href="cadd block page.html" class="button-text">
+                    <img src="C:\Users\Rajvendra\Downloads\Paste-14.png" alt="Cadd Blocks">
+                    VIEW MORE
+                </a>
+            </div>
+            <div class="button-item">
+                <div class="button-label">BEAUTY AND HEALTH</div>
+                <a href="#testimonials" class="button-text">
+                    <img src="C:\Users\Rajvendra\Downloads\OIP (3).jpeg" alt="New Shortcuts for AutoCAD">
+                    VIEW MORE
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const carouselImages = document.querySelector('.carousel-images');
+        const carouselImagesCount = document.querySelectorAll('.carousel-image').length;
+        const nextButton = document.getElementById('next');
+        const prevButton = document.getElementById('prev');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            if (index >= carouselImagesCount) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = carouselImagesCount - 1;
+            } else {
+                currentIndex = index;
+            }
+            carouselImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        nextButton.addEventListener('click', () => {
+            showSlide(currentIndex + 1);
+        });
+
+        prevButton.addEventListener('click', () => {
+            showSlide(currentIndex - 1);
+        });
+
+        // Auto-slide functionality
+        setInterval(() => {
+            showSlide(currentIndex + 1);
+        }, 3000); // Change image every 3 seconds
+    </script>
+</body>
+</html>
