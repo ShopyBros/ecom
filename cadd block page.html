@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cadd Plans - Your go-to place for various products. Explore our collection now!">
+    <meta name="keywords" content="Cadd Plans, products, buy, online store">
+    <meta name="author" content="Your Name">
     <title>Simple Navigation Bar with Logo</title>
     <style>
         * {
@@ -21,12 +24,12 @@
 
         .navbar .title {
             color: white;
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
         .navbar img {
-            height: 40px;
+            height: 2.5rem;
             width: auto;
         }
 
@@ -36,25 +39,25 @@
         }
 
         .nav-links li {
-            margin: 0 15px;
+            margin: 0 1rem;
         }
 
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-size: 18px;
-            padding: 10px;
+            font-size: 1.125rem;
+            padding: 0.625rem;
             display: block;
         }
 
         .nav-links a:hover, .nav-links a:focus {
             background-color: #575757;
-            border-radius: 5px;
+            border-radius: 0.3125rem;
         }
 
         .video-section {
             text-align: center;
-            padding: 20px;
+            padding: 1.25rem;
             background-color: #f4f4f4;
         }
 
@@ -64,11 +67,11 @@
         }
 
         .video-section h2 {
-            margin-bottom: 10px;
+            margin-bottom: 0.625rem;
         }
 
         .products {
-            padding: 20px;
+            padding: 1.25rem;
             background-color: #f4f4f4;
             display: flex;
             flex-wrap: wrap;
@@ -77,14 +80,14 @@
 
         .product-item {
             display: inline-block;
-            width: 300px; /* Increased width from 200px */
-            margin: 20px;
+            width: 18.75rem; /* Increased width from 12.5rem */
+            margin: 1.25rem;
             border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px; /* Increased padding */
+            border-radius: 0.5rem;
+            padding: 1rem; /* Increased padding */
             text-align: left;
             background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for better appearance */
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* Added shadow for better appearance */
         }
 
         .product-item img {
@@ -97,7 +100,7 @@
         .product-slider {
             position: relative;
             overflow: hidden;
-            height: 200px; /* Increased height for better fit */
+            height: 12.5rem; /* Increased height for better fit */
         }
 
         .slider-images {
@@ -123,7 +126,7 @@
             background-color: rgba(0, 0, 0, 0.5);
             border: none;
             color: white;
-            padding: 10px;
+            padding: 0.625rem;
             cursor: pointer;
         }
 
@@ -132,23 +135,29 @@
         }
 
         .product-item h3 {
-            font-size: 20px; /* Increased font size */
-            margin: 10px 0;
+            font-size: 1.25rem; /* Increased font size */
+            margin: 0.625rem 0;
         }
 
         .product-item p {
-            font-size: 18px; /* Increased font size */
+            font-size: 1.125rem; /* Increased font size */
             color: #333;
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: #666;
+            margin: 0.625rem 0;
         }
 
         .buy-button {
             display: inline-block;
             background-color: #28a745;
             color: white;
-            padding: 12px 20px; /* Increased padding */
+            padding: 0.75rem 1.25rem; /* Increased padding */
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px; /* Increased font size */
+            border-radius: 0.3125rem;
+            font-size: 1.125rem; /* Increased font size */
             text-align: center;
         }
 
@@ -160,12 +169,12 @@
             display: inline-block;
             background-color: #000;
             color: white;
-            padding: 10px 15px; /* Increased padding */
+            padding: 0.625rem 0.9375rem; /* Increased padding */
             text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px; /* Increased font size */
+            border-radius: 0.3125rem;
+            font-size: 1rem; /* Increased font size */
             text-align: center;
-            margin-top: 10px;
+            margin-top: 0.625rem;
             cursor: pointer;
             border: none;
         }
@@ -174,7 +183,7 @@
             background-color: #333;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 48em) {
             .navbar {
                 flex-direction: column;
                 text-align: center;
@@ -182,20 +191,20 @@
 
             .nav-links {
                 flex-direction: column;
-                margin-top: 10px;
+                margin-top: 0.625rem;
             }
 
             .nav-links li {
-                margin: 10px 0;
+                margin: 0.625rem 0;
             }
 
             .products {
-                padding: 10px;
+                padding: 0.625rem;
             }
 
             .product-item {
                 width: 100%;
-                margin: 10px 0;
+                margin: 0.625rem 0;
             }
         }
     </style>
@@ -243,6 +252,7 @@
                 </div>
                 <h3>Product 1</h3>
                 <p>Price: ₹1</p>
+                <p class="product-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
             </div>
@@ -261,6 +271,7 @@
                 </div>
                 <h3>Product 2</h3>
                 <p>Price: ₹1</p>
+                <p class="product-description">A versatile product that blends functionality with style. Ideal for various uses and comes in multiple colors.</p>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="Clothing 2">Copy Product ID</button>
             </div>
@@ -279,6 +290,7 @@
                 </div>
                 <h3>Product 3</h3>
                 <p>Price: ₹300</p>
+                <p class="product-description">This premium product offers unparalleled quality and durability. Perfect for those who appreciate high-end craftsmanship.</p>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="prod3">Copy Product ID</button>
             </div>
@@ -286,9 +298,9 @@
             <div class="product-item">
                 <div class="product-slider">
                     <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 1 - Image 1">
-                        <img src="bags.jpeg" alt="Product 1 - Image 2">
-                        <img src="bags.jpeg" alt="Product 1 - Image 3">
+                        <img src="bags.jpeg" alt="Product 4 - Image 1">
+                        <img src="bags.jpeg" alt="Product 4 - Image 2">
+                        <img src="bags.jpeg" alt="Product 4 - Image 3">
                     </div>
                     <div class="slider-buttons">
                         <button class="slider-button prev" aria-label="Previous Slide">❮</button>
@@ -297,6 +309,7 @@
                 </div>
                 <h3>Product 4</h3>
                 <p>Price: ₹4</p>
+                <p class="product-description">An affordable option that does not compromise on quality. Ideal for budget-conscious shoppers.</p>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
             </div>
@@ -304,9 +317,9 @@
             <div class="product-item">
                 <div class="product-slider">
                     <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 1 - Image 1">
-                        <img src="bags.jpeg" alt="Product 1 - Image 2">
-                        <img src="bags.jpeg" alt="Product 1 - Image 3">
+                        <img src="bags.jpeg" alt="Product 5 - Image 1">
+                        <img src="bags.jpeg" alt="Product 5 - Image 2">
+                        <img src="bags.jpeg" alt="Product 5 - Image 3">
                     </div>
                     <div class="slider-buttons">
                         <button class="slider-button prev" aria-label="Previous Slide">❮</button>
@@ -315,6 +328,7 @@
                 </div>
                 <h3>Product 5</h3>
                 <p>Price: ₹5</p>
+                <p class="product-description">A stylish and practical choice for any occasion. Designed to meet your everyday needs with a touch of elegance.</p>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
             </div>
