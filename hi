@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cadd Plans - Explore our high-quality services.">
-    <meta name="keywords" content="Cadd Plans, services, portfolio, testimonials, team">
+    <meta name="description" content="Shopy Bros - Explore our high-quality services.">
+    <meta name="keywords" content="Shopy Bros, services, portfolio, testimonials, team">
     <meta name="author" content="Your Name">
-    <title>Cadd Plans - Home</title>
+    <title>Shopy Bros - Home</title>
     <style>
         /* Basic reset for margins and paddings */
         * {
@@ -211,7 +211,7 @@
         <a href="#home" aria-label="Homepage">
             <img src="logo.jpeg" alt="Company Logo">
         </a>
-        <div class="title">ShopDis</div>
+        <div class="title">Shopy Bros</div>
         <ul class="nav-links">
             <li><a href="#home" aria-label="Home">Home</a></li>
             <li><a href="#about" aria-label="About">About</a></li>
