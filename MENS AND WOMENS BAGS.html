@@ -253,7 +253,7 @@
     <header>
         <nav class="navbar" aria-label="Main Navigation">
             <a href="#home" aria-label="Home">
-                <img src="logo.jpeg" alt="Cadd Plans Logo">
+                <img src="logo.jpeg" alt="Shopy Bros Logo">
             </a>
             <div class="title">Mens And Womens Bags</div>
             <ul class="nav-links">
@@ -269,7 +269,7 @@
     <main>
         <section class="video-section">
             <h2>How to Buy Our Products</h2>
-            <video controls>
+            <video controls aria-label="How to Buy Our Products Video">
                 <source src="videos/how-to-buy.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -281,10 +281,10 @@
             <div class="product-item">
                 <div class="product-slider">
                     <div class="slider-images">
-                        <img src="jldhv_512.webp" alt="Product 1 - Image 1">
-                        <img src="jlzh4_512.webp" alt="Product 1 - Image 2">
-                        <img src="v9rbi_512.webp" alt="Product 1 - Image 3">
-                        <img src="tvrxm_512.webp" alt="Product 1 - Image 4">
+                        <img src="jldhv_512.webp" alt="Product 1 Backpack - Front View">
+                        <img src="jlzh4_512.webp" alt="Product 1 Backpack - Side View">
+                        <img src="v9rbi_512.webp" alt="Product 1 Backpack - Back View">
+                        <img src="tvrxm_512.webp" alt="Product 1 Backpack - Inside View">
                     </div>
                     <div class="slider-buttons">
                         <button class="slider-button prev" aria-label="Previous Slide">❮</button>
@@ -298,7 +298,7 @@
                 <!-- Details Section with "See More" and "See Less" -->
                 <div class="product-details">
                     <p class="short-details">
-                        Material: Polyester, Type: Casual Backpack, External Pocket: Multiple Pocket
+                        Product details
                     </p>
                     <p class="full-details hidden">
                         Material: Polyester, Type: Casual Backpack, External Pocket: Multiple Pocket, Laptop Capacity: No Laptop Compartment, Laptop Compartment: Non Padded, Shoulder Strap Type: Crossbody, Size: M, Volume In Litres: 24 To 30 Litres, Water Resistant: Yes, Product Height: 48 Cm, Product Length: 33 Cm, Product Width: 20 Cm, Print Or Pattern Type: Solid, Net Quantity (N): 1
@@ -307,7 +307,7 @@
                 </div>
                 
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
-                <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
+                <button id="copy-id-button" class="copy-id-button" data-id="Bags 1">Copy Product ID</button>
             </div>
         </section>
     </main>
@@ -355,7 +355,18 @@
                 // Handle window resize to adjust the slider width
                 window.addEventListener('resize', () => showSlide(index));
             });
+
+            // Copy Product ID functionality
+            document.getElementById('copy-id-button').addEventListener('click', () => {
+                const productId = document.getElementById('copy-id-button').getAttribute('data-id');
+                navigator.clipboard.writeText(productId).then(() => {
+                    alert('Product ID copied to clipboard!');
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+            });
         });
     </script>
 </body>
 </html>
+
