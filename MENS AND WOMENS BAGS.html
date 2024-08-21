@@ -97,27 +97,28 @@
             position: relative;
         }
 
-        .product-item img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         .product-slider {
             position: relative;
             overflow: hidden;
             height: 25rem; /* Increased height */
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
         }
 
         .slider-images {
             display: flex;
             transition: transform 0.5s ease;
+            height: 100%;
+            width: 100%;
+            align-items: center; /* Center images vertically within the slider */
         }
 
         .slider-images img {
             height: 100%; /* Ensure images take the full height of the slider */
             width: auto; /* Maintain aspect ratio */
+            display: block;
         }
 
         .slider-buttons {
@@ -381,4 +382,3 @@
     </script>
 </body>
 </html>
-
