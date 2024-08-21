@@ -109,12 +109,21 @@
             width: 100%;
             height: 200px; /* Adjust height as needed */
             margin-bottom: 1rem;
+            position: relative;
         }
 
         .swiper-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            top: -30px; /* Adjust top value to position dots above the product name */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
         }
 
         .product h3 {
