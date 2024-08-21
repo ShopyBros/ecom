@@ -82,28 +82,43 @@
             padding: 1rem;
             background-color: #f4f4f4;
             display: flex;
-            overflow-x: auto; /* Allow horizontal scrolling */
-            white-space: nowrap; /* Prevent line breaks */
+            flex-direction: column; /* Stack items vertically */
+            gap: 1rem; /* Space between product items */
         }
 
         .product-item {
-            display: inline-block; /* Display items in a row */
-            width: 20rem;
-            margin: 0 1rem; /* Horizontal margin */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 0.5rem;
-            padding: 1rem;
-            background-color: #fff;
             box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-            text-align: center;
-            vertical-align: top; /* Align items to the top */
+            overflow: hidden;
+        }
+
+        .product-image {
+            flex: 1;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-details {
+            flex: 1.5;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
         }
 
         .product-slider {
             position: relative;
             overflow: hidden;
             height: 20rem;
-            margin-bottom: 0.75rem;
         }
 
         .slider-images {
@@ -193,21 +208,6 @@
             transform: scale(1.02);
         }
 
-        .product-details {
-            margin-top: 1rem;
-        }
-
-        .short-details {
-            font-size: 1rem;
-            color: #666;
-        }
-
-        .full-details {
-            font-size: 1rem;
-            color: #666;
-            margin: 0.5rem 0;
-        }
-
         .full-details.hidden {
             display: none;
         }
@@ -249,13 +249,20 @@
 
             .products {
                 padding: 0.5rem;
-                overflow-x: scroll; /* Allow horizontal scrolling */
-                white-space: nowrap;
             }
 
             .product-item {
+                flex-direction: column; /* Stack image and details vertically on small screens */
+                align-items: center;
+            }
+
+            .product-image {
                 width: 100%;
-                margin: 0.5rem 0; /* Vertical margin */
+            }
+
+            .product-details {
+                padding: 1rem;
+                text-align: center;
             }
 
             .slider-button {
@@ -300,33 +307,37 @@
         <section class="products" id="products">
             <!-- Product 1 -->
             <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="jldhv_512.webp" alt="Product 1 Backpack - Front View">
-                        <img src="jlzh4_512.webp" alt="Product 1 Backpack - Side View">
-                        <img src="v9rbi_512.webp" alt="Product 1 Backpack - Back View">
-                        <img src="tvrxm_512.webp" alt="Product 1 Backpack - Inside View">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
+                <div class="product-image">
+                    <div class="product-slider">
+                        <div class="slider-images">
+                            <img src="jldhv_512.webp" alt="Product 1 Backpack - Front View">
+                            <img src="jlzh4_512.webp" alt="Product 1 Backpack - Side View">
+                            <img src="v9rbi_512.webp" alt="Product 1 Backpack - Back View">
+                            <img src="tvrxm_512.webp" alt="Product 1 Backpack - Inside View">
+                        </div>
+                        <div class="slider-buttons">
+                            <button class="slider-button prev" aria-label="Previous Slide">❮</button>
+                            <button class="slider-button next" aria-label="Next Slide">❯</button>
+                        </div>
                     </div>
                 </div>
-                <h3>Medium 22 L Backpack DAYPACK Bags for Daily Use</h3>
-                <p>Price: ₹1</p>
-                <p class="product-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                
-                <!-- Details Section with "See More" and "See Less" -->
                 <div class="product-details">
-                    <p class="short-details">Product details</p>
-                    <p class="full-details hidden">
-                        Material: Polyester, Type: Casual Backpack, External Pocket: Multiple Pocket, Laptop Capacity: No Laptop Compartment, Laptop Compartment: Non Padded, Shoulder Strap Type: Crossbody, Size: M, Volume In Litres: 24 To 30 Litres, Water Resistant: Yes, Product Height: 48 Cm, Product Length: 33 Cm, Product Width: 20 Cm, Print Or Pattern Type: Solid, Net Quantity (N): 1
-                    </p>
-                    <button class="toggle-details" aria-expanded="false">See More</button>
+                    <h3>Medium 22 L Backpack DAYPACK Bags for Daily Use</h3>
+                    <p>Price: ₹1</p>
+                    <p class="product-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
+                    
+                    <!-- Details Section with "See More" and "See Less" -->
+                    <div class="product-details-info">
+                        <p class="short-details">Product details</p>
+                        <p class="full-details hidden">
+                            Material: Polyester, Type: Casual Backpack, External Pocket: Multiple Pocket, Laptop Capacity: No Laptop Compartment, Laptop Compartment: Non Padded, Shoulder Strap Type: Crossbody, Size: M, Volume In Litres: 24 To 30 Litres, Water Resistant: Yes, Product Height: 48 Cm, Product Length: 33 Cm, Product Width: 20 Cm, Print Or Pattern Type: Solid, Net Quantity (N): 1
+                        </p>
+                        <button class="toggle-details" aria-expanded="false">See More</button>
+                    </div>
+                    
+                    <a href="checkout page.html" class="buy-button">Buy Now</a>
+                    <button id="copy-id-button" class="copy-id-button" data-id="Bags 1">Copy Product ID</button>
                 </div>
-                
-                <a href="checkout page.html" class="buy-button">Buy Now</a>
-                <button id="copy-id-button" class="copy-id-button" data-id="Bags 1">Copy Product ID</button>
             </div>
         </section>
     </main>
