@@ -102,22 +102,19 @@
             overflow: hidden;
             height: 25rem; /* Increased height */
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center; /* Center vertically */
-            justify-content: center; /* Center horizontally */
         }
 
         .slider-images {
             display: flex;
             transition: transform 0.5s ease;
             height: 100%;
-            width: 100%;
-            align-items: center; /* Center images vertically within the slider */
         }
 
         .slider-images img {
-            height: 100%; /* Ensure images take the full height of the slider */
-            width: auto; /* Maintain aspect ratio */
+            height: 100%;
+            width: auto;
+            flex: 0 0 100%;
+            object-fit: contain; /* Maintain aspect ratio and fit within the container */
             display: block;
         }
 
@@ -294,7 +291,7 @@
                     </div>
                 </div>
                 <h3>Medium 22 L Backpack DAYPACK Bags for Daily Use</h3>
-                <p>Price: ₹1</p>
+                <p>Price: ₹1 / Free delivery</p>
                 <p class="product-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
                 
                 <!-- Details Section with "See More" and "See Less" -->
