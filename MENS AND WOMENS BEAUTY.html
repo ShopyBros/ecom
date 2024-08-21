@@ -428,6 +428,7 @@
             });
 
             seeMoreButtons.forEach((button, index) => {
+                button.innerHTML = 'See More<br>Details';
                 button.addEventListener('click', () => {
                     descriptions[index].style.display = 'block';
                     descriptions[index].style.opacity = '1';
@@ -437,6 +438,7 @@
             });
 
             seeLessButtons.forEach((button, index) => {
+                button.innerHTML = 'See Less<br>Details';
                 button.addEventListener('click', () => {
                     descriptions[index].style.opacity = '0';
                     setTimeout(() => descriptions[index].style.display = 'none', 300); // Hide after transition
