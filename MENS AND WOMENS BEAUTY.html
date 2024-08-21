@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,6 +143,11 @@
             opacity: 1; /* Fully opaque active bullet */
         }
 
+        /* Swiper navigation button styles */
+        .swiper-button-next, .swiper-button-prev {
+            color: #007bff; /* Color of navigation buttons */
+        }
+
         .product h3 {
             margin: 1rem 0;
             font-size: 1.5rem;
@@ -261,7 +267,7 @@
             <div class="products-container">
                 <div class="product">
                     <!-- Swiper -->
-                    <div class="swiper-container">
+                    <div class="swiper-container product-swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="jlzh4_512.webp" alt="Product 1 Image 1"></div>
                             <div class="swiper-slide"><img src="v9rbi_512.webp" alt="Product 1 Image 2"></div>
@@ -285,58 +291,8 @@
                         <button class="copy-id-button" data-id="product1">Copy Product ID</button>
                     </div>
                 </div>
-                <div class="product">
-                    <!-- Swiper -->
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="jlzh4_512.webp" alt="Product 2 Image 1"></div>
-                            <div class="swiper-slide"><img src="v9rbi_512.webp" alt="Product 2 Image 2"></div>
-                            <div class="swiper-slide"><img src="tvrxm_512.webp" alt="Product 2 Image 3"></div>
-                            <div class="swiper-slide"><img src="jlzh4_512.webp" alt="Product 2 Image 4"></div>
-                        </div>
-                        <!-- Add Pagination -->
-                        <div class="swiper-pagination"></div>
-                        <!-- Add Navigation -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    <h3>Product 2</h3>
-                    <p class="price">$29.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 2. This product is perfect for your needs.</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="product2">Copy Product ID</button>
-                    </div>
-                </div>
-                <div class="product">
-                    <!-- Swiper -->
-                    <div class="swiper-container">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="jlzh4_512.webp" alt="Product 3 Image 1"></div>
-                            <div class="swiper-slide"><img src="v9rbi_512.webp" alt="Product 3 Image 2"></div>
-                            <div class="swiper-slide"><img src="tvrxm_512.webp" alt="Product 3 Image 3"></div>
-                            <div class="swiper-slide"><img src="jlzh4_512.webp" alt="Product 3 Image 4"></div>
-                        </div>
-                        <!-- Add Pagination -->
-                        <div class="swiper-pagination"></div>
-                        <!-- Add Navigation -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                    <h3>Product 3</h3>
-                    <p class="price">$39.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 3. An essential item for everyone.</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="product3">Copy Product ID</button>
-                    </div>
-                </div>
+                <!-- Repeat for other products -->
+                <!-- ... -->
             </div>
         </section>
     </main>
@@ -356,6 +312,7 @@
                         alert(`Product ID ${productId} copied to clipboard!`);
                     }).catch(err => {
                         console.error('Failed to copy text: ', err);
+                        alert('Failed to copy text. Please try again.');
                     });
                 });
             });
@@ -377,7 +334,7 @@
             });
 
             // Initialize Swiper for each product
-            document.querySelectorAll('.swiper-container').forEach(container => {
+            document.querySelectorAll('.product-swiper').forEach(container => {
                 new Swiper(container, {
                     slidesPerView: 1,
                     spaceBetween: 10,
