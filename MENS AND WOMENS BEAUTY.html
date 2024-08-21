@@ -72,8 +72,47 @@
         }
 
         .video-section h2 {
-            margin-bottom: 1rem; /* Increased margin */
-            font-size: 1.75rem; /* Increased font size */
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .products-section {
+            padding: 2rem;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .products-section h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .product {
+            display: inline-block;
+            width: calc(33.333% - 2rem);
+            margin: 0 1rem 2rem;
+            vertical-align: top;
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .product h3 {
+            margin: 0.5rem 0;
+            font-size: 1.25rem;
+        }
+
+        .product p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product .price {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
         @media (max-width: 48em) {
@@ -88,11 +127,20 @@
             }
 
             .nav-links li {
-                margin: 0.75rem 0; /* Increased margin */
+                margin: 0.75rem 0;
             }
 
             .video-section {
-                padding: 1rem; /* Adjusted padding */
+                padding: 1rem;
+            }
+
+            .products-section {
+                padding: 1rem;
+            }
+
+            .product {
+                width: 100%;
+                margin: 0 0 1.5rem;
             }
         }
     </style>
@@ -122,6 +170,28 @@
             </video>
             <p>Watch this video to learn how to purchase our products easily.</p>
         </section>
+
+        <section class="products-section">
+            <h2>Our Products</h2>
+            <div class="product">
+                <img src="product1.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>Description of product 1. This is a great product that you will love.</p>
+                <p class="price">$19.99</p>
+            </div>
+            <div class="product">
+                <img src="product2.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>Description of product 2. This product is perfect for your needs.</p>
+                <p class="price">$29.99</p>
+            </div>
+            <div class="product">
+                <img src="product3.jpg" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>Description of product 3. An essential item for everyone.</p>
+                <p class="price">$39.99</p>
+            </div>
+        </section>
     </main>
 
     <script>
@@ -139,7 +209,7 @@
                 });
             });
 
-            // Remove slider-related code since there are no sliders now
+            // No slider-related code here, which is good
         });
     </script>
 </body>
