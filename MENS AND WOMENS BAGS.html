@@ -106,7 +106,7 @@
         .product-slider {
             position: relative;
             overflow: hidden;
-            height: 15rem;
+            height: 25rem; /* Increased height */
             margin-bottom: 1rem;
         }
 
@@ -116,8 +116,8 @@
         }
 
         .slider-images img {
-            width: 100%;
-            height: auto;
+            height: 100%; /* Ensure images take the full height of the slider */
+            width: auto; /* Maintain aspect ratio */
         }
 
         .slider-buttons {
@@ -349,14 +349,30 @@
                 
                 showSlide(index);
 
-                window.addEventListener('resize', () => showSlide(index));
+                // Debounce resize event
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(() => showSlide(index), 200);
+                });
             });
 
             // Copy Product ID functionality
             document.getElementById('copy-id-button').addEventListener('click', () => {
                 const productId = document.getElementById('copy-id-button').getAttribute('data-id');
                 navigator.clipboard.writeText(productId).then(() => {
-                    alert('Product ID copied to clipboard!');
+                    // Display a non-intrusive message
+                    const message = document.createElement('div');
+                    message.textContent = 'Product ID copied to clipboard!';
+                    message.style.position = 'fixed';
+                    message.style.bottom = '10px';
+                    message.style.right = '10px';
+                    message.style.backgroundColor = '#28a745';
+                    message.style.color = 'white';
+                    message.style.padding = '10px';
+                    message.style.borderRadius = '5px';
+                    document.body.appendChild(message);
+                    setTimeout(() => message.remove(), 2000);
                 }).catch(err => {
                     console.error('Failed to copy: ', err);
                 });
@@ -365,3 +381,4 @@
     </script>
 </body>
 </html>
+
