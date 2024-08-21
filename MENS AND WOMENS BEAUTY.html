@@ -59,6 +59,7 @@
             background-color: #575757;
             border-radius: 5px;
         }
+
         .video-section {
             text-align: center;
             padding: 1.5rem;
@@ -73,120 +74,6 @@
         .video-section h2 {
             margin-bottom: 1rem; /* Increased margin */
             font-size: 1.75rem; /* Increased font size */
-        }
-
-        .products {
-            padding: 1.5rem;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .product-item {
-            display: inline-block;
-            width: 25rem; /* Increased width from 18.75rem */
-            margin: 1.5rem; /* Increased margin */
-            border: 1px solid #ddd;
-            border-radius: 0.625rem; /* Increased border radius */
-            padding: 1.5rem; /* Increased padding */
-            text-align: left;
-            background-color: #fff;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Increased shadow for better appearance */
-        }
-
-        .product-item img {
-            width: 100%;
-            height: auto;
-            border-bottom: 1px solid #ddd;
-            display: block;
-        }
-
-        .product-slider {
-            position: relative;
-            overflow: hidden;
-            height: 15rem; /* Increased height for better fit */
-        }
-
-        .slider-images {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .slider-images img {
-            width: 100%;
-            height: auto;
-        }
-
-        .slider-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .slider-button {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            color: white;
-            padding: 0.75rem; /* Increased padding */
-            cursor: pointer;
-            font-size: 1.25rem; /* Increased font size */
-        }
-
-        .slider-button:hover, .slider-button:focus {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .product-item h3 {
-            font-size: 1.5rem; /* Increased font size */
-            margin: 0.75rem 0; /* Increased margin */
-        }
-
-        .product-item p {
-            font-size: 1.25rem; /* Increased font size */
-            color: #333;
-        }
-
-        .product-description {
-            font-size: 1.125rem; /* Increased font size */
-            color: #666;
-            margin: 0.75rem 0; /* Increased margin */
-        }
-
-        .buy-button {
-            display: inline-block;
-            background-color: #28a745;
-            color: white;
-            padding: 1rem 1.5rem; /* Increased padding */
-            text-decoration: none;
-            border-radius: 0.375rem; /* Increased border radius */
-            font-size: 1.25rem; /* Increased font size */
-            text-align: center;
-        }
-
-        .buy-button:hover, .buy-button:focus {
-            background-color: #218838;
-        }
-
-        .copy-id-button {
-            display: inline-block;
-            background-color: #000;
-            color: white;
-            padding: 0.75rem 1.25rem; /* Increased padding */
-            text-decoration: none;
-            border-radius: 0.375rem; /* Increased border radius */
-            font-size: 1.125rem; /* Increased font size */
-            text-align: center;
-            margin-top: 0.75rem; /* Increased margin */
-            cursor: pointer;
-            border: none;
-        }
-
-        .copy-id-button:hover, .copy-id-button:focus {
-            background-color: #333;
         }
 
         @media (max-width: 48em) {
@@ -204,13 +91,8 @@
                 margin: 0.75rem 0; /* Increased margin */
             }
 
-            .products {
-                padding: 1rem; /* Increased padding */
-            }
-
-            .product-item {
-                width: 100%;
-                margin: 1rem 0; /* Increased margin */
+            .video-section {
+                padding: 1rem; /* Adjusted padding */
             }
         }
     </style>
@@ -227,7 +109,6 @@
                 <li><a href="#about" aria-label="About">About</a></li>
                 <li><a href="#services" aria-label="Services">Services</a></li>
                 <li><a href="#contact" aria-label="Contact">Contact</a></li>
-                <li><a href="#products" aria-label="Products">Products</a></li>
             </ul>
         </nav>
     </header>
@@ -240,105 +121,6 @@
                 Your browser does not support the video tag.
             </video>
             <p>Watch this video to learn how to purchase our products easily.</p>
-        </section>
-        
-        <section class="products" id="products">
-            <!-- Product 1 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 1 - Image 1">
-                        <img src="bags.jpeg" alt="Product 1 - Image 2">
-                        <img src="bags.jpeg" alt="Product 1 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 1</h3>
-                <p>Price: ₹1</p>
-                <p class="product-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                <a href="checkout page.html" class="buy-button">Buy Now</a>
-                <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
-            </div>
-            <!-- Product 2 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="images/product2a.jpeg" alt="Product 2 - Image 1">
-                        <img src="images/product2b.jpeg" alt="Product 2 - Image 2">
-                        <img src="images/product2c.jpeg" alt="Product 2 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 2</h3>
-                <p>Price: ₹1</p>
-                <p class="product-description">Our Product 2 offers a sleek design and multiple uses. Available in various colors to match your style.</p>
-                <a href="checkout page.html" class="buy-button">Buy Now</a>
-                <button class="copy-id-button" data-id="Clothing 2">Copy Product ID</button>
-            </div>
-            <!-- Product 3 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="images/product3a.jpeg" alt="Product 3 - Image 1">
-                        <img src="images/product3b.jpeg" alt="Product 3 - Image 2">
-                        <img src="images/product3c.jpeg" alt="Product 3 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 3</h3>
-                <p>Price: ₹300</p>
-                <p class="product-description">This premium product offers unparalleled quality and durability. Perfect for those who appreciate high-end craftsmanship.</p>
-                <a href="checkout page.html" class="buy-button">Buy Now</a>
-                <button class="copy-id-button" data-id="prod3">Copy Product ID</button>
-            </div>
-            <!-- Product 4 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 4 - Image 1">
-                        <img src="bags.jpeg" alt="Product 4 - Image 2">
-                        <img src="bags.jpeg" alt="Product 4 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 4</h3>
-                <p>Price: ₹4</p>
-                <p class="product-description">An affordable option that does not compromise on quality. Ideal for budget-conscious shoppers.</p>
-                <a href="checkout page.html" class="buy-button">Buy Now</a>
-                <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
-            </div>
-            <!-- Product 5 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 5 - Image 1">
-                        <img src="bags.jpeg" alt="Product 5 - Image 2">
-                        <img src="bags.jpeg" alt="Product 5 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 5</h3>
-                <p>Price: ₹5</p>
-                <p class="product-description">A stylish and practical choice for any occasion. Designed to meet your everyday needs with a touch of elegance.</p>
-                <a href="checkout page.html" class="buy-button">Buy Now</a>
-                <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
-            </div>
-            <!-- Additional Products -->
         </section>
     </main>
 
@@ -357,27 +139,7 @@
                 });
             });
 
-            document.querySelectorAll('.product-slider').forEach(slider => {
-                const slides = slider.querySelector('.slider-images');
-                const prevButton = slider.querySelector('.prev');
-                const nextButton = slider.querySelector('.next');
-                let index = 0;
-
-                function showSlide(n) {
-                    const slideWidth = slides.querySelector('img').clientWidth;
-                    index = (n + slides.children.length) % slides.children.length;
-                    slides.style.transform = `translateX(${-index * slideWidth}px)`;
-                }
-
-                prevButton.addEventListener('click', () => showSlide(index - 1));
-                nextButton.addEventListener('click', () => showSlide(index + 1));
-                
-                // Initialize to show the first image
-                showSlide(index);
-
-                // Handle window resize to adjust the slider width
-                window.addEventListener('resize', () => showSlide(index));
-            });
+            // Remove slider-related code since there are no sliders now
         });
     </script>
 </body>
