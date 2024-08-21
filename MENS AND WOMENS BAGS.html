@@ -82,23 +82,27 @@
             padding: 1rem;
             background-color: #f4f4f4;
             display: flex;
-            flex-direction: column; /* Stack items vertically */
+            flex-wrap: wrap; /* Wrap items to multiple rows */
             gap: 1rem; /* Space between product items */
         }
 
         .product-item {
             display: flex;
-            align-items: center; /* Center items vertically */
+            flex-direction: column; /* Stack image and text vertically */
+            align-items: center;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 0.5rem;
             box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            width: calc(33.333% - 1rem); /* Three items per row with spacing */
+            box-sizing: border-box; /* Include padding and border in width calculation */
         }
 
         .product-image {
-            flex: 1;
-            position: relative;
+            width: 100%;
+            max-width: 200px; /* Set max-width to control image size */
+            margin-bottom: 1rem;
         }
 
         .product-image img {
@@ -108,17 +112,14 @@
         }
 
         .product-details {
-            flex: 1.5;
             padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* Center content vertically */
+            text-align: center; /* Center text */
         }
 
         .product-slider {
             position: relative;
             overflow: hidden;
-            height: 20rem;
+            height: 15rem;
         }
 
         .slider-images {
@@ -150,7 +151,7 @@
             color: white;
             padding: 0.5rem;
             cursor: pointer;
-            font-size: 1.25rem;
+            font-size: 1rem;
             border-radius: 50%;
             transition: background-color 0.3s, transform 0.3s;
         }
@@ -161,17 +162,17 @@
         }
 
         .product-item h3 {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             margin: 0.5rem 0;
         }
 
         .product-item p {
-            font-size: 1rem;
+            font-size: 0.875rem;
             color: #333;
         }
 
         .product-description {
-            font-size: 1rem;
+            font-size: 0.875rem;
             color: #666;
             margin: 0.5rem 0;
         }
@@ -181,7 +182,7 @@
             padding: 0.5rem 1rem;
             text-decoration: none;
             border-radius: 0.25rem;
-            font-size: 1rem;
+            font-size: 0.875rem;
             text-align: center;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
@@ -252,26 +253,20 @@
             }
 
             .product-item {
-                flex-direction: column; /* Stack image and details vertically on small screens */
-                align-items: center;
+                width: 100%; /* Full width on small screens */
             }
 
             .product-image {
-                width: 100%;
-            }
-
-            .product-details {
-                padding: 1rem;
-                text-align: center;
+                max-width: 150px; /* Smaller image size on small screens */
             }
 
             .slider-button {
-                font-size: 1rem;
+                font-size: 0.875rem;
                 padding: 0.5rem;
             }
 
             .buy-button, .copy-id-button {
-                font-size: 0.875rem;
+                font-size: 0.75rem;
                 padding: 0.5rem 0.75rem;
             }
         }
@@ -339,6 +334,40 @@
                     <button id="copy-id-button" class="copy-id-button" data-id="Bags 1">Copy Product ID</button>
                 </div>
             </div>
+
+            <!-- Add additional product items here -->
+            <!-- Example of another product item -->
+            <div class="product-item">
+                <div class="product-image">
+                    <div class="product-slider">
+                        <div class="slider-images">
+                            <img src="example1_512.webp" alt="Product 2 Image 1">
+                            <img src="example2_512.webp" alt="Product 2 Image 2">
+                            <img src="example3_512.webp" alt="Product 2 Image 3">
+                        </div>
+                        <div class="slider-buttons">
+                            <button class="slider-button prev" aria-label="Previous Slide">❮</button>
+                            <button class="slider-button next" aria-label="Next Slide">❯</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-details">
+                    <h3>Example Product 2</h3>
+                    <p>Price: ₹2</p>
+                    <p class="product-description">This is another high-quality product description.</p>
+                    <div class="product-details-info">
+                        <p class="short-details">Product details</p>
+                        <p class="full-details hidden">
+                            Additional details about Product 2.
+                        </p>
+                        <button class="toggle-details" aria-expanded="false">See More</button>
+                    </div>
+                    <a href="checkout page.html" class="buy-button">Buy Now</a>
+                    <button class="copy-id-button" data-id="Bags 2">Copy Product ID</button>
+                </div>
+            </div>
+
+            <!-- Repeat similar product items for additional products -->
         </section>
     </main>
 
@@ -389,23 +418,25 @@
             });
 
             // Copy Product ID functionality
-            document.getElementById('copy-id-button').addEventListener('click', () => {
-                const productId = document.getElementById('copy-id-button').getAttribute('data-id');
-                navigator.clipboard.writeText(productId).then(() => {
-                    // Display a non-intrusive message
-                    const message = document.createElement('div');
-                    message.textContent = 'Product ID copied to clipboard!';
-                    message.style.position = 'fixed';
-                    message.style.bottom = '10px';
-                    message.style.right = '10px';
-                    message.style.backgroundColor = '#28a745';
-                    message.style.color = 'white';
-                    message.style.padding = '8px'; /* Reduced padding */
-                    message.style.borderRadius = '4px'; /* Reduced border radius */
-                    document.body.appendChild(message);
-                    setTimeout(() => message.remove(), 2000);
-                }).catch(err => {
-                    console.error('Failed to copy: ', err);
+            document.querySelectorAll('.copy-id-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const productId = button.getAttribute('data-id');
+                    navigator.clipboard.writeText(productId).then(() => {
+                        // Display a non-intrusive message
+                        const message = document.createElement('div');
+                        message.textContent = 'Product ID copied to clipboard!';
+                        message.style.position = 'fixed';
+                        message.style.bottom = '10px';
+                        message.style.right = '10px';
+                        message.style.backgroundColor = '#28a745';
+                        message.style.color = 'white';
+                        message.style.padding = '8px'; /* Reduced padding */
+                        message.style.borderRadius = '4px'; /* Reduced border radius */
+                        document.body.appendChild(message);
+                        setTimeout(() => message.remove(), 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
                 });
             });
         });
