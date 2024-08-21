@@ -149,31 +149,22 @@
             right: 10px;
         }
 
-        .price-container {
-            display: flex;
-            justify-content: 
-            space-between: 10px;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .price {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #333;
-            margin: 0; /* Remove default margin */
-        }
-
-        .free-delivery {
-            font-size: 0.9rem;
-            color: #28a745;
-            margin: 0; /* Remove default margin */
-            white-space: nowrap; /* Prevent text wrapping */
-        }
-
         .product h3 {
             margin: 1rem 0;
             font-size: 1.5rem;
+        }
+
+        .product .price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0.5rem 0;
+        }
+
+        .product .free-delivery {
+            font-size: 0.9rem;
+            color: #28a745;
+            margin: 0.5rem 0;
         }
 
         .product .description {
@@ -289,10 +280,8 @@
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 1</h3>
-                    <div class="price-container">
-                        <p class="price">$19.9999 |</p>
-                        <p class="free-delivery"> | Free Delivery</p>
-                    </div>
+                    <p class="price">$19.99</p>
+                    <p class="free-delivery">Free Delivery</p>
                     <p class="description">Description of product 1. This is a great product for all your needs.</p>
                     <div class="buttons">
                         <button class="buy-button">Buy</button>
