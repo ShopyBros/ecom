@@ -5,29 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Page</title>
     <style>
+        /* Basic styling for the product section and slider */
         .products-container {
             display: flex;
             flex-wrap: wrap;
+            gap: 20px;
         }
         .product {
             border: 1px solid #ddd;
-            margin: 10px;
             padding: 10px;
-            width: 300px;
-            position: relative;
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
         }
         .slider {
             position: relative;
             overflow: hidden;
-            height: 200px;
         }
         .slides {
             display: flex;
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.5s ease-in-out;
         }
         .slide {
             min-width: 100%;
-            box-sizing: border-box;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
         }
         .slider-button {
             position: absolute;
@@ -36,26 +39,57 @@
             background: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
-            padding: 10px;
             cursor: pointer;
         }
         .prev {
-            left: 0;
+            left: 10px;
         }
         .next {
-            right: 0;
+            right: 10px;
+        }
+        .product h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .price {
+            font-size: 1.1em;
+            color: #333;
+        }
+        .free-delivery {
+            font-size: 0.9em;
+            color: green;
+        }
+        .description {
+            margin: 10px 0;
         }
         .buttons {
             margin-top: 10px;
         }
-        .buttons button {
+        .buy-button,
+        .see-more-button,
+        .see-less-button,
+        .copy-id-button {
             margin-right: 5px;
+        }
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .product {
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1>Our Products</h1>
+    </header>
+    
     <main>
-        <section>
+        <section class="products-section">
             <h2>Mens</h2>
             <div class="products-container">
                 <!-- Mens Product 1 -->
@@ -69,9 +103,9 @@
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Mens Product 1</h3>
-                    <p class="price">$49.99</p>
+                    <p class="price">$24.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Stylish and durable bag for everyday use.</p>
+                    <p class="description">High-quality leather bag perfect for daily use.</p>
                     <div class="buttons">
                         <button class="buy-button" data-url="mens-product1.html">Buy</button>
                         <button class="see-more-button">See More</button>
@@ -91,9 +125,9 @@
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Mens Product 2</h3>
-                    <p class="price">$59.99</p>
+                    <p class="price">$34.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">A rugged bag perfect for adventures.</p>
+                    <p class="description">Stylish and spacious bag for business trips.</p>
                     <div class="buttons">
                         <button class="buy-button" data-url="mens-product2.html">Buy</button>
                         <button class="see-more-button">See More</button>
@@ -113,9 +147,9 @@
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Mens Product 3</h3>
-                    <p class="price">$69.99</p>
+                    <p class="price">$44.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Classic design with ample storage space.</p>
+                    <p class="description">Durable and fashionable bag for everyday use.</p>
                     <div class="buttons">
                         <button class="buy-button" data-url="mens-product3.html">Buy</button>
                         <button class="see-more-button">See More</button>
@@ -135,9 +169,9 @@
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Mens Product 4</h3>
-                    <p class="price">$79.99</p>
+                    <p class="price">$54.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Stylish bag for both casual and formal occasions.</p>
+                    <p class="description">Elegant leather bag for professionals.</p>
                     <div class="buttons">
                         <button class="buy-button" data-url="mens-product4.html">Buy</button>
                         <button class="see-more-button">See More</button>
@@ -157,9 +191,9 @@
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Mens Product 5</h3>
-                    <p class="price">$89.99</p>
+                    <p class="price">$64.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Durable and versatile bag for daily use.</p>
+                    <p class="description">Sporty and casual bag for the active man.</p>
                     <div class="buttons">
                         <button class="buy-button" data-url="mens-product5.html">Buy</button>
                         <button class="see-more-button">See More</button>
@@ -190,30 +224,29 @@
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section>
+            <!-- Womens Products -->
             <h2>Womens</h2>
             <div class="products-container">
                 <!-- Womens Product 1 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide"><img src="Womens bag1.1.jpg" alt="Womens Product 1 Image 1"></div>
-                            <div class="slide"><img src="Womens bag1.2.jpg" alt="Womens Product 1 Image 2"></div>
+                            <div class="slide"><img src="Womens bag1.1.jpg" alt="Product 1 Image 1"></div>
+                            <div class="slide"><img src="Womens bag1.2.jpg" alt="Product 1 Image 2"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
-                    <h3>Womens Product 1</h3>
-                    <p class="price">$39.99</p>
+                    <h3>Product 1</h3>
+                    <p class="price">$29.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Elegant and chic bag for any occasion.</p>
+                    <p class="description">Stylish and comfortable bag for any occasion.</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="womens-product1.html">Buy</button>
+                        <button class="buy-button" data-url="product1.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="womens-product1">Copy Product ID</button>
+                        <button class="copy-id-button" data-id="product1">Copy Product ID</button>
                     </div>
                 </div>
 
@@ -221,21 +254,21 @@
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide"><img src="Womens bag2.1.jpg" alt="Womens Product 2 Image 1"></div>
-                            <div class="slide"><img src="Womens bag2.2.jpg" alt="Womens Product 2 Image 2"></div>
+                            <div class="slide"><img src="Womens bag2.1.jpg" alt="Product 2 Image 1"></div>
+                            <div class="slide"><img src="Womens bag2.2.jpg" alt="Product 2 Image 2"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
-                    <h3>Womens Product 2</h3>
-                    <p class="price">$49.99</p>
+                    <h3>Product 2</h3>
+                    <p class="price">$39.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Sophisticated bag with a modern touch.</p>
+                    <p class="description">Elegant design perfect for formal events.</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="womens-product2.html">Buy</button>
+                        <button class="buy-button" data-url="product2.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="womens-product2">Copy Product ID</button>
+                        <button class="copy-id-button" data-id="product2">Copy Product ID</button>
                     </div>
                 </div>
 
@@ -243,21 +276,21 @@
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide"><img src="Womens bag3.1.jpg" alt="Womens Product 3 Image 1"></div>
-                            <div class="slide"><img src="Womens bag3.2.jpg" alt="Womens Product 3 Image 2"></div>
+                            <div class="slide"><img src="Womens bag3.1.jpg" alt="Product 3 Image 1"></div>
+                            <div class="slide"><img src="Womens bag3.2.jpg" alt="Product 3 Image 2"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
-                    <h3>Womens Product 3</h3>
-                    <p class="price">$59.99</p>
+                    <h3>Product 3</h3>
+                    <p class="price">$49.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Trendy and stylish for the modern woman.</p>
+                    <p class="description">Spacious bag with a chic look.</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="womens-product3.html">Buy</button>
+                        <button class="buy-button" data-url="product3.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="womens-product3">Copy Product ID</button>
+                        <button class="copy-id-button" data-id="product3">Copy Product ID</button>
                     </div>
                 </div>
 
@@ -265,21 +298,21 @@
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide"><img src="Womens bag4.1.jpg" alt="Womens Product 4 Image 1"></div>
-                            <div class="slide"><img src="Womens bag4.2.jpg" alt="Womens Product 4 Image 2"></div>
+                            <div class="slide"><img src="Womens bag4.1.jpg" alt="Product 4 Image 1"></div>
+                            <div class="slide"><img src="Womens bag4.2.jpg" alt="Product 4 Image 2"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
-                    <h3>Womens Product 4</h3>
-                    <p class="price">$69.99</p>
+                    <h3>Product 4</h3>
+                    <p class="price">$59.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Chic and functional bag for every day.</p>
+                    <p class="description">Trendy and functional bag for everyday use.</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="womens-product4.html">Buy</button>
+                        <button class="buy-button" data-url="product4.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="womens-product4">Copy Product ID</button>
+                        <button class="copy-id-button" data-id="product4">Copy Product ID</button>
                     </div>
                 </div>
 
@@ -287,21 +320,21 @@
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide"><img src="Womens bag5.1.jpg" alt="Womens Product 5 Image 1"></div>
-                            <div class="slide"><img src="Womens bag5.2.jpg" alt="Womens Product 5 Image 2"></div>
+                            <div class="slide"><img src="Womens bag5.1.jpg" alt="Product 5 Image 1"></div>
+                            <div class="slide"><img src="Womens bag5.2.jpg" alt="Product 5 Image 2"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
-                    <h3>Womens Product 5</h3>
-                    <p class="price">$79.99</p>
+                    <h3>Product 5</h3>
+                    <p class="price">$64.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Elegant bag with premium materials.</p>
+                    <p class="description">Perfect bag for weekend getaways.</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="womens-product5.html">Buy</button>
+                        <button class="buy-button" data-url="product5.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="womens-product5">Copy Product ID</button>
+                        <button class="copy-id-button" data-id="product5">Copy Product ID</button>
                     </div>
                 </div>
 
@@ -309,21 +342,21 @@
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide"><img src="Womens bag6.1.jpg" alt="Womens Product 6 Image 1"></div>
-                            <div class="slide"><img src="Womens bag6.2.jpg" alt="Womens Product 6 Image 2"></div>
+                            <div class="slide"><img src="Womens bag6.1.jpg" alt="Product 6 Image 1"></div>
+                            <div class="slide"><img src="Womens bag6.2.jpg" alt="Product 6 Image 2"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
-                    <h3>Womens Product 6</h3>
-                    <p class="price">$89.99</p>
+                    <h3>Product 6</h3>
+                    <p class="price">$69.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Stylish and versatile for any wardrobe.</p>
+                    <p class="description">Elegant and functional bag for any occasion.</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="womens-product6.html">Buy</button>
+                        <button class="buy-button" data-url="product6.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="womens-product6">Copy Product ID</button>
+                        <button class="copy-id-button" data-id="product6">Copy Product ID</button>
                     </div>
                 </div>
             </div>
@@ -331,16 +364,17 @@
     </main>
 
     <script>
-        document.querySelectorAll('.product').forEach(product => {
-            const slides = product.querySelector('.slides');
-            const prevButton = product.querySelector('.prev');
-            const nextButton = product.querySelector('.next');
+        // Basic JavaScript for slider functionality
+        document.querySelectorAll('.slider').forEach(slider => {
+            const slides = slider.querySelector('.slides');
+            const prevButton = slider.querySelector('.prev');
+            const nextButton = slider.querySelector('.next');
             let index = 0;
 
-            function showSlide() {
-                const slideWidth = slides.children[0].offsetWidth;
+            const showSlide = () => {
+                const slideWidth = slider.querySelector('.slide').offsetWidth;
                 slides.style.transform = `translateX(-${index * slideWidth}px)`;
-            }
+            };
 
             nextButton.addEventListener('click', () => {
                 index = (index + 1) % slides.children.length;
