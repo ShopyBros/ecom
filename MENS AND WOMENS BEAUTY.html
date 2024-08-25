@@ -170,15 +170,9 @@
         .product .description {
             font-size: 1rem;
             margin: 0.5rem 0;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            display: none; /* Hide details initially */
+            transition: opacity 0.3s ease-in-out;
             text-align: left;
-        }
-
-        .product .description.expanded {
-            visibility: visible;
-            opacity: 1;
         }
 
         .product .buttons {
@@ -202,15 +196,12 @@
         .product .buttons .see-more-button {
             background-color: #007bff;
             color: #fff;
-            opacity: 1;
-            visibility: visible;
         }
 
         .product .buttons .see-less-button {
+            display: none;
             background-color: #007bff;
             color: #fff;
-            opacity: 0;
-            visibility: hidden;
         }
 
         .product .buttons .copy-id-button {
@@ -291,7 +282,7 @@
                     <h3>Product 1</h3>
                     <p class="price">$19.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 1.<br>This is a great product for all your needs.<br>Product details,br>Material: Polyester<br>Type: Casual Backpack<br>External Pocket: Multiple Pocket<br>Laptop Capacity: No Laptop Compartment<br>Laptop Compartment: Non Padded<br>Shoulder Strap Type: Crossbody<br>Size: M<br>Volume In Litres: 24 To 30 Litres<br>Water Resistant: Yes<br>Product Height: 48 Cm<br>Product Length: 33 Cm<br>Product Width: 20 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 1.<br>This is a great product for all your needs.<br>Product details,br.Material: Polyester<br>Type: Casual Backpack<br>External Pocket: Multiple Pocket<br>Laptop Capacity: No Laptop Compartment<br>Laptop Compartment: Non Padded<br>Shoulder Strap Type: Crossbody<br>Size: M<br>Volume In Litres: 24 To 30 Litres<br>Water Resistant: Yes<br>Product Height: 48 Cm<br>Product Length: 33 Cm<br>Product Width: 20 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
                     <div class="buttons">
                         <button class="buy-button" data-url="product1.html">Buy</button>
                         <button class="see-more-button">See More</button>
@@ -300,77 +291,194 @@
                     </div>
                 </div>
 
-                <!-- Add more product blocks here... -->
-                <!-- Ensure each product has unique content for the slider, description, etc. -->
+                <!-- Product 2 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Mens bag2.1.jpg" alt="Product 2 Image 1"></div>
+                            <div class="slide"><img src="Mens bag2.2.jpg" alt="Product 2 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Product 2</h3>
+                    <p class="price">$29.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Description of product 2.<br>An essential item for your collection.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="product2.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="product2">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Mens bag3.1.jpg" alt="Product 3 Image 1"></div>
+                            <div class="slide"><img src="Mens bag3.2.jpg" alt="Product 3 Image 2"></div>
+                            <div class="slide"><img src="Mens bag3.3.jpg" alt="Product 3 Image 3"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Product 3</h3>
+                    <p class="price">$39.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Description of product 3.<br>Perfect for those who appreciate quality.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="product3.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="product3">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="product4_1.webp" alt="Product 4 Image 1"></div>
+                            <div class="slide"><img src="product4_2.webp" alt="Product 4 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Product 4</h3>
+                    <p class="price">$49.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Description of product 4.<br>The ideal choice for modern aesthetics.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="product4.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="product4">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="product5_1.webp" alt="Product 5 Image 1"></div>
+                            <div class="slide"><img src="product5_2.webp" alt="Product 5 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Product 5</h3>
+                    <p class="price">$59.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Description of product 5.<br>Ideal for those who want luxury and comfort.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="product5.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="product5">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="product6_1.webp" alt="Product 6 Image 1"></div>
+                            <div class="slide"><img src="product6_2.webp" alt="Product 6 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Product 6</h3>
+                    <p class="price">$69.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Description of product 6.<br>A top choice for enthusiasts.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="product6.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="product6">Copy Product ID</button>
+                    </div>
+                </div>
             </div>
+            <h2>Womens</h2>
+            
         </section>
     </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Slider functionality
-            document.querySelectorAll('.slider').forEach(slider => {
-                const slides = slider.querySelector('.slides');
-                const nextButton = slider.querySelector('.slider-button.next');
-                const prevButton = slider.querySelector('.slider-button.prev');
-                let index = 0;
+            const copyButtons = document.querySelectorAll('.copy-id-button');
+            const seeMoreButtons = document.querySelectorAll('.see-more-button');
+            const seeLessButtons = document.querySelectorAll('.see-less-button');
+            const descriptions = document.querySelectorAll('.description');
+            const buyButtons = document.querySelectorAll('.buy-button');
 
-                function updateSlide() {
-                    const slideWidth = slider.querySelector('.slide').clientWidth;
-                    slides.style.transform = `translateX(-${index * slideWidth}px)`;
-                }
-
-                nextButton.addEventListener('click', () => {
-                    const slidesCount = slides.children.length;
-                    index = (index + 1) % slidesCount;
-                    updateSlide();
-                });
-
-                prevButton.addEventListener('click', () => {
-                    const slidesCount = slides.children.length;
-                    index = (index - 1 + slidesCount) % slidesCount;
-                    updateSlide();
-                });
-
-                updateSlide(); // Initial setup
-            });
-
-            // See More/See Less functionality
-            document.querySelectorAll('.see-more-button').forEach(button => {
-                button.addEventListener('click', () => {
-                    const product = button.closest('.product');
-                    product.querySelector('.description').classList.add('expanded');
-                    button.style.opacity = '0';
-                    button.style.visibility = 'hidden';
-                    product.querySelector('.see-less-button').style.opacity = '1';
-                    product.querySelector('.see-less-button').style.visibility = 'visible';
-                });
-            });
-
-            document.querySelectorAll('.see-less-button').forEach(button => {
-                button.addEventListener('click', () => {
-                    const product = button.closest('.product');
-                    product.querySelector('.description').classList.remove('expanded');
-                    button.style.opacity = '0';
-                    button.style.visibility = 'hidden';
-                    product.querySelector('.see-more-button').style.opacity = '1';
-                    product.querySelector('.see-more-button').style.visibility = 'visible';
-                });
-            });
-
-            // Copy Product ID functionality
-            document.querySelectorAll('.copy-id-button').forEach(button => {
+            copyButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const productId = button.getAttribute('data-id');
                     navigator.clipboard.writeText(productId).then(() => {
-                        alert(`Product ID ${productId} copied to clipboard!`);
+                        alert(Product ID ${productId} copied to clipboard!);
                     }).catch(err => {
                         console.error('Failed to copy text: ', err);
+                        alert('Failed to copy text. Please try again.');
                     });
+                });
+            });
+
+            seeMoreButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    descriptions[index].style.display = 'block';
+                    descriptions[index].style.opacity = '1';
+                    button.style.display = 'none';
+                    seeLessButtons[index].style.display = 'inline-block';
+                });
+            });
+
+            seeLessButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    descriptions[index].style.opacity = '0';
+                    setTimeout(() => descriptions[index].style.display = 'none', 300); // Hide after transition
+                    button.style.display = 'none';
+                    seeMoreButtons[index].style.display = 'inline-block';
+                });
+            });
+
+            // Slider functionality
+            const sliders = document.querySelectorAll('.slider');
+            sliders.forEach(slider => {
+                const slides = slider.querySelector('.slides');
+                const prevButton = slider.querySelector('.slider-button.prev');
+                const nextButton = slider.querySelector('.slider-button.next');
+                let index = 0;
+
+                const updateSlidePosition = () => {
+                    slides.style.transform = translateX(${-index * 100}%);
+                };
+
+                nextButton.addEventListener('click', () => {
+                    index = (index + 1) % slides.children.length;
+                    updateSlidePosition();
+                });
+
+                prevButton.addEventListener('click', () => {
+                    index = (index - 1 + slides.children.length) % slides.children.length;
+                    updateSlidePosition();
+                });
+
+                // Initialize slide position
+                updateSlidePosition();
+            });
+
+            // Buy button functionality
+            buyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const url = button.getAttribute('data-url');
+                    window.location.href = url;
                 });
             });
         });
     </script>
 </body>
 </html>
-
