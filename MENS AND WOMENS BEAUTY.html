@@ -9,12 +9,14 @@
     <title>Shopy Bros - Home</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Basic reset for margins and paddings */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Styling for the navigation bar */
         .navbar {
             background-color: #333;
             padding: 10px;
@@ -25,7 +27,7 @@
         }
 
         .navbar img {
-            height: 40px;
+            height: 40px; /* Adjust the size as needed */
             width: auto;
         }
 
@@ -89,11 +91,11 @@
         .products-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: center; /* Center items */
         }
 
         .product {
-            width: calc(25% - 1rem);
+            width: calc(25% - 1rem); /* Adjust width for 4 items per row */
             margin: 0.5rem;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -103,11 +105,12 @@
             position: relative;
         }
 
+        /* Slider styles */
         .slider {
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-height: 200px;
+            max-height: 200px; /* Adjust height as needed */
         }
 
         .slides {
@@ -165,15 +168,16 @@
         }
 
         .product .description {
-            max-height: 60px;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            text-align: left;
+            font-size: 1rem;
             margin: 0.5rem 0;
+            display: none; /* Hide details initially */
+            transition: opacity 0.3s ease-in-out;
+            text-align: left;
         }
 
         .product .description.expanded {
-            max-height: 1000px;
+            display: block;
+            opacity: 1;
         }
 
         .product .buttons {
@@ -268,14 +272,13 @@
             <h2>Our Products</h2>
             <h2>Mens</h2>
             <div class="products-container">
-                <!-- Example Product 1 -->
+                <!-- Product 1 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag1.1.jpg" alt="Product 1 Image 1"></div>
                             <div class="slide"><img src="Mens bag1.2.jpg" alt="Product 1 Image 2"></div>
                             <div class="slide"><img src="Mens bag1.3.jpg" alt="Product 1 Image 3"></div>
-                            <div class="slide"><img src="Mens bag1.4.jpg" alt="Product 1 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
@@ -283,16 +286,16 @@
                     <h3>Product 1</h3>
                     <p class="price">$19.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 1. This is a great product for all your needs. Material: Polyester, Type: Casual Backpack, External Pocket: Multiple Pocket...</p>
+                    <p class="description">Description of product 1.<br>This is a great product for all your needs.<br>Product details...</p>
                     <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
+                        <button class="buy-button" data-url="product1.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product1')">Copy ID</button>
+                        <button class="copy-id-button" data-id="product1">Copy Product ID</button>
                     </div>
                 </div>
 
-                <!-- Example Product 2 -->
+                <!-- Product 2 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
@@ -306,17 +309,18 @@
                     <h3>Product 2</h3>
                     <p class="price">$29.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 2. This is another great product with premium quality and durable material. Material: Leather, Type: Messenger Bag, External Pocket: Single Pocket...</p>
+                    <p class="description">Description of product 2.<br>This is another great product.<br>Product details...</p>
                     <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
+                        <button class="buy-button" data-url="product2.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product2')">Copy ID</button>
+                        <button class="copy-id-button" data-id="product2">Copy Product ID</button>
                     </div>
                 </div>
 
-                <!-- Repeat similar block for additional products -->
-                <!-- Example Product 3 -->
+                <!-- Add more products similarly as needed -->
+
+                <!-- Example of more products -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
@@ -328,229 +332,25 @@
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 3</h3>
-                    <p class="price">$24.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 3. Great product with excellent features. Material: Nylon, Type: Travel Backpack, External Pocket: Water Bottle Holder...</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product3')">Copy ID</button>
-                    </div>
-                </div>
-
-                <!-- Example Product 4 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag4.1.jpg" alt="Product 4 Image 1"></div>
-                            <div class="slide"><img src="Mens bag4.2.jpg" alt="Product 4 Image 2"></div>
-                            <div class="slide"><img src="Mens bag4.3.jpg" alt="Product 4 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 4</h3>
                     <p class="price">$39.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 4. A must-have item with great functionality. Material: Canvas, Type: Casual Tote, External Pocket: Multiple Compartments...</p>
+                    <p class="description">Description of product 3.<br>This product is highly recommended.<br>Product details...</p>
                     <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
+                        <button class="buy-button" data-url="product3.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product4')">Copy ID</button>
+                        <button class="copy-id-button" data-id="product3">Copy Product ID</button>
                     </div>
                 </div>
+                
+                <!-- Repeat similar blocks for more products -->
 
-                <!-- Example Product 5 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag5.1.jpg" alt="Product 5 Image 1"></div>
-                            <div class="slide"><img src="Mens bag5.2.jpg" alt="Product 5 Image 2"></div>
-                            <div class="slide"><img src="Mens bag5.3.jpg" alt="Product 5 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 5</h3>
-                    <p class="price">$49.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 5. High-quality and stylish bag for everyday use. Material: Synthetic Leather, Type: Shoulder Bag, External Pocket: Zip Pocket...</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product5')">Copy ID</button>
-                    </div>
-                </div>
-
-                <!-- Example Product 6 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag6.1.jpg" alt="Product 6 Image 1"></div>
-                            <div class="slide"><img src="Mens bag6.2.jpg" alt="Product 6 Image 2"></div>
-                            <div class="slide"><img src="Mens bag6.3.jpg" alt="Product 6 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 6</h3>
-                    <p class="price">$34.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 6. Ideal for outdoor activities and travel. Material: Waterproof Fabric, Type: Hiking Backpack, External Pocket: Large...</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product6')">Copy ID</button>
-                    </div>
-                </div>
-
-                <!-- Example Product 7 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag7.1.jpg" alt="Product 7 Image 1"></div>
-                            <div class="slide"><img src="Mens bag7.2.jpg" alt="Product 7 Image 2"></div>
-                            <div class="slide"><img src="Mens bag7.3.jpg" alt="Product 7 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 7</h3>
-                    <p class="price">$59.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 7. Elegant and functional for business use. Material: Genuine Leather, Type: Briefcase, External Pocket: Laptop Compartment...</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product7')">Copy ID</button>
-                    </div>
-                </div>
-
-                <!-- Example Product 8 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag8.1.jpg" alt="Product 8 Image 1"></div>
-                            <div class="slide"><img src="Mens bag8.2.jpg" alt="Product 8 Image 2"></div>
-                            <div class="slide"><img src="Mens bag8.3.jpg" alt="Product 8 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 8</h3>
-                    <p class="price">$44.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 8. Versatile and stylish for everyday use. Material: Denim, Type: Tote Bag, External Pocket: Hidden Pocket...</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product8')">Copy ID</button>
-                    </div>
-                </div>
-
-                <!-- Example Product 9 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag9.1.jpg" alt="Product 9 Image 1"></div>
-                            <div class="slide"><img src="Mens bag9.2.jpg" alt="Product 9 Image 2"></div>
-                            <div class="slide"><img src="Mens bag9.3.jpg" alt="Product 9 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 9</h3>
-                    <p class="price">$39.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 9. Durable and stylish for daily needs. Material: Polyester, Type: Backpack, External Pocket: Zip Compartments...</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product9')">Copy ID</button>
-                    </div>
-                </div>
-
-                <!-- Example Product 10 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag10.1.jpg" alt="Product 10 Image 1"></div>
-                            <div class="slide"><img src="Mens bag10.2.jpg" alt="Product 10 Image 2"></div>
-                            <div class="slide"><img src="Mens bag10.3.jpg" alt="Product 10 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 10</h3>
-                    <p class="price">$54.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 10. Perfect for both work and casual outings. Material: Canvas, Type: Messenger Bag, External Pocket: Multiple...</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product10')">Copy ID</button>
-                    </div>
-                </div>
-
-                <!-- Example Product 11 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag11.1.jpg" alt="Product 11 Image 1"></div>
-                            <div class="slide"><img src="Mens bag11.2.jpg" alt="Product 11 Image 2"></div>
-                            <div class="slide"><img src="Mens bag11.3.jpg" alt="Product 11 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 11</h3>
-                    <p class="price">$69.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 11. Premium quality for those who demand the best. Material: Leather, Type: Briefcase, External Pocket: Laptop Compartment...</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product11')">Copy ID</button>
-                    </div>
-                </div>
-
-                <!-- Example Product 12 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag12.1.jpg" alt="Product 12 Image 1"></div>
-                            <div class="slide"><img src="Mens bag12.2.jpg" alt="Product 12 Image 2"></div>
-                            <div class="slide"><img src="Mens bag12.3.jpg" alt="Product 12 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 12</h3>
-                    <p class="price">$79.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 12. Ideal for professionals and daily use. Material: Synthetic Leather, Type: Portfolio, External Pocket: Business Card Holder...</p>
-                    <div class="buttons">
-                        <button class="buy-button">Buy Now</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" onclick="copyProductID('product12')">Copy ID</button>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
 
     <script>
-        // Slider Functionality
+        // Slider functionality
         document.querySelectorAll('.slider').forEach(slider => {
             const slides = slider.querySelector('.slides');
             const slideCount = slides.children.length;
@@ -567,7 +367,7 @@
             });
         });
 
-        // See More / See Less Functionality
+        // See More/See Less functionality
         document.querySelectorAll('.see-more-button').forEach(button => {
             button.addEventListener('click', () => {
                 const product = button.closest('.product');
@@ -586,13 +386,17 @@
             });
         });
 
-        // Copy Product ID Functionality
-        function copyProductID(productID) {
-            const copyText = productID;
-            navigator.clipboard.writeText(copyText).then(() => {
-                alert(`Product ID ${copyText} copied to clipboard`);
+        // Copy Product ID functionality
+        document.querySelectorAll('.copy-id-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const id = button.getAttribute('data-id');
+                navigator.clipboard.writeText(id).then(() => {
+                    alert('Product ID copied to clipboard: ' + id);
+                }, () => {
+                    alert('Failed to copy Product ID.');
+                });
             });
-        }
+        });
     </script>
 </body>
 </html>
