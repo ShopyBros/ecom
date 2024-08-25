@@ -3,481 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shopy Bros - Explore our high-quality services.">
-    <meta name="keywords" content="Shopy Bros, services, portfolio, testimonials, team">
-    <meta name="author" content="Your Name">
-    <title>Shopy Bros - Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Product Page</title>
     <style>
-        /* Basic reset for margins and paddings */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Styling for the navigation bar */
-        .navbar {
-            background-color: #333;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-        }
-
-        .navbar img {
-            height: 40px; /* Adjust the size as needed */
-            width: auto;
-        }
-
-        .navbar .title {
-            font-size: 24px;
-            font-weight: bold;
-            flex: 1;
-            text-align: center;
-        }
-
-        .nav-links {
-            list-style-type: none;
-            display: flex;
-            padding: 0;
-        }
-
-        .nav-links li {
-            margin: 0 15px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px;
-            display: block;
-        }
-
-        .nav-links a:hover, .nav-links a:focus {
-            background-color: #575757;
-            border-radius: 5px;
-        }
-
-        .video-section {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: #f4f4f4;
-        }
-
-        .video-section video {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .video-section h2 {
-            margin-bottom: 1rem;
-            font-size: 1.75rem;
-        }
-
-        .products-section {
-            padding: 2rem;
-            background-color: #f9f9f9;
-        }
-
-        .products-section h2 {
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            text-align: center;
-        }
-
         .products-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Center items */
         }
-
         .product {
-            width: calc(25% - 1rem); /* Adjust width for 4 items per row */
-            margin: 0.5rem;
-            background-color: #fff;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 1rem;
-            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
             position: relative;
         }
-
-        /* Slider styles */
         .slider {
             position: relative;
             overflow: hidden;
-            width: 100%;
-            max-height: 200px; /* Adjust height as needed */
+            height: 200px;
         }
-
         .slides {
             display: flex;
-            transition: transform 0.5s ease-in-out;
+            transition: transform 0.3s ease-in-out;
         }
-
         .slide {
             min-width: 100%;
             box-sizing: border-box;
         }
-
-        .slide img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         .slider-button {
             position: absolute;
             top: 50%;
-            width: 30px;
-            height: 30px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            border: none;
-            cursor: pointer;
             transform: translateY(-50%);
-        }
-
-        .slider-button.prev {
-            left: 10px;
-        }
-
-        .slider-button.next {
-            right: 10px;
-        }
-
-        .product h3 {
-            margin: 1rem 0;
-            font-size: 1.5rem;
-        }
-
-        .product .price {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #333;
-            margin: 0.5rem 0;
-        }
-
-        .product .free-delivery {
-            font-size: 1.25rem;
-            color: #28a745;
-            margin: 0.5rem 0;
-        }
-
-        .product .description {
-            font-size: 1rem;
-            margin: 0.5rem 0;
-            display: none; /* Hide details initially */
-            transition: opacity 0.3s ease-in-out;
-            text-align: left;
-        }
-
-        .product .buttons {
-            margin-top: 1rem;
-        }
-
-        .product .buttons button {
-            margin: 0.5rem;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
             border: none;
-            border-radius: 5px;
+            padding: 10px;
             cursor: pointer;
         }
-
-        .product .buttons .buy-button {
-            background-color: #28a745;
-            color: #fff;
+        .prev {
+            left: 0;
         }
-
-        .product .buttons .see-more-button {
-            background-color: #007bff;
-            color: #fff;
+        .next {
+            right: 0;
         }
-
-        .product .buttons .see-less-button {
-            display: none;
-            background-color: #007bff;
-            color: #fff;
+        .buttons {
+            margin-top: 10px;
         }
-
-        .product .buttons .copy-id-button {
-            background-color: #6c757d;
-            color: #fff;
-        }
-
-        @media (max-width: 48em) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                margin-top: 1rem;
-            }
-
-            .nav-links li {
-                margin: 0.75rem 0;
-            }
-
-            .video-section {
-                padding: 1rem;
-            }
-
-            .products-section {
-                padding: 1rem;
-            }
-
-            .product {
-                width: 100%;
-                margin: 0.5rem 0;
-            }
+        .buttons button {
+            margin-right: 5px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar" aria-label="Main Navigation">
-            <a href="#home" aria-label="Home">
-                <img src="SHOPY BROS.png" alt="Shopy Bros Logo">
-            </a>
-            <div class="title">Mens And Womens Beauty</div>
-            <ul class="nav-links">
-                <li><a href="index.html" aria-label="Home">Home</a></li>
-                <li><a href="#services" aria-label="Services">Services</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <main>
-        <section class="video-section">
-            <h2>How to Buy Our Products</h2>
-            <video controls>
-                <source src="videos/how-to-buy.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p>Watch this video to learn how to purchase our products easily.</p>
-        </section>
-
-        <section class="products-section">
-            <h2>Our Products</h2>
+        <section>
             <h2>Mens</h2>
             <div class="products-container">
-                <!-- Product 1 -->
+                <!-- Mens Product 1 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide"><img src="Mens bag1.1.jpg" alt="Product 1 Image 1"></div>
-                            <div class="slide"><img src="Mens bag1.2.jpg" alt="Product 1 Image 2"></div>
-                            <div class="slide"><img src="Mens bag1.3.jpg" alt="Product 1 Image 3"></div>
-                            <div class="slide"><img src="Mens bag1.4.jpg" alt="Product 1 Image 4"></div>
+                            <div class="slide"><img src="Mens bag1.1.jpg" alt="Mens Product 1 Image 1"></div>
+                            <div class="slide"><img src="Mens bag1.2.jpg" alt="Mens Product 1 Image 2"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
-                    <h3>Product 1</h3>
-                    <p class="price">$19.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 1.<br>This is a great product for all your needs.<br>Product details,br.Material: Polyester<br>Type: Casual Backpack<br>External Pocket: Multiple Pocket<br>Laptop Capacity: No Laptop Compartment<br>Laptop Compartment: Non Padded<br>Shoulder Strap Type: Crossbody<br>Size: M<br>Volume In Litres: 24 To 30 Litres<br>Water Resistant: Yes<br>Product Height: 48 Cm<br>Product Length: 33 Cm<br>Product Width: 20 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
-                    <div class="buttons">
-                        <button class="buy-button" data-url="product1.html">Buy</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="product1">Copy Product ID</button>
-                    </div>
-                </div>
-
-                <!-- Product 2 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag2.1.jpg" alt="Product 2 Image 1"></div>
-                            <div class="slide"><img src="Mens bag2.2.jpg" alt="Product 2 Image 2"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 2</h3>
-                    <p class="price">$29.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 2.<br>An essential item for your collection.</p>
-                    <div class="buttons">
-                        <button class="buy-button" data-url="product2.html">Buy</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="product2">Copy Product ID</button>
-                    </div>
-                </div>
-
-                <!-- Product 3 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="Mens bag3.1.jpg" alt="Product 3 Image 1"></div>
-                            <div class="slide"><img src="Mens bag3.2.jpg" alt="Product 3 Image 2"></div>
-                            <div class="slide"><img src="Mens bag3.3.jpg" alt="Product 3 Image 3"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 3</h3>
-                    <p class="price">$39.99</p>
-                    <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 3.<br>Perfect for those who appreciate quality.</p>
-                    <div class="buttons">
-                        <button class="buy-button" data-url="product3.html">Buy</button>
-                        <button class="see-more-button">See More</button>
-                        <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="product3">Copy Product ID</button>
-                    </div>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product">
-                    <div class="slider">
-                        <div class="slides">
-                            <div class="slide"><img src="product4_1.webp" alt="Product 4 Image 1"></div>
-                            <div class="slide"><img src="product4_2.webp" alt="Product 4 Image 2"></div>
-                        </div>
-                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
-                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
-                    </div>
-                    <h3>Product 4</h3>
+                    <h3>Mens Product 1</h3>
                     <p class="price">$49.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 4.<br>The ideal choice for modern aesthetics.</p>
+                    <p class="description">Stylish and durable bag for everyday use.</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product4.html">Buy</button>
+                        <button class="buy-button" data-url="mens-product1.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="product4">Copy Product ID</button>
+                        <button class="copy-id-button" data-id="mens-product1">Copy Product ID</button>
                     </div>
                 </div>
 
-                <!-- Product 5 -->
+                <!-- Mens Product 2 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide"><img src="product5_1.webp" alt="Product 5 Image 1"></div>
-                            <div class="slide"><img src="product5_2.webp" alt="Product 5 Image 2"></div>
+                            <div class="slide"><img src="Mens bag2.1.jpg" alt="Mens Product 2 Image 1"></div>
+                            <div class="slide"><img src="Mens bag2.2.jpg" alt="Mens Product 2 Image 2"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
-                    <h3>Product 5</h3>
+                    <h3>Mens Product 2</h3>
                     <p class="price">$59.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 5.<br>Ideal for those who want luxury and comfort.</p>
+                    <p class="description">A rugged bag perfect for adventures.</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product5.html">Buy</button>
+                        <button class="buy-button" data-url="mens-product2.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="product5">Copy Product ID</button>
+                        <button class="copy-id-button" data-id="mens-product2">Copy Product ID</button>
                     </div>
                 </div>
 
-                <!-- Product 6 -->
+                <!-- Mens Product 3 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
-                            <div class="slide"><img src="product6_1.webp" alt="Product 6 Image 1"></div>
-                            <div class="slide"><img src="product6_2.webp" alt="Product 6 Image 2"></div>
+                            <div class="slide"><img src="Mens bag3.1.jpg" alt="Mens Product 3 Image 1"></div>
+                            <div class="slide"><img src="Mens bag3.2.jpg" alt="Mens Product 3 Image 2"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
-                    <h3>Product 6</h3>
+                    <h3>Mens Product 3</h3>
                     <p class="price">$69.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 6.<br>A top choice for enthusiasts.</p>
+                    <p class="description">Classic design with ample storage space.</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product6.html">Buy</button>
+                        <button class="buy-button" data-url="mens-product3.html">Buy</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="product6">Copy Product ID</button>
+                        <button class="copy-id-button" data-id="mens-product3">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Mens Product 4 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Mens bag4.1.jpg" alt="Mens Product 4 Image 1"></div>
+                            <div class="slide"><img src="Mens bag4.2.jpg" alt="Mens Product 4 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Mens Product 4</h3>
+                    <p class="price">$79.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Stylish bag for both casual and formal occasions.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="mens-product4.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="mens-product4">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Mens Product 5 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Mens bag5.1.jpg" alt="Mens Product 5 Image 1"></div>
+                            <div class="slide"><img src="Mens bag5.2.jpg" alt="Mens Product 5 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Mens Product 5</h3>
+                    <p class="price">$89.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Durable and versatile bag for daily use.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="mens-product5.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="mens-product5">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Mens Product 6 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Mens bag6.1.jpg" alt="Mens Product 6 Image 1"></div>
+                            <div class="slide"><img src="Mens bag6.2.jpg" alt="Mens Product 6 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Mens Product 6</h3>
+                    <p class="price">$74.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">High-end bag for special occasions.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="mens-product6.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="mens-product6">Copy Product ID</button>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section>
             <h2>Womens</h2>
-            
+            <div class="products-container">
+                <!-- Womens Product 1 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Womens bag1.1.jpg" alt="Womens Product 1 Image 1"></div>
+                            <div class="slide"><img src="Womens bag1.2.jpg" alt="Womens Product 1 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Womens Product 1</h3>
+                    <p class="price">$39.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Elegant and chic bag for any occasion.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="womens-product1.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="womens-product1">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Womens Product 2 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Womens bag2.1.jpg" alt="Womens Product 2 Image 1"></div>
+                            <div class="slide"><img src="Womens bag2.2.jpg" alt="Womens Product 2 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Womens Product 2</h3>
+                    <p class="price">$49.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Sophisticated bag with a modern touch.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="womens-product2.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="womens-product2">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Womens Product 3 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Womens bag3.1.jpg" alt="Womens Product 3 Image 1"></div>
+                            <div class="slide"><img src="Womens bag3.2.jpg" alt="Womens Product 3 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Womens Product 3</h3>
+                    <p class="price">$59.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Trendy and stylish for the modern woman.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="womens-product3.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="womens-product3">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Womens Product 4 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Womens bag4.1.jpg" alt="Womens Product 4 Image 1"></div>
+                            <div class="slide"><img src="Womens bag4.2.jpg" alt="Womens Product 4 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Womens Product 4</h3>
+                    <p class="price">$69.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Chic and functional bag for every day.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="womens-product4.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="womens-product4">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Womens Product 5 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Womens bag5.1.jpg" alt="Womens Product 5 Image 1"></div>
+                            <div class="slide"><img src="Womens bag5.2.jpg" alt="Womens Product 5 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Womens Product 5</h3>
+                    <p class="price">$79.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Elegant bag with premium materials.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="womens-product5.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="womens-product5">Copy Product ID</button>
+                    </div>
+                </div>
+
+                <!-- Womens Product 6 -->
+                <div class="product">
+                    <div class="slider">
+                        <div class="slides">
+                            <div class="slide"><img src="Womens bag6.1.jpg" alt="Womens Product 6 Image 1"></div>
+                            <div class="slide"><img src="Womens bag6.2.jpg" alt="Womens Product 6 Image 2"></div>
+                        </div>
+                        <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
+                        <button class="slider-button next" aria-label="Next slide">&#10095;</button>
+                    </div>
+                    <h3>Womens Product 6</h3>
+                    <p class="price">$89.99</p>
+                    <p class="free-delivery">Free Delivery</p>
+                    <p class="description">Stylish and versatile for any wardrobe.</p>
+                    <div class="buttons">
+                        <button class="buy-button" data-url="womens-product6.html">Buy</button>
+                        <button class="see-more-button">See More</button>
+                        <button class="see-less-button">See Less</button>
+                        <button class="copy-id-button" data-id="womens-product6">Copy Product ID</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const copyButtons = document.querySelectorAll('.copy-id-button');
-            const seeMoreButtons = document.querySelectorAll('.see-more-button');
-            const seeLessButtons = document.querySelectorAll('.see-less-button');
-            const descriptions = document.querySelectorAll('.description');
-            const buyButtons = document.querySelectorAll('.buy-button');
+        document.querySelectorAll('.product').forEach(product => {
+            const slides = product.querySelector('.slides');
+            const prevButton = product.querySelector('.prev');
+            const nextButton = product.querySelector('.next');
+            let index = 0;
 
-            copyButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const productId = button.getAttribute('data-id');
-                    navigator.clipboard.writeText(productId).then(() => {
-                        alert(`Product ID ${productId} copied to clipboard!`);
-                    }).catch(err => {
-                        console.error('Failed to copy text: ', err);
-                        alert('Failed to copy text. Please try again.');
-                    });
-                });
+            function showSlide() {
+                const slideWidth = slides.children[0].offsetWidth;
+                slides.style.transform = `translateX(-${index * slideWidth}px)`;
+            }
+
+            nextButton.addEventListener('click', () => {
+                index = (index + 1) % slides.children.length;
+                showSlide();
             });
 
-            seeMoreButtons.forEach((button, index) => {
-                button.addEventListener('click', () => {
-                    descriptions[index].style.display = 'block';
-                    descriptions[index].style.opacity = '1';
-                    button.style.display = 'none';
-                    seeLessButtons[index].style.display = 'inline-block';
-                });
+            prevButton.addEventListener('click', () => {
+                index = (index - 1 + slides.children.length) % slides.children.length;
+                showSlide();
             });
 
-            seeLessButtons.forEach((button, index) => {
-                button.addEventListener('click', () => {
-                    descriptions[index].style.opacity = '0';
-                    setTimeout(() => descriptions[index].style.display = 'none', 300); // Hide after transition
-                    button.style.display = 'none';
-                    seeMoreButtons[index].style.display = 'inline-block';
-                });
-            });
-
-            // Slider functionality
-            const sliders = document.querySelectorAll('.slider');
-            sliders.forEach(slider => {
-                const slides = slider.querySelector('.slides');
-                const prevButton = slider.querySelector('.slider-button.prev');
-                const nextButton = slider.querySelector('.slider-button.next');
-                let index = 0;
-
-                const updateSlidePosition = () => {
-                    slides.style.transform = `translateX(${-index * 100}%)`;
-                };
-
-                nextButton.addEventListener('click', () => {
-                    index = (index + 1) % slides.children.length;
-                    updateSlidePosition();
-                });
-
-                prevButton.addEventListener('click', () => {
-                    index = (index - 1 + slides.children.length) % slides.children.length;
-                    updateSlidePosition();
-                });
-
-                // Initialize slide position
-                updateSlidePosition();
-            });
-
-            // Buy button functionality
-            buyButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const url = button.getAttribute('data-url');
-                    window.location.href = url;
-                });
-            });
+            showSlide(); // Initial slide position
         });
     </script>
 </body>
