@@ -9,14 +9,12 @@
     <title>Shopy Bros - Home</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Basic reset for margins and paddings */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Styling for the navigation bar */
         .navbar {
             background-color: #333;
             padding: 10px;
@@ -27,7 +25,7 @@
         }
 
         .navbar img {
-            height: 40px; /* Adjust the size as needed */
+            height: 40px;
             width: auto;
         }
 
@@ -91,11 +89,11 @@
         .products-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Center items */
+            justify-content: center;
         }
 
         .product {
-            width: calc(25% - 1rem); /* Adjust width for 4 items per row */
+            width: calc(25% - 1rem);
             margin: 0.5rem;
             background-color: #fff;
             border: 1px solid #ddd;
@@ -105,12 +103,11 @@
             position: relative;
         }
 
-        /* Slider styles */
         .slider {
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-height: 200px; /* Adjust height as needed */
+            max-height: 200px;
         }
 
         .slides {
@@ -168,11 +165,15 @@
         }
 
         .product .description {
-            font-size: 1rem;
-            margin: 0.5rem 0;
-            display: none; /* Hide details initially */
-            transition: opacity 0.3s ease-in-out;
+            max-height: 60px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
             text-align: left;
+            margin: 0.5rem 0;
+        }
+
+        .product .description.expanded {
+            max-height: 1000px;
         }
 
         .product .buttons {
@@ -267,7 +268,7 @@
             <h2>Our Products</h2>
             <h2>Mens</h2>
             <div class="products-container">
-                <!-- Product 1 -->
+                <!-- Example Product 1 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
@@ -282,23 +283,22 @@
                     <h3>Product 1</h3>
                     <p class="price">$19.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 1.<br>This is a great product for all your needs.<br>Product details,br>Material: Polyester<br>Type: Casual Backpack<br>External Pocket: Multiple Pocket<br>Laptop Capacity: No Laptop Compartment<br>Laptop Compartment: Non Padded<br>Shoulder Strap Type: Crossbody<br>Size: M<br>Volume In Litres: 24 To 30 Litres<br>Water Resistant: Yes<br>Product Height: 48 Cm<br>Product Length: 33 Cm<br>Product Width: 20 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 1. This is a great product for all your needs. Material: Polyester, Type: Casual Backpack, External Pocket: Multiple Pocket...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product1.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p1">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product1')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 2 -->
+                <!-- Example Product 2 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag2.1.jpg" alt="Product 2 Image 1"></div>
                             <div class="slide"><img src="Mens bag2.2.jpg" alt="Product 2 Image 2"></div>
                             <div class="slide"><img src="Mens bag2.3.jpg" alt="Product 2 Image 3"></div>
-                            <div class="slide"><img src="Mens bag2.4.jpg" alt="Product 2 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
@@ -306,315 +306,293 @@
                     <h3>Product 2</h3>
                     <p class="price">$29.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 2.<br>This product is designed for style and comfort.<br>Product details,br>Material: Leather<br>Type: Formal Bag<br>External Pocket: Single Pocket<br>Laptop Capacity: Yes<br>Laptop Compartment: Padded<br>Shoulder Strap Type: Adjustable<br>Size: L<br>Volume In Litres: 15 To 20 Litres<br>Water Resistant: No<br>Product Height: 45 Cm<br>Product Length: 30 Cm<br>Product Width: 15 Cm<br>Print Or Pattern Type: Striped<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 2. This is another great product with premium quality and durable material. Material: Leather, Type: Messenger Bag, External Pocket: Single Pocket...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product2.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p2">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product2')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 3 -->
+                <!-- Repeat similar block for additional products -->
+                <!-- Example Product 3 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag3.1.jpg" alt="Product 3 Image 1"></div>
                             <div class="slide"><img src="Mens bag3.2.jpg" alt="Product 3 Image 2"></div>
                             <div class="slide"><img src="Mens bag3.3.jpg" alt="Product 3 Image 3"></div>
-                            <div class="slide"><img src="Mens bag3.4.jpg" alt="Product 3 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 3</h3>
-                    <p class="price">$39.99</p>
+                    <p class="price">$24.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 3.<br>This is a durable and stylish product.<br>Product details,br>Material: Nylon<br>Type: Sports Bag<br>External Pocket: None<br>Laptop Capacity: No<br>Laptop Compartment: None<br>Shoulder Strap Type: Padded<br>Size: S<br>Volume In Litres: 20 To 25 Litres<br>Water Resistant: Yes<br>Product Height: 50 Cm<br>Product Length: 35 Cm<br>Product Width: 22 Cm<br>Print Or Pattern Type: Camouflage<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 3. Great product with excellent features. Material: Nylon, Type: Travel Backpack, External Pocket: Water Bottle Holder...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product3.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p3">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product3')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 4 -->
+                <!-- Example Product 4 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag4.1.jpg" alt="Product 4 Image 1"></div>
                             <div class="slide"><img src="Mens bag4.2.jpg" alt="Product 4 Image 2"></div>
                             <div class="slide"><img src="Mens bag4.3.jpg" alt="Product 4 Image 3"></div>
-                            <div class="slide"><img src="Mens bag4.4.jpg" alt="Product 4 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 4</h3>
-                    <p class="price">$49.99</p>
+                    <p class="price">$39.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 4.<br>This product offers excellent quality and features.<br>Product details,br>Material: Canvas<br>Type: Travel Bag<br>External Pocket: Multiple Pocket<br>Laptop Capacity: No<br>Laptop Compartment: Non Padded<br>Shoulder Strap Type: Crossbody<br>Size: XL<br>Volume In Litres: 30 To 35 Litres<br>Water Resistant: No<br>Product Height: 55 Cm<br>Product Length: 40 Cm<br>Product Width: 25 Cm<br>Print Or Pattern Type: Plaid<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 4. A must-have item with great functionality. Material: Canvas, Type: Casual Tote, External Pocket: Multiple Compartments...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product4.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p4">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product4')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 5 -->
+                <!-- Example Product 5 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag5.1.jpg" alt="Product 5 Image 1"></div>
                             <div class="slide"><img src="Mens bag5.2.jpg" alt="Product 5 Image 2"></div>
                             <div class="slide"><img src="Mens bag5.3.jpg" alt="Product 5 Image 3"></div>
-                            <div class="slide"><img src="Mens bag5.4.jpg" alt="Product 5 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 5</h3>
-                    <p class="price">$59.99</p>
+                    <p class="price">$49.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 5.<br>Experience top-notch quality with this product.<br>Product details,br>Material: Faux Leather<br>Type: Shoulder Bag<br>External Pocket: Single Pocket<br>Laptop Capacity: Yes<br>Laptop Compartment: Padded<br>Shoulder Strap Type: Adjustable<br>Size: M<br>Volume In Litres: 20 To 25 Litres<br>Water Resistant: Yes<br>Product Height: 48 Cm<br>Product Length: 34 Cm<br>Product Width: 18 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 5. High-quality and stylish bag for everyday use. Material: Synthetic Leather, Type: Shoulder Bag, External Pocket: Zip Pocket...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product5.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p5">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product5')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 6 -->
+                <!-- Example Product 6 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag6.1.jpg" alt="Product 6 Image 1"></div>
                             <div class="slide"><img src="Mens bag6.2.jpg" alt="Product 6 Image 2"></div>
                             <div class="slide"><img src="Mens bag6.3.jpg" alt="Product 6 Image 3"></div>
-                            <div class="slide"><img src="Mens bag6.4.jpg" alt="Product 6 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 6</h3>
-                    <p class="price">$69.99</p>
+                    <p class="price">$34.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 6.<br>This product offers both style and functionality.<br>Product details,br>Material: Genuine Leather<br>Type: Messenger Bag<br>External Pocket: Multiple Pocket<br>Laptop Capacity: Yes<br>Laptop Compartment: Padded<br>Shoulder Strap Type: Adjustable<br>Size: L<br>Volume In Litres: 25 To 30 Litres<br>Water Resistant: No<br>Product Height: 50 Cm<br>Product Length: 36 Cm<br>Product Width: 20 Cm<br>Print Or Pattern Type: Embossed<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 6. Ideal for outdoor activities and travel. Material: Waterproof Fabric, Type: Hiking Backpack, External Pocket: Large...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product6.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p6">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product6')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 7 -->
+                <!-- Example Product 7 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag7.1.jpg" alt="Product 7 Image 1"></div>
                             <div class="slide"><img src="Mens bag7.2.jpg" alt="Product 7 Image 2"></div>
                             <div class="slide"><img src="Mens bag7.3.jpg" alt="Product 7 Image 3"></div>
-                            <div class="slide"><img src="Mens bag7.4.jpg" alt="Product 7 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 7</h3>
-                    <p class="price">$79.99</p>
+                    <p class="price">$59.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 7.<br>High-quality materials and great features.<br>Product details,br>Material: Canvas<br>Type: Tote Bag<br>External Pocket: Single Pocket<br>Laptop Capacity: No<br>Laptop Compartment: None<br>Shoulder Strap Type: Fixed<br>Size: M<br>Volume In Litres: 20 To 25 Litres<br>Water Resistant: Yes<br>Product Height: 45 Cm<br>Product Length: 33 Cm<br>Product Width: 15 Cm<br>Print Or Pattern Type: Polka Dot<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 7. Elegant and functional for business use. Material: Genuine Leather, Type: Briefcase, External Pocket: Laptop Compartment...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product7.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p7">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product7')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 8 -->
+                <!-- Example Product 8 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag8.1.jpg" alt="Product 8 Image 1"></div>
                             <div class="slide"><img src="Mens bag8.2.jpg" alt="Product 8 Image 2"></div>
                             <div class="slide"><img src="Mens bag8.3.jpg" alt="Product 8 Image 3"></div>
-                            <div class="slide"><img src="Mens bag8.4.jpg" alt="Product 8 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 8</h3>
-                    <p class="price">$89.99</p>
+                    <p class="price">$44.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 8.<br>This versatile product is a must-have.<br>Product details,br>Material: Suede<br>Type: Clutch<br>External Pocket: None<br>Laptop Capacity: No<br>Laptop Compartment: None<br>Shoulder Strap Type: None<br>Size: XS<br>Volume In Litres: 10 To 15 Litres<br>Water Resistant: No<br>Product Height: 25 Cm<br>Product Length: 20 Cm<br>Product Width: 10 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 8. Versatile and stylish for everyday use. Material: Denim, Type: Tote Bag, External Pocket: Hidden Pocket...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product8.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p8">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product8')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 9 -->
+                <!-- Example Product 9 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag9.1.jpg" alt="Product 9 Image 1"></div>
                             <div class="slide"><img src="Mens bag9.2.jpg" alt="Product 9 Image 2"></div>
                             <div class="slide"><img src="Mens bag9.3.jpg" alt="Product 9 Image 3"></div>
-                            <div class="slide"><img src="Mens bag9.4.jpg" alt="Product 9 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 9</h3>
-                    <p class="price">$99.99</p>
+                    <p class="price">$39.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 9.<br>This product provides both elegance and functionality.<br>Product details,br>Material: Leather<br>Type: Backpack<br>External Pocket: Multiple Pocket<br>Laptop Capacity: Yes<br>Laptop Compartment: Padded<br>Shoulder Strap Type: Adjustable<br>Size: M<br>Volume In Litres: 25 To 30 Litres<br>Water Resistant: Yes<br>Product Height: 50 Cm<br>Product Length: 35 Cm<br>Product Width: 20 Cm<br>Print Or Pattern Type: Geometric<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 9. Durable and stylish for daily needs. Material: Polyester, Type: Backpack, External Pocket: Zip Compartments...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product9.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p9">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product9')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 10 -->
+                <!-- Example Product 10 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag10.1.jpg" alt="Product 10 Image 1"></div>
                             <div class="slide"><img src="Mens bag10.2.jpg" alt="Product 10 Image 2"></div>
                             <div class="slide"><img src="Mens bag10.3.jpg" alt="Product 10 Image 3"></div>
-                            <div class="slide"><img src="Mens bag10.4.jpg" alt="Product 10 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 10</h3>
-                    <p class="price">$109.99</p>
+                    <p class="price">$54.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 10.<br>Premium quality and excellent design.<br>Product details,br>Material: Nylon<br>Type: Gym Bag<br>External Pocket: Multiple Pocket<br>Laptop Capacity: No<br>Laptop Compartment: None<br>Shoulder Strap Type: Padded<br>Size: L<br>Volume In Litres: 30 To 35 Litres<br>Water Resistant: Yes<br>Product Height: 50 Cm<br>Product Length: 40 Cm<br>Product Width: 25 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 10. Perfect for both work and casual outings. Material: Canvas, Type: Messenger Bag, External Pocket: Multiple...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product10.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p10">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product10')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 11 -->
+                <!-- Example Product 11 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag11.1.jpg" alt="Product 11 Image 1"></div>
                             <div class="slide"><img src="Mens bag11.2.jpg" alt="Product 11 Image 2"></div>
                             <div class="slide"><img src="Mens bag11.3.jpg" alt="Product 11 Image 3"></div>
-                            <div class="slide"><img src="Mens bag11.4.jpg" alt="Product 11 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 11</h3>
-                    <p class="price">$119.99</p>
+                    <p class="price">$69.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 11.<br>This high-end product combines elegance and practicality.<br>Product details,br>Material: Leather<br>Type: Briefcase<br>External Pocket: Multiple Pocket<br>Laptop Capacity: Yes<br>Laptop Compartment: Padded<br>Shoulder Strap Type: Adjustable<br>Size: L<br>Volume In Litres: 25 To 30 Litres<br>Water Resistant: No<br>Product Height: 45 Cm<br>Product Length: 35 Cm<br>Product Width: 15 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 11. Premium quality for those who demand the best. Material: Leather, Type: Briefcase, External Pocket: Laptop Compartment...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product11.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p11">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product11')">Copy ID</button>
                     </div>
                 </div>
 
-                <!-- Product 12 -->
+                <!-- Example Product 12 -->
                 <div class="product">
                     <div class="slider">
                         <div class="slides">
                             <div class="slide"><img src="Mens bag12.1.jpg" alt="Product 12 Image 1"></div>
                             <div class="slide"><img src="Mens bag12.2.jpg" alt="Product 12 Image 2"></div>
                             <div class="slide"><img src="Mens bag12.3.jpg" alt="Product 12 Image 3"></div>
-                            <div class="slide"><img src="Mens bag12.4.jpg" alt="Product 12 Image 4"></div>
                         </div>
                         <button class="slider-button prev" aria-label="Previous slide">&#10094;</button>
                         <button class="slider-button next" aria-label="Next slide">&#10095;</button>
                     </div>
                     <h3>Product 12</h3>
-                    <p class="price">$129.99</p>
+                    <p class="price">$79.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 12.<br>Elegance and durability in one package.<br>Product details,br>Material: Suede<br>Type: Messenger Bag<br>External Pocket: Single Pocket<br>Laptop Capacity: Yes<br>Laptop Compartment: Padded<br>Shoulder Strap Type: Adjustable<br>Size: L<br>Volume In Litres: 20 To 25 Litres<br>Water Resistant: No<br>Product Height: 50 Cm<br>Product Length: 35 Cm<br>Product Width: 20 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 12. Ideal for professionals and daily use. Material: Synthetic Leather, Type: Portfolio, External Pocket: Business Card Holder...</p>
                     <div class="buttons">
-                        <button class="buy-button" data-url="product12.html">Buy</button>
+                        <button class="buy-button">Buy Now</button>
                         <button class="see-more-button">See More</button>
                         <button class="see-less-button">See Less</button>
-                        <button class="copy-id-button" data-id="p12">Copy ID</button>
+                        <button class="copy-id-button" onclick="copyProductID('product12')">Copy ID</button>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const sliders = document.querySelectorAll('.slider');
+    <script>
+        // Slider Functionality
+        document.querySelectorAll('.slider').forEach(slider => {
+            const slides = slider.querySelector('.slides');
+            const slideCount = slides.children.length;
+            let index = 0;
 
-                sliders.forEach(slider => {
-                    const prevButton = slider.querySelector('.prev');
-                    const nextButton = slider.querySelector('.next');
-                    const slides = slider.querySelector('.slides');
-                    const slideCount = slides.children.length;
-                    let currentSlide = 0;
-
-                    prevButton.addEventListener('click', () => {
-                        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
-                        updateSlides();
-                    });
-
-                    nextButton.addEventListener('click', () => {
-                        currentSlide = (currentSlide + 1) % slideCount;
-                        updateSlides();
-                    });
-
-                    function updateSlides() {
-                        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-                    }
-                });
-
-                const seeMoreButtons = document.querySelectorAll('.see-more-button');
-                const seeLessButtons = document.querySelectorAll('.see-less-button');
-
-                seeMoreButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        const description = button.closest('.product').querySelector('.description');
-                        description.classList.add('expanded');
-                        button.style.display = 'none';
-                        button.nextElementSibling.style.display = 'inline';
-                    });
-                });
-
-                seeLessButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        const description = button.closest('.product').querySelector('.description');
-                        description.classList.remove('expanded');
-                        button.style.display = 'none';
-                        button.previousElementSibling.style.display = 'inline';
-                    });
-                });
-
-                const copyIdButtons = document.querySelectorAll('.copy-id-button');
-                
-                copyIdButtons.forEach(button => {
-                    button.addEventListener('click', () => {
-                        const id = button.getAttribute('data-id');
-                        navigator.clipboard.writeText(id).then(() => {
-                            alert(`Product ID ${id} copied to clipboard!`);
-                        });
-                    });
-                });
+            slider.querySelector('.next').addEventListener('click', () => {
+                index = (index + 1) % slideCount;
+                slides.style.transform = `translateX(-${index * 100}%)`;
             });
-        </script>
-    </body>
+
+            slider.querySelector('.prev').addEventListener('click', () => {
+                index = (index - 1 + slideCount) % slideCount;
+                slides.style.transform = `translateX(-${index * 100}%)`;
+            });
+        });
+
+        // See More / See Less Functionality
+        document.querySelectorAll('.see-more-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const product = button.closest('.product');
+                product.querySelector('.description').classList.add('expanded');
+                button.style.display = 'none';
+                product.querySelector('.see-less-button').style.display = 'block';
+            });
+        });
+
+        document.querySelectorAll('.see-less-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const product = button.closest('.product');
+                product.querySelector('.description').classList.remove('expanded');
+                button.style.display = 'none';
+                product.querySelector('.see-more-button').style.display = 'block';
+            });
+        });
+
+        // Copy Product ID Functionality
+        function copyProductID(productID) {
+            const copyText = productID;
+            navigator.clipboard.writeText(copyText).then(() => {
+                alert(`Product ID ${copyText} copied to clipboard`);
+            });
+        }
+    </script>
+</body>
 </html>
