@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shopy Bros - Explore our high-quality services.">
-    <meta name="keywords" content="Shopy Bros, services, portfolio, testimonials, team">
+    <meta name="description" content="Shopy Bros - Explore our high-quality products.">
+    <meta name="keywords" content="Shopy Bros, products, fashion, accessories">
     <meta name="author" content="Your Name">
     <title>Shopy Bros - Home</title>
     <link rel="stylesheet" href="styles.css">
@@ -63,7 +63,7 @@
 
         .video-section {
             text-align: center;
-            padding: 1.5rem;
+            padding: 2rem;
             background-color: #f4f4f4;
         }
 
@@ -91,18 +91,24 @@
         .products-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Center items */
+            justify-content: center;
         }
 
         .product {
-            width: calc(25% - 1rem); /* Adjust width for 4 items per row */
+            width: calc(33.333% - 1rem); /* Adjust width for 3 items per row */
             margin: 0.5rem;
             background-color: #fff;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             padding: 1rem;
             text-align: center;
-            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .product:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
         }
 
         /* Slider styles */
@@ -110,7 +116,9 @@
             position: relative;
             overflow: hidden;
             width: 100%;
-            max-height: 200px; /* Adjust height as needed */
+            max-height: 250px; /* Adjust height as needed */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .slides {
@@ -139,6 +147,7 @@
             border: none;
             cursor: pointer;
             transform: translateY(-50%);
+            border-radius: 50%;
         }
 
         .slider-button.prev {
@@ -168,7 +177,7 @@
         }
 
         .product .description {
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin: 0.5rem 0;
             display: none; /* Initially hide description */
             transition: all 0.3s ease;
@@ -182,7 +191,6 @@
         .product .buttons {
             margin-top: 1rem;
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
             justify-content: center;
         }
@@ -194,6 +202,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .product .buttons .buy-button {
@@ -201,9 +210,17 @@
             color: #fff;
         }
 
+        .product .buttons .buy-button:hover {
+            background-color: #218838;
+        }
+
         .product .buttons .see-more-button, .product .buttons .see-less-button {
             background-color: #007bff;
             color: #fff;
+        }
+
+        .product .buttons .see-more-button:hover {
+            background-color: #0056b3;
         }
 
         .product .buttons .see-less-button {
@@ -211,9 +228,17 @@
             visibility: hidden;
         }
 
+        .product .buttons .see-less-button:hover {
+            background-color: #0056b3;
+        }
+
         .product .buttons .copy-id-button {
             background-color: #6c757d;
             color: #fff;
+        }
+
+        .product .buttons .copy-id-button:hover {
+            background-color: #5a6268;
         }
 
         @media (max-width: 48em) {
@@ -289,7 +314,7 @@
                     <h3>Product 1</h3>
                     <p class="price">$19.99</p>
                     <p class="free-delivery">Free Delivery</p>
-                    <p class="description">Description of product 1.<br>This is a great product for all your needs.<br>Product details,br>Material: Polyester<br>Type: Casual Backpack<br>External Pocket: Multiple Pocket<br>Laptop Capacity: No Laptop Compartment<br>Laptop Compartment: Non Padded<br>Shoulder Strap Type: Crossbody<br>Size: M<br>Volume In Litres: 24 To 30 Litres<br>Water Resistant: Yes<br>Product Height: 48 Cm<br>Product Length: 33 Cm<br>Product Width: 20 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
+                    <p class="description">Description of product 1.<br>This is a great product for all your needs.<br>Product details:<br>Material: Polyester<br>Type: Casual Backpack<br>External Pocket: Multiple Pocket<br>Laptop Capacity: No Laptop Compartment<br>Laptop Compartment: Non Padded<br>Shoulder Strap Type: Crossbody<br>Size: M<br>Volume In Litres: 24 To 30 Litres<br>Water Resistant: Yes<br>Product Height: 48 Cm<br>Product Length: 33 Cm<br>Product Width: 20 Cm<br>Print Or Pattern Type: Solid<br>Net Quantity (N): 1</p>
                     <div class="buttons">
                         <button class="buy-button" data-url="product1.html">Buy</button>
                         <button class="see-more-button">See More</button>
@@ -371,5 +396,3 @@
     </script>
 </body>
 </html>
-
-
