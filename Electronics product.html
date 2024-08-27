@@ -26,7 +26,7 @@
         }
 
         .navbar img {
-            height: 40px; /* Adjust the size as needed */
+            height: 40px;
             width: auto;
         }
 
@@ -59,6 +59,7 @@
             background-color: #575757;
             border-radius: 5px;
         }
+
         .video-section {
             text-align: center;
             padding: 1.5rem;
@@ -71,8 +72,8 @@
         }
 
         .video-section h2 {
-            margin-bottom: 1rem; /* Increased margin */
-            font-size: 1.75rem; /* Increased font size */
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
         }
 
         .products {
@@ -80,32 +81,33 @@
             background-color: #f4f4f4;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            gap: 1.5rem;
         }
 
         .product-item {
-            display: inline-block;
-            width: 25rem; /* Increased width from 18.75rem */
-            margin: 1.5rem; /* Increased margin */
+            display: flex;
+            flex-direction: column;
+            width: calc(25% - 1.5rem);
+            margin: 0;
             border: 1px solid #ddd;
-            border-radius: 0.625rem; /* Increased border radius */
-            padding: 1.5rem; /* Increased padding */
+            border-radius: 0.625rem;
+            padding: 1.5rem;
             text-align: left;
             background-color: #fff;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Increased shadow for better appearance */
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
         }
 
         .product-item img {
             width: 100%;
             height: auto;
             border-bottom: 1px solid #ddd;
-            display: block;
         }
 
         .product-slider {
             position: relative;
             overflow: hidden;
-            height: 15rem; /* Increased height for better fit */
+            height: 15rem;
+            margin-bottom: 1rem;
         }
 
         .slider-images {
@@ -131,9 +133,9 @@
             background-color: rgba(0, 0, 0, 0.5);
             border: none;
             color: white;
-            padding: 0.75rem; /* Increased padding */
+            padding: 0.75rem;
             cursor: pointer;
-            font-size: 1.25rem; /* Increased font size */
+            font-size: 1.25rem;
         }
 
         .slider-button:hover, .slider-button:focus {
@@ -141,29 +143,49 @@
         }
 
         .product-item h3 {
-            font-size: 1.5rem; /* Increased font size */
-            margin: 0.75rem 0; /* Increased margin */
+            font-size: 1.5rem;
+            margin: 0.75rem 0;
         }
 
         .product-item p {
-            font-size: 1.25rem; /* Increased font size */
+            font-size: 1.25rem;
             color: #333;
         }
 
         .product-description {
-            font-size: 1.125rem; /* Increased font size */
+            font-size: 1.125rem;
             color: #666;
-            margin: 0.75rem 0; /* Increased margin */
+            margin: 0.75rem 0;
+        }
+
+        .more-description {
+            display: none;
+        }
+
+        .show-more-button {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.25rem;
+            text-decoration: none;
+            border-radius: 0.375rem;
+            font-size: 1.125rem;
+            cursor: pointer;
+            border: none;
+            margin-top: 0.75rem;
+        }
+
+        .show-more-button:hover, .show-more-button:focus {
+            background-color: #0056b3;
         }
 
         .buy-button {
             display: inline-block;
             background-color: #28a745;
             color: white;
-            padding: 1rem 1.5rem; /* Increased padding */
+            padding: 1rem 1.5rem;
             text-decoration: none;
-            border-radius: 0.375rem; /* Increased border radius */
-            font-size: 1.25rem; /* Increased font size */
+            border-radius: 0.375rem;
+            font-size: 1.25rem;
             text-align: center;
         }
 
@@ -175,12 +197,12 @@
             display: inline-block;
             background-color: #000;
             color: white;
-            padding: 0.75rem 1.25rem; /* Increased padding */
+            padding: 0.75rem 1.25rem;
             text-decoration: none;
-            border-radius: 0.375rem; /* Increased border radius */
-            font-size: 1.125rem; /* Increased font size */
+            border-radius: 0.375rem;
+            font-size: 1.125rem;
             text-align: center;
-            margin-top: 0.75rem; /* Increased margin */
+            margin-top: 0.75rem;
             cursor: pointer;
             border: none;
         }
@@ -201,16 +223,16 @@
             }
 
             .nav-links li {
-                margin: 0.75rem 0; /* Increased margin */
+                margin: 0.75rem 0;
             }
 
             .products {
-                padding: 1rem; /* Increased padding */
+                padding: 1rem;
             }
 
             .product-item {
                 width: 100%;
-                margin: 1rem 0; /* Increased margin */
+                margin: 1rem 0;
             }
         }
     </style>
@@ -219,7 +241,7 @@
     <header>
         <nav class="navbar" aria-label="Main Navigation">
             <a href="#home" aria-label="Home">
-                <img src="logo.jpeg" alt="Cadd Plans Logo">
+                <img src="logo.jpeg" alt="Shopy Bros Logo">
             </a>
             <div class="title">Electronics</div>
             <ul class="nav-links">
@@ -235,7 +257,7 @@
     <main>
         <section class="video-section">
             <h2>How to Buy Our Products</h2>
-            <video controls>
+            <video controls aria-label="How to Buy Our Products">
                 <source src="videos/how-to-buy.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -257,13 +279,16 @@
                     </div>
                 </div>
                 <h3>Product 1</h3>
-                <p>Price: ₹500  Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , 
-                Height - 30cm</p>
-                <p class="product-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
+                <p>Price: ₹500 Free delivery</p>
+                <p class="product-description">Length - 60cm, Breadth - 30cm, Height - 30cm</p>
+                <p class="product-description more-description">
+                    This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.
+                </p>
+                <button class="show-more-button">See More</button>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
             </div>
+
             <!-- Product 2 -->
             <div class="product-item">
                 <div class="product-slider">
@@ -280,9 +305,11 @@
                 <h3>Product 2</h3>
                 <p>Price: ₹1</p>
                 <p class="product-description">Our Product 2 offers a sleek design and multiple uses. Available in various colors to match your style.</p>
+                <button class="show-more-button">See More</button>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="Clothing 2">Copy Product ID</button>
             </div>
+
             <!-- Product 3 -->
             <div class="product-item">
                 <div class="product-slider">
@@ -299,9 +326,11 @@
                 <h3>Product 3</h3>
                 <p>Price: ₹300</p>
                 <p class="product-description">This premium product offers unparalleled quality and durability. Perfect for those who appreciate high-end craftsmanship.</p>
+                <button class="show-more-button">See More</button>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="prod3">Copy Product ID</button>
             </div>
+
             <!-- Product 4 -->
             <div class="product-item">
                 <div class="product-slider">
@@ -318,9 +347,11 @@
                 <h3>Product 4</h3>
                 <p>Price: ₹4</p>
                 <p class="product-description">An affordable option that does not compromise on quality. Ideal for budget-conscious shoppers.</p>
+                <button class="show-more-button">See More</button>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
             </div>
+
             <!-- Product 5 -->
             <div class="product-item">
                 <div class="product-slider">
@@ -337,10 +368,10 @@
                 <h3>Product 5</h3>
                 <p>Price: ₹5</p>
                 <p class="product-description">A stylish and practical choice for any occasion. Designed to meet your everyday needs with a touch of elegance.</p>
+                <button class="show-more-button">See More</button>
                 <a href="checkout page.html" class="buy-button">Buy Now</a>
                 <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
             </div>
-            <!-- Additional Products -->
         </section>
     </main>
 
@@ -355,6 +386,7 @@
                         alert(`Product ID ${productId} copied to clipboard!`);
                     }).catch(err => {
                         console.error('Failed to copy text: ', err);
+                        alert('Failed to copy Product ID. Please try again.');
                     });
                 });
             });
@@ -380,8 +412,21 @@
                 // Handle window resize to adjust the slider width
                 window.addEventListener('resize', () => showSlide(index));
             });
+
+            document.querySelectorAll('.show-more-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    const description = button.previousElementSibling;
+                    const isExpanded = description.classList.contains('more-description');
+                    if (isExpanded) {
+                        description.classList.remove('more-description');
+                        button.textContent = 'See Less';
+                    } else {
+                        description.classList.add('more-description');
+                        button.textContent = 'See More';
+                    }
+                });
+            });
         });
     </script>
 </body>
 </html>
-
