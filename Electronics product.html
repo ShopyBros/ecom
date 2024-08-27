@@ -95,19 +95,14 @@
             background-color: #fff;
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
             position: relative;
-        }
-
-        .product-item img {
-            width: 100%;
-            height: auto;
-            border-bottom: 1px solid #ddd;
+            margin-bottom: 1.5rem; /* Ensure there's space between items */
         }
 
         .product-slider {
             position: relative;
             overflow: hidden;
             height: 15rem;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem; /* Reduced space between slider and title */
         }
 
         .slider-images {
@@ -144,7 +139,7 @@
 
         .product-item h3 {
             font-size: 1.5rem;
-            margin: 0.4rem 0;
+            margin: 0.25rem 0; /* Reduced margin to minimize gap */
         }
 
         .product-item p {
@@ -155,7 +150,7 @@
         .product-description {
             font-size: 1.125rem;
             color: #666;
-            margin: 0.75rem 0;
+            margin: 0.5rem 0; /* Adjusted margin for consistent spacing */
         }
 
         .more-description {
@@ -171,7 +166,7 @@
             font-size: 1rem;
             cursor: pointer;
             border: none;
-            margin-bottom: 0.5rem; /* Space between See More and button row */
+            margin-bottom: 0.5rem;
             display: block;
             text-align: center;
         }
@@ -182,16 +177,16 @@
 
         .button-container {
             display: flex;
-            gap: 0.5rem; /* Space between buttons */
-            margin-top: 0.5rem; /* Space above the button container */
+            gap: 0.5rem;
+            margin-top: 0.5rem;
         }
 
         .buy-button, .copy-id-button {
             display: inline-block;
-            padding: 0.5rem 1rem; /* Smaller padding for reduced button size */
+            padding: 0.5rem 1rem;
             text-decoration: none;
             border-radius: 0.375rem;
-            font-size: 1rem; /* Smaller font size */
+            font-size: 1rem;
             text-align: center;
         }
 
@@ -238,11 +233,11 @@
             }
 
             .button-container {
-                flex-direction: column; /* Stack buttons vertically on smaller screens */
+                flex-direction: column;
             }
 
             .button-container a {
-                margin-bottom: 0.5rem; /* Space between stacked buttons */
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -289,16 +284,15 @@
                     </div>
                 </div>
                 <h3>Product 1</h3>
-                <p>Price: ₹500000 Free delivery</p>
+                <p>Price: ₹500 Free delivery</p>
                 <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
                 <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
                 <button class="show-more-button">See More</button>
                 <div class="button-container">
                     <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product1-id">Copy Product ID</button>
+                    <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
                 </div>
             </div>
-
             <!-- Product 2 -->
             <div class="product-item">
                 <div class="product-slider">
@@ -313,123 +307,53 @@
                     </div>
                 </div>
                 <h3>Product 2</h3>
-                <p>Price: ₹500 Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
-                <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
+                <p>Price: ₹700 Free delivery</p>
+                <p class="product-description">Length - 70cm , breadth - 35cm , Height - 35cm</p>
+                <p class="product-description more-description">This product features a spacious design with high-quality stitching and durable fabric. Ideal for various occasions and uses.</p>
                 <button class="show-more-button">See More</button>
                 <div class="button-container">
                     <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product2-id">Copy Product ID</button>
+                    <button class="copy-id-button" data-id="Clothing 2">Copy Product ID</button>
                 </div>
             </div>
-
-            <!-- Product 3 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 3 - Image 1">
-                        <img src="bags.jpeg" alt="Product 3 - Image 2">
-                        <img src="bags.jpeg" alt="Product 3 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 3</h3>
-                <p>Price: ₹500 Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
-                <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                <button class="show-more-button">See More</button>
-                <div class="button-container">
-                    <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product3-id">Copy Product ID</button>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 4 - Image 1">
-                        <img src="bags.jpeg" alt="Product 4 - Image 2">
-                        <img src="bags.jpeg" alt="Product 4 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 4</h3>
-                <p>Price: ₹500 Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
-                <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                <button class="show-more-button">See More</button>
-                <div class="button-container">
-                    <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product4-id">Copy Product ID</button>
-                </div>
-            </div>
+            <!-- Add more products as needed -->
         </section>
     </main>
 
-    <footer>
-        <!-- Your footer content here -->
-    </footer>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sliders = document.querySelectorAll('.product-slider');
-
-            sliders.forEach(slider => {
-                const prevButton = slider.querySelector('.prev');
-                const nextButton = slider.querySelector('.next');
-                const sliderImages = slider.querySelector('.slider-images');
-                const images = sliderImages.querySelectorAll('img');
-                let index = 0;
-
-                function updateSlider() {
-                    const offset = -index * 100;
-                    sliderImages.style.transform = `translateX(${offset}%)`;
-                }
-
-                prevButton.addEventListener('click', () => {
-                    index = (index > 0) ? index - 1 : images.length - 1;
-                    updateSlider();
+        document.addEventListener('DOMContentLoaded', function() {
+            const prevButtons = document.querySelectorAll('.slider-button.prev');
+            const nextButtons = document.querySelectorAll('.slider-button.next');
+            
+            prevButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const sliderImages = this.closest('.product-slider').querySelector('.slider-images');
+                    sliderImages.style.transform = 'translateX(-100%)'; // Example behavior
                 });
+            });
 
-                nextButton.addEventListener('click', () => {
-                    index = (index < images.length - 1) ? index + 1 : 0;
-                    updateSlider();
+            nextButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const sliderImages = this.closest('.product-slider').querySelector('.slider-images');
+                    sliderImages.style.transform = 'translateX(0%)'; // Example behavior
                 });
             });
 
             const showMoreButtons = document.querySelectorAll('.show-more-button');
-            
             showMoreButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const productItem = button.closest('.product-item');
-                    const moreDescription = productItem.querySelector('.more-description');
-                    
-                    if (moreDescription.style.display === 'block') {
-                        moreDescription.style.display = 'none';
-                        button.textContent = 'See More';
-                    } else {
-                        moreDescription.style.display = 'block';
-                        button.textContent = 'See Less';
-                    }
+                button.addEventListener('click', function() {
+                    const moreDescription = this.previousElementSibling;
+                    moreDescription.classList.toggle('more-description');
+                    this.textContent = moreDescription.classList.contains('more-description') ? 'See More' : 'See Less';
                 });
             });
 
-            const copyButtons = document.querySelectorAll('.copy-id-button');
-            
-            copyButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const id = button.getAttribute('data-id');
-                    navigator.clipboard.writeText(id).then(() => {
+            const copyIdButtons = document.querySelectorAll('.copy-id-button');
+            copyIdButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    navigator.clipboard.writeText(productId).then(() => {
                         alert('Product ID copied to clipboard!');
-                    }).catch(err => {
-                        console.error('Failed to copy: ', err);
                     });
                 });
             });
