@@ -295,9 +295,10 @@
                 <button class="show-more-button">See More</button>
                 <div class="button-container">
                     <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="Clothing 1">Copy Product ID</button>
+                    <button class="copy-id-button" data-id="product1-id">Copy Product ID</button>
                 </div>
             </div>
+
             <!-- Product 2 -->
             <div class="product-item">
                 <div class="product-slider">
@@ -318,9 +319,10 @@
                 <button class="show-more-button">See More</button>
                 <div class="button-container">
                     <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="Clothing 2">Copy Product ID</button>
+                    <button class="copy-id-button" data-id="product2-id">Copy Product ID</button>
                 </div>
             </div>
+
             <!-- Product 3 -->
             <div class="product-item">
                 <div class="product-slider">
@@ -341,9 +343,10 @@
                 <button class="show-more-button">See More</button>
                 <div class="button-container">
                     <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="Clothing 3">Copy Product ID</button>
+                    <button class="copy-id-button" data-id="product3-id">Copy Product ID</button>
                 </div>
             </div>
+
             <!-- Product 4 -->
             <div class="product-item">
                 <div class="product-slider">
@@ -364,14 +367,43 @@
                 <button class="show-more-button">See More</button>
                 <div class="button-container">
                     <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="Clothing 4">Copy Product ID</button>
+                    <button class="copy-id-button" data-id="product4-id">Copy Product ID</button>
                 </div>
             </div>
         </section>
     </main>
 
+    <footer>
+        <!-- Your footer content here -->
+    </footer>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const sliders = document.querySelectorAll('.product-slider');
+
+            sliders.forEach(slider => {
+                const prevButton = slider.querySelector('.prev');
+                const nextButton = slider.querySelector('.next');
+                const sliderImages = slider.querySelector('.slider-images');
+                const images = sliderImages.querySelectorAll('img');
+                let index = 0;
+
+                function updateSlider() {
+                    const offset = -index * 100;
+                    sliderImages.style.transform = `translateX(${offset}%)`;
+                }
+
+                prevButton.addEventListener('click', () => {
+                    index = (index > 0) ? index - 1 : images.length - 1;
+                    updateSlider();
+                });
+
+                nextButton.addEventListener('click', () => {
+                    index = (index < images.length - 1) ? index + 1 : 0;
+                    updateSlider();
+                });
+            });
+
             const showMoreButtons = document.querySelectorAll('.show-more-button');
             
             showMoreButtons.forEach(button => {
@@ -386,6 +418,19 @@
                         moreDescription.style.display = 'block';
                         button.textContent = 'See Less';
                     }
+                });
+            });
+
+            const copyButtons = document.querySelectorAll('.copy-id-button');
+            
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const id = button.getAttribute('data-id');
+                    navigator.clipboard.writeText(id).then(() => {
+                        alert('Product ID copied to clipboard!');
+                    }).catch(err => {
+                        console.error('Failed to copy: ', err);
+                    });
                 });
             });
         });
