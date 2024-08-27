@@ -181,6 +181,9 @@
 
         .product .buttons {
             margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .product .buttons button {
@@ -197,16 +200,12 @@
             color: #fff;
         }
 
-        .product .buttons .see-more-button {
+        .product .buttons .see-more-button, .product .buttons .see-less-button {
             background-color: #007bff;
             color: #fff;
-            opacity: 1;
-            visibility: visible;
         }
 
         .product .buttons .see-less-button {
-            background-color: #007bff;
-            color: #fff;
             opacity: 0;
             visibility: hidden;
         }
@@ -371,3 +370,4 @@
     </script>
 </body>
 </html>
+
