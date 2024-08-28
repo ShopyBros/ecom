@@ -242,30 +242,25 @@
                 <label for="pincode">Pincode</label>
                 <input type="text" id="pincode" name="pincode" required pattern="[0-9]{6}" minlength="6" aria-label="Pincode">
             </div>
-
             <div class="form-group">
                 <label for="product-id">Product ID</label>
                 <input type="text" id="product-id" name="product-id" required aria-label="Product ID">
             </div>
-
             <div class="payment-options">
                 <h2>Payment Method</h2>
-                <div class="form-group">
-                    <input type="radio" id="cash" name="payment-method" value="cash" required aria-label="Cash on Delivery">
-                    <label for="cash">Cash on Delivery</label>
-                </div>
-                <div class="form-group">
-                    <input type="radio" id="upi" name="payment-method" value="upi" aria-label="UPI">
-                    <label for="upi">UPI (Unified Payments Interface)</label>
-                </div>
-                <div id="upi-details" style="display: none;">
-                    <div class="form-group">
-                        <label for="upi-id">UPI ID</label>
-                        <input type="text" id="upi-id" name="upi-id" aria-label="UPI ID">
-                    </div>
+                <label>
+                    <input type="radio" name="payment-method" id="cash" value="cash" required>
+                    Cash on Delivery
+                </label>
+                <label>
+                    <input type="radio" name="payment-method" id="upi" value="upi">
+                    UPI
+                </label>
+                <div id="upi-details" style="display:none;">
+                    <label for="upi-id">UPI ID</label>
+                    <input type="text" id="upi-id" name="upi-id" aria-label="UPI ID">
                 </div>
             </div>
-
             <button type="submit" class="checkout-button">Place Order</button>
             <div id="status-message" class="status-message"></div>
         </form>
@@ -284,13 +279,12 @@
     <div id="popup-cash" class="popup-cash">
         <div class="popup-cash-content" role="dialog" aria-labelledby="popup-cash-title" aria-describedby="popup-cash-description">
             <span id="popup-cash-close" class="popup-cash-close" aria-label="Close">&times;</span>
-            <p>Your order is placed the order will be delivered to you.</p>
+            <p>Your order is placed. The order will be delivered to you.</p>
             <button id="popup-cash-button" class="popup-cash-button">Back To Home</button>
         </div>
     </div>
 
     <script>
-        // Show and hide UPI details based on selection
         document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
             radio.addEventListener('change', function() {
                 const upiDetails = document.getElementById('upi-details');
@@ -298,7 +292,6 @@
             });
         });
 
-        // Popup handling functions
         function showPopup(imageUrl) {
             document.getElementById('popup-image').src = imageUrl;
             document.getElementById('popup').style.display = 'flex';
@@ -317,45 +310,40 @@
         }
 
         document.getElementById('checkout-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent the default form submission
+            event.preventDefault();
 
-            // Show loading state
             const statusMessage = document.getElementById('status-message');
             statusMessage.textContent = 'Processing your order...';
             statusMessage.className = 'status-message';
             statusMessage.style.display = 'block';
 
-            // Collect form data
             const formData = new FormData(this);
             const productId = formData.get('product-id');
             const paymentMethod = formData.get('payment-method');
 
-            // Define image URLs based on Product ID
             const imageUrls = {
                 '123': 'SHOPY BROS.png',
                 '456': 'heropic.png',
                 '789': 'https://via.placeholder.com/300?text=Product+789'
-                // Add more mappings as needed
             };
 
-            // Show appropriate popup based on payment method
+            if (!imageUrls[productId]) {
+                statusMessage.textContent = 'Product ID not recognized.';
+                statusMessage.className = 'status-message error';
+                return;
+            }
+
             if (paymentMethod === 'cash') {
                 showCashPopup();
+                // If needed, submit the form data to the server here
                 return;
             }
 
             if (paymentMethod === 'upi') {
-                if (imageUrls[productId]) {
-                    showPopup(imageUrls[productId]);
-                } else {
-                    statusMessage.textContent = 'Product ID not recognized.';
-                    statusMessage.className = 'status-message error';
-                    return;
-                }
+                showPopup(imageUrls[productId]);
             }
 
-            // Send form data to API
-            const apiUrl = 'https://formspree.io/f/meojnlod'; // Ensure this URL is correct
+            const apiUrl = '';
 
             fetch(apiUrl, {
                 method: 'POST',
@@ -379,21 +367,27 @@
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
-                statusMessage.textContent = 'Scan the qr code to complete payment';
+                statusMessage.textContent = 'There was a problem with the order. Please try again.';
                 statusMessage.className = 'status-message error';
             });
         });
 
         document.getElementById('popup-close').addEventListener('click', hidePopup);
         document.getElementById('popup-button').addEventListener('click', function() {
-            window.location.href = 'index.html'; // Replace with your desired link
+            window.location.href = 'index.html';
         });
 
         document.getElementById('popup-cash-close').addEventListener('click', hideCashPopup);
         document.getElementById('popup-cash-button').addEventListener('click', function() {
-            window.location.href = 'index.html'; // Replace with your desired link
+            window.location.href = 'index.html';
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                hidePopup();
+                hideCashPopup();
+            }
         });
     </script>
 </body>
 </html>
-
