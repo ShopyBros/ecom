@@ -3,80 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shopy Bros - Explore our high-quality products.">
-    <meta name="keywords" content="Shopy Bros, products, bags, shoes">
-    <meta name="author" content="Your Name">
-    <title>Shopy Bros - Product Page</title>
+    <title>Product Page</title>
     <style>
-        /* Basic reset for margins and paddings */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Styling for the navigation bar */
-        .navbar {
-            background-color: #333;
-            padding: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #FF9E01;
-        }
-
-        .navbar img {
-            height: 40px;
-            width: auto;
-        }
-
-        .navbar .title {
-            font-size: 24px;
-            font-weight: bold;
-            flex: 1;
-            text-align: center;
-        }
-
-        .nav-links {
-            list-style-type: none;
-            display: flex;
-            padding: 0;
-        }
-
-        .nav-links li {
-            margin: 0 15px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 10px;
-            display: block;
-        }
-
-        .nav-links a:hover, .nav-links a:focus {
-            background-color: #575757;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 48em) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                margin-top: 1rem;
-            }
-
-            .nav-links li {
-                margin: 0.75rem 0;
-            }
-        }
-
-        /* Styles for product page */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -262,130 +190,115 @@
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar" aria-label="Main Navigation">
-            <a href="#home" aria-label="Home">
-                <img src="SHOPY BROS L.png" alt="Shopy Bros Logo">
-            </a>
-            <div class="title">Mens And Womens Bags</div>
-            <ul class="nav-links">
-                <li><a href="#home" aria-label="Home">Home</a></li>
-                <li><a href="#services" aria-label="Services">Services</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Product Page Content -->
-    <div class="container">
-        <h1>Product Page</h1>
-        <div class="product-wrapper">
-            <!-- Product 1 -->
-            <div class="product">
-                <img src="shoes1.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal1')">
-                <h2>Biker Boots jutta</h2>
-            </div>
+<div class="container">
+    <h1>Product Page</h1>
+    <div class="product-wrapper">
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="shoes1.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal1')">
+            <h2>Biker Boots</h2>
+        </div>
 
-            <!-- Product 2 -->
-            <div class="product">
-                <img src="shoes2.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal2')">
-                <h2>Biker Boots</h2>
-            </div>
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="shoes2.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal2')">
+            <h2>Biker Boots</h2>
         </div>
     </div>
+</div>
 
-    <!-- Modal for Product 1 -->
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal1')">&times;</span>
-            <div class="slider">
-                <div class="slides">
-                    <img src="shoes1.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                    <img src="shoes1.2.jpg" alt="Biker Boots Image 2">
-                    <img src="shoes1.3.jpg" alt="Biker Boots Image 3">
-                </div>
-                <a class="prev" onclick="plusSlides(-1, 'modal1')">&#10094;</a>
-                <a class="next" onclick="plusSlides(1, 'modal1')">&#10095;</a>
+<!-- Modal for Product 1 -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes1.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes1.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes1.3.jpg" alt="Biker Boots Image 3">
             </div>
-            <div class="description">This is the description for Product 1.</div>
-            <div class="price">$100.00</div>
-            <button class="buy-btn">Buy Now</button>
-            <button class="copy-id-btn" onclick="copyId('product1-id')">Copy ID</button>
-            <input type="hidden" id="product1-id" value="PRODUCT1ID123">
+            <a class="prev" onclick="plusSlides(-1, 'modal1')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal1')">&#10095;</a>
         </div>
+        <div class="description">This is the description for Product 1.</div>
+        <div class="price">$100.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product1-id')">Copy ID</button>
+        <input type="hidden" id="product1-id" value="PRODUCT1ID123">
     </div>
+</div>
 
-    <!-- Modal for Product 2 -->
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('modal2')">&times;</span>
-            <div class="slider">
-                <div class="slides">
-                    <img src="shoes2.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                    <img src="shoes2.2.jpg" alt="Biker Boots Image 2">
-                    <img src="shoes2.3.jpg" alt="Biker Boots Image 3">
-                </div>
-                <a class="prev" onclick="plusSlides(-1, 'modal2')">&#10094;</a>
-                <a class="next" onclick="plusSlides(1, 'modal2')">&#10095;</a>
+<!-- Modal for Product 2 -->
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes2.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes2.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes2.3.jpg" alt="Biker Boots Image 3">
             </div>
-            <div class="description">This is the description for Product 2.</div>
-            <div class="price">$200.00</div>
-            <button class="buy-btn">Buy Now</button>
-            <button class="copy-id-btn" onclick="copyId('product2-id')">Copy ID</button>
-            <input type="hidden" id="product2-id" value="PRODUCT2ID456">
+            <a class="prev" onclick="plusSlides(-1, 'modal2')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal2')">&#10095;</a>
         </div>
+        <div class="description">This is the description for Product 2.</div>
+        <div class="price">$200.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product2-id')">Copy ID</button>
+        <input type="hidden" id="product2-id" value="PRODUCT2ID456">
     </div>
+</div>
 
-    <script>
-        let slideIndex = {};
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'block';
+        showSlides(1, modalId); // Show the first slide when opening the modal
+    }
 
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-            if (typeof slideIndex[modalId] === 'undefined') slideIndex[modalId] = 1;
-            showSlides(1, modalId);
-        }
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+    }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
+    function plusSlides(n, modalId) {
+        showSlides(slideIndex[modalId] += n, modalId);
+    }
 
-        function plusSlides(n, modalId) {
-            showSlides(slideIndex[modalId] += n, modalId);
-        }
-
-        function showSlides(n, modalId) {
-            const slides = document.querySelectorAll(`#${modalId} .slides img`);
-            if (n > slides.length) { slideIndex[modalId] = 1 }
-            if (n < 1) { slideIndex[modalId] = slides.length }
-            slides.forEach((slide, index) => {
-                slide.style.display = index + 1 === slideIndex[modalId] ? "block" : "none";
-            });
-        }
-
-        function copyId(id) {
-            const copyText = document.getElementById(id);
-            const range = document.createRange();
-            range.selectNode(copyText);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-            document.execCommand("copy");
-            window.getSelection().removeAllRanges();
-            alert("Copied the ID: " + copyText.value);
-        }
-
-        // Initialize sliders
-        document.querySelectorAll('.slider').forEach(slider => {
-            const prev = slider.querySelector('.prev');
-            const next = slider.querySelector('.next');
-            prev.addEventListener('click', () => plusSlides(-1, slider.closest('.modal').id));
-            next.addEventListener('click', () => plusSlides(1, slider.closest('.modal').id));
+    function showSlides(n, modalId) {
+        const slides = document.querySelectorAll(`#${modalId} .slides img`);
+        if (typeof slideIndex[modalId] === 'undefined') slideIndex[modalId] = 1;
+        if (n > slides.length) { slideIndex[modalId] = 1 }
+        if (n < 1) { slideIndex[modalId] = slides.length }
+        slides.forEach((slide, index) => {
+            slide.style.display = index + 1 === slideIndex[modalId] ? "block" : "none";
         });
+    }
 
-        // Ensure slider starts at first slide
-        document.querySelectorAll('.modal').forEach(modal => {
-            const closeBtn = modal.querySelector('.close');
-            closeBtn.addEventListener('click', () => closeModal(modal.id));
-        });
-    </script>
+    function copyId(id) {
+        const copyText = document.getElementById(id);
+        const range = document.createRange();
+        range.selectNode(copyText);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+        alert("Copied the ID: " + copyText.value);
+    }
+
+    // Initialize sliders
+    document.querySelectorAll('.slider').forEach(slider => {
+        const prev = slider.querySelector('.prev');
+        const next = slider.querySelector('.next');
+        prev.addEventListener('click', () => plusSlides(-1, slider.closest('.modal').id));
+        next.addEventListener('click', () => plusSlides(1, slider.closest('.modal').id));
+    });
+
+    // Ensure slider starts at first slide
+    document.querySelectorAll('.modal').forEach(modal => {
+        const closeBtn = modal.querySelector('.close');
+        closeBtn.addEventListener('click', () => closeModal(modal.id));
+    });
+</script>
+
 </body>
 </html>
