@@ -34,8 +34,8 @@
 
         .navbar-title {
             color: #f2f2f2;
-            font-size: 1.5em;
-            margin-right: auto; /* Pushes the title to the left */
+            font-size: 1.2em; /* Decreased size for the navbar title */
+            margin-right: auto; /* Pushes the title to the left of navigation links */
         }
 
         .navbar a {
@@ -49,6 +49,10 @@
         .navbar a:hover {
             background-color: #ddd;
             color: black;
+        }
+
+        .navbar a:last-child {
+            margin-right: 20px; /* Margin to the right of the last link */
         }
 
         .container {
@@ -74,7 +78,7 @@
         }
 
         .product {
-            width: calc(50% - 20px); /* Two products per row with space */
+            width: calc(20% - 20px); /* Five products per row */
             box-sizing: border-box;
             text-align: center;
             background: #fefefe;
@@ -90,7 +94,7 @@
 
         .product img {
             width: 100%;
-            max-width: 250px;
+            max-width: 200px;
             border: 1px solid #ddd;
             padding: 5px;
             cursor: pointer;
@@ -266,6 +270,54 @@
             <img src="shoes2.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal2')">
             <h2>Biker Boots</h2>
         </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="shoes3.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal3')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product">
+            <img src="shoes4.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal4')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product">
+            <img src="shoes5.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal5')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product">
+            <img src="shoes6.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal6')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product">
+            <img src="shoes7.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal7')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product">
+            <img src="shoes8.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal8')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product">
+            <img src="shoes9.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal9')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product">
+            <img src="shoes10.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal10')">
+            <h2>Biker Boots</h2>
+        </div>
     </div>
 </div>
 
@@ -311,54 +363,197 @@
     </div>
 </div>
 
-<script>
-    const slideIndex = {};
+<!-- Modal for Product 3 -->
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes3.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes3.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes3.3.jpg" alt="Biker Boots Image 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal3')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal3')">&#10095;</a>
+        </div>
+        <div class="description">This is the description for Product 3.</div>
+        <div class="price">$150.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product3-id')">Copy ID</button>
+        <input type="hidden" id="product3-id" value="PRODUCT3ID789">
+    </div>
+</div>
 
+<!-- Modal for Product 4 -->
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes4.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes4.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes4.3.jpg" alt="Biker Boots Image 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal4')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal4')">&#10095;</a>
+        </div>
+        <div class="description">This is the description for Product 4.</div>
+        <div class="price">$120.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product4-id')">Copy ID</button>
+        <input type="hidden" id="product4-id" value="PRODUCT4ID012">
+    </div>
+</div>
+
+<!-- Modal for Product 5 -->
+<div id="modal5" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal5')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes5.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes5.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes5.3.jpg" alt="Biker Boots Image 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal5')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal5')">&#10095;</a>
+        </div>
+        <div class="description">This is the description for Product 5.</div>
+        <div class="price">$130.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product5-id')">Copy ID</button>
+        <input type="hidden" id="product5-id" value="PRODUCT5ID345">
+    </div>
+</div>
+
+<!-- Modal for Product 6 -->
+<div id="modal6" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal6')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes6.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes6.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes6.3.jpg" alt="Biker Boots Image 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal6')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal6')">&#10095;</a>
+        </div>
+        <div class="description">This is the description for Product 6.</div>
+        <div class="price">$110.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product6-id')">Copy ID</button>
+        <input type="hidden" id="product6-id" value="PRODUCT6ID678">
+    </div>
+</div>
+
+<!-- Modal for Product 7 -->
+<div id="modal7" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal7')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes7.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes7.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes7.3.jpg" alt="Biker Boots Image 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal7')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal7')">&#10095;</a>
+        </div>
+        <div class="description">This is the description for Product 7.</div>
+        <div class="price">$140.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product7-id')">Copy ID</button>
+        <input type="hidden" id="product7-id" value="PRODUCT7ID901">
+    </div>
+</div>
+
+<!-- Modal for Product 8 -->
+<div id="modal8" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal8')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes8.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes8.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes8.3.jpg" alt="Biker Boots Image 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal8')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal8')">&#10095;</a>
+        </div>
+        <div class="description">This is the description for Product 8.</div>
+        <div class="price">$170.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product8-id')">Copy ID</button>
+        <input type="hidden" id="product8-id" value="PRODUCT8ID234">
+    </div>
+</div>
+
+<!-- Modal for Product 9 -->
+<div id="modal9" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal9')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes9.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes9.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes9.3.jpg" alt="Biker Boots Image 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal9')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal9')">&#10095;</a>
+        </div>
+        <div class="description">This is the description for Product 9.</div>
+        <div class="price">$160.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product9-id')">Copy ID</button>
+        <input type="hidden" id="product9-id" value="PRODUCT9ID567">
+    </div>
+</div>
+
+<!-- Modal for Product 10 -->
+<div id="modal10" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal10')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes10.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes10.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes10.3.jpg" alt="Biker Boots Image 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal10')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal10')">&#10095;</a>
+        </div>
+        <div class="description">This is the description for Product 10.</div>
+        <div class="price">$180.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product10-id')">Copy ID</button>
+        <input type="hidden" id="product10-id" value="PRODUCT10ID678">
+    </div>
+</div>
+
+<script>
     function openModal(modalId) {
-        document.getElementById(modalId).style.display = 'block';
-        showSlides(1, modalId); // Show the first slide when opening the modal
+        document.getElementById(modalId).style.display = "block";
     }
 
     function closeModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
+        document.getElementById(modalId).style.display = "none";
     }
 
     function plusSlides(n, modalId) {
-        showSlides(slideIndex[modalId] += n, modalId);
-    }
-
-    function showSlides(n, modalId) {
-        const slides = document.querySelectorAll(`#${modalId} .slides img`);
-        if (typeof slideIndex[modalId] === 'undefined') slideIndex[modalId] = 1;
-        if (n > slides.length) { slideIndex[modalId] = 1 }
-        if (n < 1) { slideIndex[modalId] = slides.length }
-        slides.forEach((slide, index) => {
-            slide.style.display = index + 1 === slideIndex[modalId] ? "block" : "none";
-        });
+        const slides = document.querySelector(`#${modalId} .slides`);
+        const images = slides.querySelectorAll('img');
+        let currentIndex = Array.from(images).findIndex(img => img.style.display === 'block');
+        images[currentIndex].style.display = 'none';
+        currentIndex = (currentIndex + n + images.length) % images.length;
+        images[currentIndex].style.display = 'block';
     }
 
     function copyId(id) {
         const copyText = document.getElementById(id);
-        const range = document.createRange();
-        range.selectNode(copyText);
-        window.getSelection().removeAllRanges();
-        window.getSelection().addRange(range);
+        copyText.select();
         document.execCommand("copy");
-        window.getSelection().removeAllRanges();
-        alert("Copied the ID: " + copyText.value);
     }
-
-    document.querySelectorAll('.modal').forEach(modal => {
-        const closeBtn = modal.querySelector('.close');
-        closeBtn.addEventListener('click', () => closeModal(modal.id));
-    });
-
-    document.querySelectorAll('.slider').forEach(slider => {
-        const prev = slider.querySelector('.prev');
-        const next = slider.querySelector('.next');
-        prev.addEventListener('click', () => plusSlides(-1, slider.closest('.modal').id));
-        next.addEventListener('click', () => plusSlides(1, slider.closest('.modal').id));
-    });
 </script>
 
 </body>
