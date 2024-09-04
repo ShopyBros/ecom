@@ -10,47 +10,8 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            height: 100%;
-            overflow: auto; /* Ensure scrolling is enabled */
-        }
-
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #333;
-            padding: 10px 20px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .navbar .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar .logo img {
-            height: 40px; /* Adjust logo size */
-            margin-right: 10px;
-        }
-
-        .navbar .title {
-            font-size: 1em; /* Smaller title size */
-            margin-right: auto; /* Push the links to the right */
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px; /* Adjust space between links */
-        }
-
-        .navbar a.contact {
-            margin-right: 10px; /* Add margin to the right of the contact link */
+            height: 100vh;
+            overflow: auto; /* Changed to allow scrolling */
         }
 
         .container {
@@ -59,17 +20,18 @@
             background: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             box-sizing: border-box;
-            margin-top: 60px; /* Ensure the content is not hidden behind the navbar */
+            margin-top: 60px; /* Adjusted to ensure content isn't hidden behind navbar */
         }
 
         .product-wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: center;
         }
 
         .product {
-            width: calc(50% - 20px); /* Adjust to fit 2 products per row on mobile */
+            width: calc(25% - 20px); /* Changed to fit 4 products in a row on larger screens */
             box-sizing: border-box;
             text-align: center;
             background: #fefefe;
@@ -116,7 +78,7 @@
             margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Set modal width to 80% */
+            width: 80%;
             max-width: 800px;
             position: relative;
             border-radius: 8px;
@@ -211,40 +173,85 @@
             margin-top: 10px;
         }
 
-        @media (max-width: 768px) {
-            .product {
-                width: calc(50% - 20px); /* Ensure 2 products per row */
-            }
+        /* Navbar styles */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px 20px;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        @media (max-width: 480px) {
-            .navbar .title {
-                font-size: 0.9em; /* Adjust title size */
+        .navbar-logo {
+            height: 40px;
+        }
+
+        .navbar-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .navbar-link {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+
+        .navbar-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px); /* Ensure 2 products per row on mobile */
             }
 
-            .navbar a {
-                margin-left: 15px; /* Adjust spacing */
+            .modal-content {
+                width: 90%;
             }
 
-            .navbar a.contact {
-                margin-right: 5px; /* Adjust spacing */
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-title {
+                font-size: 1em;
+                margin: 10px 0;
+            }
+
+            .navbar-links {
+                justify-content: flex-end;
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
-<div class="navbar">
-    <div class="logo">
-        <img src="logo.png" alt="Logo">
+<nav>
+    <img src="logo.png" alt="Logo" class="navbar-logo">
+    <div class="navbar-title">Product Page</div>
+    <div class="navbar-links">
+        <a href="#home" class="navbar-link">Home</a>
+        <a href="#contact" class="navbar-link">Contact</a>
     </div>
-    <div class="title">Product Page</div>
-    <a href="home.html">Home</a>
-    <a href="contact.html" class="contact">Contact</a>
-</div>
+</nav>
 
-<!-- Product Container -->
 <div class="container">
     <div class="product-wrapper">
         <!-- Product 1 -->
@@ -306,22 +313,9 @@
             <img src="shoes10.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal10')">
             <h2>Biker Boots</h2>
         </div>
-
-        <!-- Product 11 -->
-        <div class="product">
-            <img src="shoes11.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal11')">
-            <h2>Biker Boots</h2>
-        </div>
-
-        <!-- Product 12 -->
-        <div class="product">
-            <img src="shoes12.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal12')">
-            <h2>Biker Boots</h2>
-        </div>
     </div>
 </div>
 
-<!-- Modals for Products -->
 <!-- Modal for Product 1 -->
 <div id="modal1" class="modal">
     <div class="modal-content">
@@ -343,11 +337,14 @@
     </div>
 </div>
 
-<!-- More modals for products (e.g., modal2, modal3, etc.)... -->
+<!-- Repeat similar structure for other modals: modal2, modal3, ..., modal10 -->
 
 <script>
+    var slideIndex = {}; // Object to keep track of slide indices for different modals
+
     function openModal(modalId) {
         document.getElementById(modalId).style.display = "block";
+        showSlides(1, modalId); // Show the first slide when opening the modal
     }
 
     function closeModal(modalId) {
@@ -355,26 +352,50 @@
     }
 
     function plusSlides(n, modalId) {
-        var slideIndex = 0;
-        var slides = document.getElementById(modalId).getElementsByClassName("slides")[0].getElementsByTagName("img");
-        if (n > 0) {
-            slideIndex++;
-            if (slideIndex >= slides.length) slideIndex = 0;
-        } else {
-            slideIndex--;
-            if (slideIndex < 0) slideIndex = slides.length - 1;
-        }
-        for (var i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slides[slideIndex].style.display = "block";
+        showSlides((slideIndex[modalId] || 1) + n, modalId);
+    }
+
+    function showSlides(n, modalId) {
+        var slides = document.querySelectorAll(`#${modalId} .slides img`);
+        if (slides.length === 0) return; // No slides to show
+        if (!slideIndex[modalId]) slideIndex[modalId] = 1;
+        
+        // Adjust slideIndex to be within bounds
+        if (n > slides.length) slideIndex[modalId] = 1;
+        else if (n < 1) slideIndex[modalId] = slides.length;
+        else slideIndex[modalId] = n;
+        
+        // Hide all slides
+        slides.forEach((slide, index) => {
+            slide.style.display = (index + 1 === slideIndex[modalId]) ? "block" : "none";
+        });
     }
 
     function copyId(id) {
         var copyText = document.getElementById(id);
-        copyText.select();
+        var range = document.createRange();
+        range.selectNode(copyText);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
         document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+        alert("Copied the ID: " + copyText.value);
     }
+
+    // Initialize sliders
+    document.querySelectorAll('.slider').forEach(slider => {
+        const prev = slider.querySelector('.prev');
+        const next = slider.querySelector('.next');
+        const modalId = slider.closest('.modal').id;
+        prev.addEventListener('click', () => plusSlides(-1, modalId));
+        next.addEventListener('click', () => plusSlides(1, modalId));
+    });
+
+    // Ensure slider starts at first slide
+    document.querySelectorAll('.modal').forEach(modal => {
+        const closeBtn = modal.querySelector('.close');
+        closeBtn.addEventListener('click', () => closeModal(modal.id));
+    });
 </script>
 
 </body>
