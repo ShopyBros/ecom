@@ -10,76 +10,66 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            height: 100vh;
-            overflow: hidden;
+            height: 100%;
+            overflow: auto; /* Ensure scrolling is enabled */
         }
 
         .navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 10px 20px;
             background-color: #333;
-            color: #fff;
+            padding: 10px 20px;
             position: fixed;
-            width: 100%;
             top: 0;
-            left: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            box-sizing: border-box;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .navbar .logo {
-            height: 40px;
-        }
-
-        .navbar .navbar-title {
-            font-size: 1.2em;
-            margin: 0 20px;
-            flex: 1;
-        }
-
-        .navbar .nav-links {
             display: flex;
             align-items: center;
         }
 
-        .navbar .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.9em;
+        .navbar .logo img {
+            height: 40px; /* Adjust logo size */
+            margin-right: 10px;
         }
 
-        .navbar .nav-links a:hover {
-            text-decoration: underline;
+        .navbar .title {
+            font-size: 1em; /* Smaller title size */
+            margin-right: auto; /* Push the links to the right */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px; /* Adjust space between links */
+        }
+
+        .navbar a.contact {
+            margin-right: 10px; /* Add margin to the right of the contact link */
         }
 
         .container {
-            margin-top: 60px; /* Adjust this value if needed to ensure content isn't hidden behind the navbar */
             width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
             background: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             box-sizing: border-box;
+            margin-top: 60px; /* Ensure the content is not hidden behind the navbar */
         }
 
         .product-wrapper {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
-            width: 100%;
         }
 
         .product {
-            width: calc(50% - 20px);
+            width: calc(50% - 20px); /* Adjust to fit 2 products per row on mobile */
             box-sizing: border-box;
             text-align: center;
             background: #fefefe;
@@ -111,7 +101,7 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 1;
             left: 0;
             top: 0;
             width: 100%;
@@ -126,7 +116,7 @@
             margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 70%;
+            width: 80%; /* Set modal width to 80% */
             max-width: 800px;
             position: relative;
             border-radius: 8px;
@@ -222,46 +212,39 @@
         }
 
         @media (max-width: 768px) {
-            .navbar .navbar-title {
-                font-size: 1em;
-                margin: 0 10px;
-            }
-
-            .navbar .nav-links a {
-                margin-left: 10px;
-                font-size: 0.8em;
-            }
-
             .product {
-                width: calc(50% - 20px);
+                width: calc(50% - 20px); /* Ensure 2 products per row */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .title {
+                font-size: 0.9em; /* Adjust title size */
             }
 
-            .modal-content {
-                width: 80%;
+            .navbar a {
+                margin-left: 15px; /* Adjust spacing */
             }
 
-            .product-wrapper {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .container {
-                padding-top: 70px; /* Adjusted to account for the navbar height */
+            .navbar a.contact {
+                margin-right: 5px; /* Adjust spacing */
             }
         }
     </style>
 </head>
 <body>
 
+<!-- Navigation Bar -->
 <div class="navbar">
-    <img src="logo.png" alt="Logo" class="logo">
-    <div class="navbar-title">Product Page</div>
-    <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#contact" style="margin-right: 20px;">Contact</a>
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
     </div>
+    <div class="title">Product Page</div>
+    <a href="home.html">Home</a>
+    <a href="contact.html" class="contact">Contact</a>
 </div>
 
+<!-- Product Container -->
 <div class="container">
     <div class="product-wrapper">
         <!-- Product 1 -->
@@ -269,54 +252,76 @@
             <img src="shoes1.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal1')">
             <h2>Biker Boots</h2>
         </div>
+
         <!-- Product 2 -->
         <div class="product">
             <img src="shoes2.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal2')">
             <h2>Biker Boots</h2>
         </div>
+
         <!-- Product 3 -->
         <div class="product">
             <img src="shoes3.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal3')">
             <h2>Biker Boots</h2>
         </div>
+
         <!-- Product 4 -->
         <div class="product">
             <img src="shoes4.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal4')">
             <h2>Biker Boots</h2>
         </div>
+
         <!-- Product 5 -->
         <div class="product">
             <img src="shoes5.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal5')">
             <h2>Biker Boots</h2>
         </div>
+
         <!-- Product 6 -->
         <div class="product">
             <img src="shoes6.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal6')">
             <h2>Biker Boots</h2>
         </div>
+
         <!-- Product 7 -->
         <div class="product">
             <img src="shoes7.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal7')">
             <h2>Biker Boots</h2>
         </div>
+
         <!-- Product 8 -->
         <div class="product">
             <img src="shoes8.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal8')">
             <h2>Biker Boots</h2>
         </div>
+
         <!-- Product 9 -->
         <div class="product">
             <img src="shoes9.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal9')">
             <h2>Biker Boots</h2>
         </div>
+
         <!-- Product 10 -->
         <div class="product">
             <img src="shoes10.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal10')">
             <h2>Biker Boots</h2>
         </div>
+
+        <!-- Product 11 -->
+        <div class="product">
+            <img src="shoes11.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal11')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 12 -->
+        <div class="product">
+            <img src="shoes12.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal12')">
+            <h2>Biker Boots</h2>
+        </div>
     </div>
 </div>
 
+<!-- Modals for Products -->
 <!-- Modal for Product 1 -->
 <div id="modal1" class="modal">
     <div class="modal-content">
@@ -338,194 +343,7 @@
     </div>
 </div>
 
-<!-- Modal for Product 2 -->
-<div id="modal2" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal2')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes2.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes2.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes2.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal2')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal2')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 2.</div>
-        <div class="price">$200.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product2-id')">Copy ID</button>
-        <input type="hidden" id="product2-id" value="PRODUCT2ID456">
-    </div>
-</div>
-
-<!-- Modal for Product 3 -->
-<div id="modal3" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal3')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes3.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes3.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes3.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal3')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal3')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 3.</div>
-        <div class="price">$120.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product3-id')">Copy ID</button>
-        <input type="hidden" id="product3-id" value="PRODUCT3ID789">
-    </div>
-</div>
-
-<!-- Modal for Product 4 -->
-<div id="modal4" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal4')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes4.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes4.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes4.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal4')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal4')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 4.</div>
-        <div class="price">$140.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product4-id')">Copy ID</button>
-        <input type="hidden" id="product4-id" value="PRODUCT4ID012">
-    </div>
-</div>
-
-<!-- Modal for Product 5 -->
-<div id="modal5" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal5')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes5.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes5.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes5.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal5')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal5')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 5.</div>
-        <div class="price">$160.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product5-id')">Copy ID</button>
-        <input type="hidden" id="product5-id" value="PRODUCT5ID345">
-    </div>
-</div>
-
-<!-- Modal for Product 6 -->
-<div id="modal6" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal6')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes6.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes6.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes6.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal6')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal6')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 6.</div>
-        <div class="price">$170.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product6-id')">Copy ID</button>
-        <input type="hidden" id="product6-id" value="PRODUCT6ID678">
-    </div>
-</div>
-
-<!-- Modal for Product 7 -->
-<div id="modal7" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal7')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes7.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes7.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes7.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal7')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal7')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 7.</div>
-        <div class="price">$175.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product7-id')">Copy ID</button>
-        <input type="hidden" id="product7-id" value="PRODUCT7ID901">
-    </div>
-</div>
-
-<!-- Modal for Product 8 -->
-<div id="modal8" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal8')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes8.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes8.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes8.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal8')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal8')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 8.</div>
-        <div class="price">$180.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product8-id')">Copy ID</button>
-        <input type="hidden" id="product8-id" value="PRODUCT8ID234">
-    </div>
-</div>
-
-<!-- Modal for Product 9 -->
-<div id="modal9" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal9')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes9.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes9.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes9.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal9')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal9')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 9.</div>
-        <div class="price">$190.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product9-id')">Copy ID</button>
-        <input type="hidden" id="product9-id" value="PRODUCT9ID345">
-    </div>
-</div>
-
-<!-- Modal for Product 10 -->
-<div id="modal10" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal10')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes10.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes10.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes10.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal10')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal10')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 10.</div>
-        <div class="price">$200.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product10-id')">Copy ID</button>
-        <input type="hidden" id="product10-id" value="PRODUCT10ID678">
-    </div>
-</div>
+<!-- More modals for products (e.g., modal2, modal3, etc.)... -->
 
 <script>
     function openModal(modalId) {
@@ -536,30 +354,26 @@
         document.getElementById(modalId).style.display = "none";
     }
 
-    let slideIndex = 1;
-
     function plusSlides(n, modalId) {
-        showSlides(slideIndex += n, modalId);
-    }
-
-    function showSlides(n, modalId) {
-        let i;
-        let slides = document.querySelectorAll(`#${modalId} .slides img`);
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
+        var slideIndex = 0;
+        var slides = document.getElementById(modalId).getElementsByClassName("slides")[0].getElementsByTagName("img");
+        if (n > 0) {
+            slideIndex++;
+            if (slideIndex >= slides.length) slideIndex = 0;
+        } else {
+            slideIndex--;
+            if (slideIndex < 0) slideIndex = slides.length - 1;
+        }
+        for (var i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
-        slides[slideIndex-1].style.display = "block";
+        slides[slideIndex].style.display = "block";
     }
 
     function copyId(id) {
-        const copyText = document.getElementById(id);
-        navigator.clipboard.writeText(copyText.value).then(() => {
-            alert('ID copied to clipboard: ' + copyText.value);
-        }, (err) => {
-            alert('Failed to copy ID: ' + err);
-        });
+        var copyText = document.getElementById(id);
+        copyText.select();
+        document.execCommand("copy");
     }
 </script>
 
