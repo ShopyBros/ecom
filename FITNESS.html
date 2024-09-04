@@ -3,54 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Page</title>
+    <title>Prime Bazzar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            height: 100%;
-            overflow: auto; /* Ensure scrolling is enabled */
-        }
-
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #333;
-            padding: 10px 20px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .navbar .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .navbar .logo img {
-            height: 40px; /* Adjust logo size */
-            margin-right: 10px;
-        }
-
-        .navbar .title {
-            font-size: 1em; /* Smaller title size */
-            margin-right: auto; /* Push the links to the right */
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px; /* Adjust space between links */
-        }
-
-        .navbar a.contact {
-            margin-right: 10px; /* Add margin to the right of the contact link */
+            height: 100vh;
+            overflow: auto; /* Changed to allow scrolling */
         }
 
         .container {
@@ -59,17 +20,18 @@
             background: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             box-sizing: border-box;
-            margin-top: 60px; /* Ensure the content is not hidden behind the navbar */
+            margin-top: 60px; /* Adjusted to ensure content isn't hidden behind navbar */
         }
 
         .product-wrapper {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+            justify-content: center;
         }
 
         .product {
-            width: calc(50% - 20px); /* Adjust to fit 2 products per row on mobile */
+            width: calc(25% - 20px); /* Changed to fit 4 products in a row on larger screens */
             box-sizing: border-box;
             text-align: center;
             background: #fefefe;
@@ -116,7 +78,7 @@
             margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Set modal width to 80% */
+            width: 80%;
             max-width: 800px;
             position: relative;
             border-radius: 8px;
@@ -211,39 +173,81 @@
             margin-top: 10px;
         }
 
-        @media (max-width: 768px) {
-            .product {
-                width: calc(50% - 20px); /* Ensure 2 products per row */
-            }
+        /* Navbar styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adds shadow for better visibility */
         }
 
-        @media (max-width: 480px) {
-            .navbar .title {
-                font-size: 0.9em; /* Adjust title size */
+        .navbar img {
+            height: 40px;
+            margin-right: 20px;
+        }
+
+        .navbar-title {
+            color: #f2f2f2;
+            font-size: 1.2em;
+            margin-right: auto;
+            font-weight: bold; /* Makes the title stand out more */
+        }
+
+        .navbar a {
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px); /* Ensure 2 products per row on mobile */
             }
 
-            .navbar a {
-                margin-left: 15px; /* Adjust spacing */
+            .modal-content {
+                width: 90%;
             }
 
-            .navbar a.contact {
-                margin-right: 5px; /* Adjust spacing */
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .navbar-title {
+                font-size: 1em;
+                margin: 10px 0;
+            }
+
+            .navbar a:last-child {
+                margin-right: 0; /* Remove margin for the last link on mobile */
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
 <div class="navbar">
-    <div class="logo">
-        <img src="logo.png" alt="Logo">
-    </div>
-    <div class="title">Product Page</div>
-    <a href="home.html">Home</a>
+    <img src="SHOPY BROS L.png" alt="Shop Logo">
+    <div class="navbar-title">Prime Bazzar</div>
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
 </div>
 
-<!-- Product Container -->
 <div class="container">
     <div class="product-wrapper">
         <!-- Product 1 -->
@@ -305,22 +309,9 @@
             <img src="shoes10.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal10')">
             <h2>Biker Boots</h2>
         </div>
-
-        <!-- Product 11 -->
-        <div class="product">
-            <img src="shoes11.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal11')">
-            <h2>Biker Boots</h2>
-        </div>
-
-        <!-- Product 12 -->
-        <div class="product">
-            <img src="shoes12.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal12')">
-            <h2>Biker Boots</h2>
-        </div>
     </div>
 </div>
 
-<!-- Modals for Products -->
 <!-- Modal for Product 1 -->
 <div id="modal1" class="modal">
     <div class="modal-content">
@@ -341,29 +332,8 @@
         <input type="hidden" id="product1-id" value="PRODUCT1ID123">
     </div>
 </div>
-    <!-- Modal for Product 1 -->
-<div id="modal2" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal1')">&times;</span>
-        <div class="slider">
-            <div class="slides">
-                <img src="shoes2.1.jpg" alt="Biker Boots Image 1" style="display: block;">
-                <img src="shoes2.2.jpg" alt="Biker Boots Image 2">
-                <img src="shoes2.3.jpg" alt="Biker Boots Image 3">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal1')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal1')">&#10095;</a>
-        </div>
-        <div class="description">This is the description for Product 1.</div>
-        <div class="price">$100.00</div>
-        <button class="buy-btn">Buy Now</button>
-        <button class="copy-id-btn" onclick="copyId('product1-id')">Copy ID</button>
-        <input type="hidden" id="product1-id" value="PRODUCT1ID123">
-    </div>
-</div>
 
-
-<!-- More modals for products (e.g., modal2, modal3, etc.)... -->
+<!-- Repeat similar structure for other modals: modal2, modal3, ..., modal10 -->
 
 <script>
     var slideIndex = {}; // Object to keep track of slide indices for different modals
@@ -383,11 +353,17 @@
 
     function showSlides(n, modalId) {
         var slides = document.querySelectorAll(`#${modalId} .slides img`);
+        if (slides.length === 0) return; // No slides to show
         if (!slideIndex[modalId]) slideIndex[modalId] = 1;
+        
+        // Adjust slideIndex to be within bounds
         if (n > slides.length) slideIndex[modalId] = 1;
-        if (n < 1) slideIndex[modalId] = slides.length;
+        else if (n < 1) slideIndex[modalId] = slides.length;
+        else slideIndex[modalId] = n;
+        
+        // Hide all slides
         slides.forEach((slide, index) => {
-            slide.style.display = index + 1 === slideIndex[modalId] ? "block" : "none";
+            slide.style.display = (index + 1 === slideIndex[modalId]) ? "block" : "none";
         });
     }
 
@@ -406,8 +382,9 @@
     document.querySelectorAll('.slider').forEach(slider => {
         const prev = slider.querySelector('.prev');
         const next = slider.querySelector('.next');
-        prev.addEventListener('click', () => plusSlides(-1, slider.closest('.modal').id));
-        next.addEventListener('click', () => plusSlides(1, slider.closest('.modal').id));
+        const modalId = slider.closest('.modal').id;
+        prev.addEventListener('click', () => plusSlides(-1, modalId));
+        next.addEventListener('click', () => plusSlides(1, modalId));
     });
 
     // Ensure slider starts at first slide
