@@ -68,13 +68,13 @@
             float: right;
             font-size: 28px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         .close:hover,
         .close:focus {
             color: black;
             text-decoration: none;
-            cursor: pointer;
         }
 
         .slider {
@@ -85,6 +85,8 @@
 
         .slides {
             display: flex;
+            overflow: hidden;
+            position: relative;
         }
 
         .slides img {
@@ -102,10 +104,11 @@
             margin-top: -22px;
             color: white;
             font-weight: bold;
-            font-size: 18px;
+            font-size: 24px;
             transition: 0.6s ease;
             border-radius: 0 3px 3px 0;
             user-select: none;
+            background-color: rgba(0,0,0,0.5);
         }
 
         .next {
@@ -153,13 +156,13 @@
     <div class="product-wrapper">
         <!-- Product 1 -->
         <div class="product">
-            <h2>Biker Boots</h2>
+            <h2>Product 1</h2>
             <img src="shoes1.1.jpg" alt="Product 1 Thumbnail" onclick="openModal('modal1')">
         </div>
 
         <!-- Product 2 -->
         <div class="product">
-            <h2>Boots</h2>
+            <h2>Product 2</h2>
             <img src="shoes2.1.jpg" alt="Product 2 Thumbnail" onclick="openModal('modal2')">
         </div>
     </div>
@@ -191,13 +194,13 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal2')">&times;</span>
         <div class="slider">
-            </div>
-            <a class="prev" onclick="plusSlides(-1, 'modal2')">&#10094;</a>
-            <a class="next" onclick="plusSlides(1, 'modal2')">&#10095;</a>
             <div class="slides">
                 <img src="shoes2.1.jpg" alt="Product 2 Image 1" style="display: block;">
                 <img src="shoes2.2.jpg" alt="Product 2 Image 2">
                 <img src="shoes2.3.jpg" alt="Product 2 Image 3">
+            </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal2')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal2')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 2.</div>
         <div class="price">$200.00</div>
@@ -208,8 +211,11 @@
 </div>
 
 <script>
+    let slideIndex = 1;
+
     function openModal(modalId) {
         document.getElementById(modalId).style.display = 'block';
+        showSlides(1, modalId); // Show the first slide when opening the modal
     }
 
     function closeModal(modalId) {
@@ -221,14 +227,12 @@
     }
 
     function showSlides(n, modalId) {
-        let i;
         const slides = document.querySelectorAll(`#${modalId} .slides img`);
         if (n > slides.length) { slideIndex = 1 }
         if (n < 1) { slideIndex = slides.length }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slides[slideIndex - 1].style.display = "block";
+        slides.forEach((slide, index) => {
+            slide.style.display = index + 1 === slideIndex ? "block" : "none";
+        });
     }
 
     function copyId(id) {
@@ -239,14 +243,11 @@
     }
 
     // Initialize sliders
-    showSlides(slideIndex, 'modal1');
-    showSlides(slideIndex, 'modal2');
-    
-    // Reset slideIndex when closing modals
-    document.querySelectorAll('.close').forEach(btn => {
-        btn.addEventListener('click', function() {
-            slideIndex = 1; // Reset slide index on modal close
-        });
+    document.querySelectorAll('.slider').forEach(slider => {
+        const prev = slider.querySelector('.prev');
+        const next = slider.querySelector('.next');
+        prev.addEventListener('click', () => plusSlides(-1, slider.closest('.modal').id));
+        next.addEventListener('click', () => plusSlides(1, slider.closest('.modal').id));
     });
 </script>
 
