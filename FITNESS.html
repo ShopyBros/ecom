@@ -3,485 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shopy Bros - Explore our high-quality services.">
-    <meta name="keywords" content="Shopy Bros, services, portfolio, testimonials, team">
-    <meta name="author" content="Your Name">
-    <title>Shopy Bros - Home</title>
+    <title>Product Page</title>
     <style>
-        /* Basic reset for margins and paddings */
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f4f4f4;
+            height: 100%;
+            overflow: auto; /* Ensure scrolling is enabled */
         }
 
-        /* Styling for the navigation bar */
         .navbar {
-            background-color: #333;
-            padding: 10px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            color: #FF9E01;
+            justify-content: space-between;
+            background-color: #333;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .navbar img {
-            height: 40px;
-            width: auto;
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 40px; /* Adjust logo size */
+            margin-right: 10px;
         }
 
         .navbar .title {
-            font-size: 24px;
-            font-weight: bold;
-            flex: 1;
-            text-align: center;
+            font-size: 1em; /* Smaller title size */
+            margin-right: auto; /* Push the links to the right */
         }
 
-        .nav-links {
-            list-style-type: none;
-            display: flex;
-            padding: 0;
-        }
-
-        .nav-links li {
-            margin: 0 15px;
-        }
-
-        .nav-links a {
+        .navbar a {
             color: white;
             text-decoration: none;
-            font-size: 18px;
-            padding: 10px;
-            display: block;
+            margin-left: 20px; /* Adjust space between links */
         }
 
-        .nav-links a:hover, .nav-links a:focus {
-            background-color: #575757;
-            border-radius: 5px;
+        .navbar a.contact {
+            margin-right: 10px; /* Add margin to the right of the contact link */
         }
 
-        .video-section {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: #f4f4f4;
+        .container {
+            width: 100%;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            margin-top: 60px; /* Ensure the content is not hidden behind the navbar */
         }
 
-        .video-section video {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .video-section h2 {
-            margin-bottom: 1rem;
-            font-size: 1.75rem;
-        }
-
-        .products {
-            padding: 1.5rem;
-            background-color: #f4f4f4;
+        .product-wrapper {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 20px;
         }
 
-        .product-item {
-            display: flex;
-            flex-direction: column;
-            width: calc(25% - 1.5rem);
+        .product {
+            width: calc(50% - 20px); /* Adjust to fit 2 products per row on mobile */
+            box-sizing: border-box;
+            text-align: center;
+            background: #fefefe;
+            padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 0.625rem;
-            padding: 1.5rem;
-            text-align: left;
-            background-color: #fff;
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            position: relative;
+            border-radius: 8px;
+            transition: box-shadow 0.3s ease;
         }
 
-        .product-item img {
+        .product:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .product img {
             width: 100%;
-            height: auto;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .product-slider {
-            position: relative;
-            overflow: hidden;
-            height: 15rem;
-            margin-bottom: 1rem;
-        }
-
-        .slider-images {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .slider-images img {
-            width: 100%;
-            height: auto;
-        }
-
-        .slider-buttons {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-        }
-
-        .slider-button {
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            color: white;
-            padding: 0.75rem;
+            max-width: 250px;
+            border: 1px solid #ddd;
+            padding: 5px;
             cursor: pointer;
-            font-size: 1.25rem;
+            border-radius: 8px;
         }
 
-        .slider-button:hover, .slider-button:focus {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .product-item h3 {
-            font-size: 1.5rem;
-            margin: 0.75rem 0;
-        }
-
-        .product-item p {
-            font-size: 1.25rem;
+        .product h2 {
+            font-size: 1.2em;
+            margin-top: 10px;
             color: #333;
         }
 
-        .product-description {
-            font-size: 1.125rem;
-            color: #666;
-            margin: 0.75rem 0;
-        }
-
-        .more-description {
+        .modal {
             display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
         }
 
-        .show-more-button {
-            background-color: #d9d9d9;
-            color: black;
-            padding: 0.75rem 1.25rem;
-            text-decoration: none;
-            border-radius: 0.375rem;
-            font-size: 1rem;
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Set modal width to 80% */
+            max-width: 800px;
+            position: relative;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
             cursor: pointer;
-            border: none;
-            margin-bottom: 0.5rem; /* Space between See More and button row */
-            display: block;
-            text-align: center;
         }
 
-        .show-more-button:hover, .show-more-button:focus {
-            background-color: #a6a6a6;
-        }
-
-        .button-container {
-            display: flex;
-            gap: 0.5rem; /* Space between buttons */
-            margin-top: 0.5rem; /* Space above the button container */
-        }
-
-        .buy-button, .copy-id-button {
-            display: inline-block;
-            padding: 0.5rem 1rem; /* Smaller padding for reduced button size */
+        .close:hover,
+        .close:focus {
+            color: black;
             text-decoration: none;
-            border-radius: 0.375rem;
-            font-size: 1rem; /* Smaller font size */
-            text-align: center;
         }
 
-        .buy-button {
-            background-color: black;
-            color: White;
-            border: 2px solid #000;
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
         }
 
-        .buy-button:hover, .buy-button:focus {
-            background-color: #000;
+        .slides {
+            display: flex;
+            overflow: hidden;
+            position: relative;
         }
 
-        .copy-id-button {
-            background-color: white;
-            color: #000;
-            border: 2px solid #000;
+        .slides img {
+            width: 100%;
+            display: none;
+            border-radius: 8px;
         }
-        
-        @media (max-width: 48em) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .buy-btn, .copy-id-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+
+        .copy-id-btn {
+            background-color: #008CBA;
+        }
+
+        .description, .price {
+            margin-top: 10px;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .copy-id-btn {
+            display: block;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px); /* Ensure 2 products per row */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .title {
+                font-size: 0.9em; /* Adjust title size */
             }
 
-            .nav-links {
-                flex-direction: column;
-                margin-top: 1rem;
+            .navbar a {
+                margin-left: 15px; /* Adjust spacing */
             }
 
-            .nav-links li {
-                margin: 0.75rem 0;
-            }
-
-            .products {
-                padding: 1rem;
-            }
-
-            .product-item {
-                width: 100%;
-                margin: 1rem 0;
-            }
-
-            .button-container {
-                flex-direction: column; /* Stack buttons vertically on smaller screens */
-            }
-
-            .button-container a {
-                margin-bottom: 0.5rem; /* Space between stacked buttons */
+            .navbar a.contact {
+                margin-right: 5px; /* Adjust spacing */
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="navbar" aria-label="Main Navigation">
-            <a href="#home" aria-label="Home">
-                <img src="SHOPY BROS L.png" alt="Cadd Plans Logo">
-            </a>
-            <div class="title">Fitness</div>
-            <ul class="nav-links">
-                <li><a href="#home" aria-label="Home">Home</a></li>
-                <li><a href="#services" aria-label="Services">Services</a></li>
-                
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section class="video-section">
-            <h2>How to Buy Our Products</h2>
-            <video controls>
-                <source src="videos/how-to-buy.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <p>Watch this video to learn how to purchase our products easily.</p>
-        </section>
-        
-        <section class="products" id="products">
-            <!-- Product 1 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="Mens bag1.1.jpg" alt="Product 1 - Image 1">
-                        <img src="Mens bag1.2.jpg" alt="Product 1 - Image 2">
-                        <img src="Mens bag1.3.jpg" alt="Product 1 - Image 3">
-                        <img src="Mens bag1.4.jpg" alt="Product 1 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 1</h3>
-                <p>Price: ₹500 Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
-                <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                <button class="show-more-button">See More</button>
-                <div class="button-container">
-                    <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product1-id">Copy Product ID</button>
-                </div>
+<!-- Navigation Bar -->
+<div class="navbar">
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <div class="title">Product Page</div>
+    <a href="home.html">Home</a>
+</div>
+
+<!-- Product Container -->
+<div class="container">
+    <div class="product-wrapper">
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="shoes1.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal1')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="shoes2.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal2')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="shoes3.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal3')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product">
+            <img src="shoes4.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal4')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product">
+            <img src="shoes5.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal5')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product">
+            <img src="shoes6.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal6')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product">
+            <img src="shoes7.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal7')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product">
+            <img src="shoes8.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal8')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product">
+            <img src="shoes9.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal9')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product">
+            <img src="shoes10.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal10')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 11 -->
+        <div class="product">
+            <img src="shoes11.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal11')">
+            <h2>Biker Boots</h2>
+        </div>
+
+        <!-- Product 12 -->
+        <div class="product">
+            <img src="shoes12.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal12')">
+            <h2>Biker Boots</h2>
+        </div>
+    </div>
+</div>
+
+<!-- Modals for Products -->
+<!-- Modal for Product 1 -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <div class="slider">
+            <div class="slides">
+                <img src="shoes1.1.jpg" alt="Biker Boots Image 1" style="display: block;">
+                <img src="shoes1.2.jpg" alt="Biker Boots Image 2">
+                <img src="shoes1.3.jpg" alt="Biker Boots Image 3">
             </div>
+            <a class="prev" onclick="plusSlides(-1, 'modal1')">&#10094;</a>
+            <a class="next" onclick="plusSlides(1, 'modal1')">&#10095;</a>
+        </div>
+        <div class="description">This is the description for Product 1.</div>
+        <div class="price">$100.00</div>
+        <button class="buy-btn">Buy Now</button>
+        <button class="copy-id-btn" onclick="copyId('product1-id')">Copy ID</button>
+        <input type="hidden" id="product1-id" value="PRODUCT1ID123">
+    </div>
+</div>
 
-            <!-- Product 2 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 2 - Image 1">
-                        <img src="bags.jpeg" alt="Product 2 - Image 2">
-                        <img src="bags.jpeg" alt="Product 2 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 2</h3>
-                <p>Price: ₹500 Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
-                <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                <button class="show-more-button">See More</button>
-                <div class="button-container">
-                    <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product2-id">Copy Product ID</button>
-                </div>
-            </div>
+<!-- More modals for products (e.g., modal2, modal3, etc.)... -->
 
-            <!-- Product 3 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 3 - Image 1">
-                        <img src="bags.jpeg" alt="Product 3 - Image 2">
-                        <img src="bags.jpeg" alt="Product 3 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 3</h3>
-                <p>Price: ₹500 Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
-                <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                <button class="show-more-button">See More</button>
-                <div class="button-container">
-                    <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product3-id">Copy Product ID</button>
-                </div>
-            </div>
+<script>
+    var slideIndex = {}; // Object to keep track of slide indices for different modals
 
-            <!-- Product 4 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="bags.jpeg" alt="Product 4 - Image 1">
-                        <img src="bags.jpeg" alt="Product 4 - Image 2">
-                        <img src="bags.jpeg" alt="Product 4 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 4</h3>
-                <p>Price: ₹500 Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
-                <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                <button class="show-more-button">See More</button>
-                <div class="button-container">
-                    <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product4-id">Copy Product ID</button>
-                </div>
-            </div>
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+        showSlides(1, modalId); // Show the first slide when opening the modal
+    }
 
-             <!-- Product 1 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="Mens bag1.1.jpg" alt="Product 1 - Image 1">
-                        <img src="Mens bag1.2.jpg" alt="Product 1 - Image 2">
-                        <img src="Mens bag1.3.jpg" alt="Product 1 - Image 3">
-                        <img src="Mens bag1.4.jpg" alt="Product 1 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 1</h3>
-                <p>Price: ₹500 Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
-                <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                <button class="show-more-button">See More</button>
-                <div class="button-container">
-                    <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product1-id">Copy Product ID</button>
-                </div>
-            </div>
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
 
-             <!-- Product 1 -->
-            <div class="product-item">
-                <div class="product-slider">
-                    <div class="slider-images">
-                        <img src="Mens bag1.1.jpg" alt="Product 1 - Image 1">
-                        <img src="Mens bag1.2.jpg" alt="Product 1 - Image 2">
-                        <img src="Mens bag1.3.jpg" alt="Product 1 - Image 3">
-                        <img src="Mens bag1.4.jpg" alt="Product 1 - Image 3">
-                    </div>
-                    <div class="slider-buttons">
-                        <button class="slider-button prev" aria-label="Previous Slide">❮</button>
-                        <button class="slider-button next" aria-label="Next Slide">❯</button>
-                    </div>
-                </div>
-                <h3>Product 1</h3>
-                <p>Price: ₹500 Free delivery</p>
-                <p class="product-description">Length - 60cm , breadth - 30cm , Height - 30cm</p>
-                <p class="product-description more-description">This is a high-quality product made with the finest materials. Perfect for everyday use and stylish in design.</p>
-                <button class="show-more-button">See More</button>
-                <div class="button-container">
-                    <a href="checkout page.html" class="buy-button">Buy Now</a>
-                    <button class="copy-id-button" data-id="product1-id">Copy Product ID</button>
-                </div>
-            </div>
-            
-        </section>
-    </main>
+    function plusSlides(n, modalId) {
+        showSlides((slideIndex[modalId] || 1) + n, modalId);
+    }
 
-    <footer>
-        <!-- Your footer content here -->
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const sliders = document.querySelectorAll('.product-slider');
-
-            sliders.forEach(slider => {
-                const prevButton = slider.querySelector('.prev');
-                const nextButton = slider.querySelector('.next');
-                const sliderImages = slider.querySelector('.slider-images');
-                const images = sliderImages.querySelectorAll('img');
-                let index = 0;
-
-                function updateSlider() {
-                    const offset = -index * 100;
-                    sliderImages.style.transform = `translateX(${offset}%)`;
-                }
-
-                prevButton.addEventListener('click', () => {
-                    index = (index > 0) ? index - 1 : images.length - 1;
-                    updateSlider();
-                });
-
-                nextButton.addEventListener('click', () => {
-                    index = (index < images.length - 1) ? index + 1 : 0;
-                    updateSlider();
-                });
-            });
-
-            const showMoreButtons = document.querySelectorAll('.show-more-button');
-            
-            showMoreButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const productItem = button.closest('.product-item');
-                    const moreDescription = productItem.querySelector('.more-description');
-                    
-                    if (moreDescription.style.display === 'block') {
-                        moreDescription.style.display = 'none';
-                        button.textContent = 'See More';
-                    } else {
-                        moreDescription.style.display = 'block';
-                        button.textContent = 'See Less';
-                    }
-                });
-            });
-
-            const copyButtons = document.querySelectorAll('.copy-id-button');
-            
-            copyButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const id = button.getAttribute('data-id');
-                    navigator.clipboard.writeText(id).then(() => {
-                        alert('Product ID copied to clipboard!');
-                    }).catch(err => {
-                        console.error('Failed to copy: ', err);
-                    });
-                });
-            });
+    function showSlides(n, modalId) {
+        var slides = document.querySelectorAll(`#${modalId} .slides img`);
+        if (!slideIndex[modalId]) slideIndex[modalId] = 1;
+        if (n > slides.length) slideIndex[modalId] = 1;
+        if (n < 1) slideIndex[modalId] = slides.length;
+        slides.forEach((slide, index) => {
+            slide.style.display = index + 1 === slideIndex[modalId] ? "block" : "none";
         });
-    </script>
+    }
+
+    function copyId(id) {
+        var copyText = document.getElementById(id);
+        var range = document.createRange();
+        range.selectNode(copyText);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand("copy");
+        window.getSelection().removeAllRanges();
+        alert("Copied the ID: " + copyText.value);
+    }
+
+    // Initialize sliders
+    document.querySelectorAll('.slider').forEach(slider => {
+        const prev = slider.querySelector('.prev');
+        const next = slider.querySelector('.next');
+        prev.addEventListener('click', () => plusSlides(-1, slider.closest('.modal').id));
+        next.addEventListener('click', () => plusSlides(1, slider.closest('.modal').id));
+    });
+
+    // Ensure slider starts at first slide
+    document.querySelectorAll('.modal').forEach(modal => {
+        const closeBtn = modal.querySelector('.close');
+        closeBtn.addEventListener('click', () => closeModal(modal.id));
+    });
+</script>
+
 </body>
 </html>
