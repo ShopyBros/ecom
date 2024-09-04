@@ -58,7 +58,7 @@
         }
 
         .product {
-            width: calc(50% - 20px);
+            width: calc(50% - 20px); /* Two products per row with space */
             box-sizing: border-box;
             text-align: center;
             background: #fefefe;
@@ -202,7 +202,7 @@
 
         @media (max-width: 768px) {
             .product {
-                width: calc(100% - 20px);
+                width: calc(50% - 20px); /* Two products per row on small screens */
             }
 
             .modal-content {
@@ -218,13 +218,12 @@
             }
 
             .product {
-                width: 100%;
-                margin-bottom: 20px;
+                width: calc(50% - 20px); /* Keep two products per row on very small screens */
             }
 
             .product-wrapper {
-                flex-direction: column;
-                align-items: center;
+                flex-direction: row; /* Ensure products are side by side */
+                justify-content: space-between;
             }
         }
     </style>
@@ -242,7 +241,7 @@
         <!-- Product 1 -->
         <div class="product">
             <img src="shoes1.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal1')">
-            <h2>Biker Boots</h2>
+            <h2>Biker Boots chappal</h2>
         </div>
 
         <!-- Product 2 -->
