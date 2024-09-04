@@ -10,63 +10,49 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            height: 100vh;
-            overflow: hidden;
+            height: 100%;
+            overflow: auto; /* Allow scrolling */
         }
 
         .navbar {
-            background-color: #333;
-            overflow: hidden;
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            background-color: #333;
             padding: 10px 20px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000; /* Ensure navbar is above other content */
+            color: #fff;
         }
 
-        .navbar img {
-            height: 40px; /* Adjust the logo size */
-            margin-right: 20px; /* Space between logo and title */
+        .navbar-left .logo {
+            height: 40px; /* Adjust logo size as needed */
         }
 
-        .navbar-title {
-            color: #f2f2f2;
-            font-size: 1.2em; /* Decreased size for the navbar title */
-            margin-right: auto; /* Pushes the title to the left of navigation links */
-        }
-
-        .navbar a {
-            color: #f2f2f2;
+        .navbar-center {
+            flex: 1;
             text-align: center;
-            padding: 14px 20px;
+            font-size: 1.2em;
+        }
+
+        .navbar-right a {
+            color: #fff;
             text-decoration: none;
-            display: block;
+            margin-left: 20px;
         }
 
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .navbar a:last-child {
-            margin-right: 20px; /* Margin to the right of the last link */
+        .navbar-right .contact-link {
+            margin-right: 20px;
         }
 
         .container {
             width: 100%;
-            height: calc(100% - 60px); /* Adjust height to account for navbar */
+            min-height: 100vh; /* Ensure the container takes at least the full viewport height */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             padding: 20px;
             background: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             box-sizing: border-box;
-            margin-top: 60px; /* Ensure content is below the fixed navbar */
         }
 
         .product-wrapper {
@@ -74,11 +60,12 @@
             flex-wrap: wrap;
             gap: 20px;
             width: 100%;
-            justify-content: space-between; /* Ensure space between items */
+            max-width: 1200px; /* Optional: Max width to ensure it doesn't grow too large */
+            margin: 0 auto; /* Center the wrapper */
         }
 
         .product {
-            width: calc(20% - 20px); /* Five products per row */
+            width: calc(20% - 20px);
             box-sizing: border-box;
             text-align: center;
             background: #fefefe;
@@ -94,7 +81,7 @@
 
         .product img {
             width: 100%;
-            max-width: 200px;
+            max-width: 150px;
             border: 1px solid #ddd;
             padding: 5px;
             cursor: pointer;
@@ -102,7 +89,7 @@
         }
 
         .product h2 {
-            font-size: 1.2em;
+            font-size: 1em;
             margin-top: 10px;
             color: #333;
         }
@@ -126,7 +113,7 @@
             padding: 20px;
             border: 1px solid #888;
             width: 80%; /* Set width to 80% */
-            max-width: 1000px; /* Set a max width to ensure it doesn't get too wide */
+            max-width: 800px;
             position: relative;
             border-radius: 8px;
         }
@@ -222,39 +209,29 @@
 
         @media (max-width: 768px) {
             .product {
-                width: calc(50% - 20px); /* Two products per row on small screens */
+                width: calc(50% - 20px); /* Two products per row on mobile */
             }
 
             .modal-content {
-                width: 80%; /* Keep modal width to 80% */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .navbar a {
-                float: none;
-                display: block;
-                text-align: left;
-            }
-
-            .product {
-                width: calc(50% - 20px); /* Keep two products per row on very small screens */
-            }
-
-            .product-wrapper {
-                flex-direction: row; /* Ensure products are side by side */
-                justify-content: space-between;
+                width: 95%; /* Adjust modal width for mobile */
             }
         }
     </style>
 </head>
 <body>
 
+<!-- Navigation Bar -->
 <div class="navbar">
-    <img src="logo.png" alt="Logo"> <!-- Add your logo here -->
-    <div class="navbar-title">My Shop</div> <!-- Add your title here -->
-    <a href="#">Home</a>
-    <a href="#">Contact</a>
+    <div class="navbar-left">
+        <img src="logo.png" alt="Logo" class="logo">
+    </div>
+    <div class="navbar-center">
+        <h1>Product Catalog</h1>
+    </div>
+    <div class="navbar-right">
+        <a href="#home">Home</a>
+        <a href="#contact" class="contact-link">Contact</a>
+    </div>
 </div>
 
 <div class="container">
@@ -419,7 +396,7 @@
             <a class="next" onclick="plusSlides(1, 'modal5')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 5.</div>
-        <div class="price">$130.00</div>
+        <div class="price">$180.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product5-id')">Copy ID</button>
         <input type="hidden" id="product5-id" value="PRODUCT5ID345">
@@ -440,7 +417,7 @@
             <a class="next" onclick="plusSlides(1, 'modal6')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 6.</div>
-        <div class="price">$110.00</div>
+        <div class="price">$130.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product6-id')">Copy ID</button>
         <input type="hidden" id="product6-id" value="PRODUCT6ID678">
@@ -482,7 +459,7 @@
             <a class="next" onclick="plusSlides(1, 'modal8')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 8.</div>
-        <div class="price">$170.00</div>
+        <div class="price">$110.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product8-id')">Copy ID</button>
         <input type="hidden" id="product8-id" value="PRODUCT8ID234">
@@ -524,16 +501,19 @@
             <a class="next" onclick="plusSlides(1, 'modal10')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 10.</div>
-        <div class="price">$180.00</div>
+        <div class="price">$170.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product10-id')">Copy ID</button>
-        <input type="hidden" id="product10-id" value="PRODUCT10ID678">
+        <input type="hidden" id="product10-id" value="PRODUCT10ID890">
     </div>
 </div>
 
 <script>
+    let slideIndex = 1;
+
     function openModal(modalId) {
         document.getElementById(modalId).style.display = "block";
+        showSlides(slideIndex, modalId);
     }
 
     function closeModal(modalId) {
@@ -541,18 +521,26 @@
     }
 
     function plusSlides(n, modalId) {
-        const slides = document.querySelector(`#${modalId} .slides`);
-        const images = slides.querySelectorAll('img');
-        let currentIndex = Array.from(images).findIndex(img => img.style.display === 'block');
-        images[currentIndex].style.display = 'none';
-        currentIndex = (currentIndex + n + images.length) % images.length;
-        images[currentIndex].style.display = 'block';
+        showSlides(slideIndex += n, modalId);
     }
 
-    function copyId(id) {
-        const copyText = document.getElementById(id);
+    function showSlides(n, modalId) {
+        let i;
+        let slides = document.querySelectorAll(`#${modalId} .slides img`);
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+
+    function copyId(inputId) {
+        let copyText = document.getElementById(inputId);
         copyText.select();
+        copyText.setSelectionRange(0, 99999); // For mobile devices
         document.execCommand("copy");
+        alert("Copied the ID: " + copyText.value);
     }
 </script>
 
