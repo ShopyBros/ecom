@@ -60,12 +60,14 @@
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            position: relative;
+            position: relative; /* Ensure the close button is positioned relative to this */
         }
 
         .close {
+            position: absolute; /* Position absolutely within the modal-content */
+            top: 10px; /* Distance from the top */
+            right: 10px; /* Distance from the right */
             color: #aaa;
-            float: right;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
@@ -156,7 +158,7 @@
     <div class="product-wrapper">
         <!-- Product 1 -->
         <div class="product">
-            <h2>Product 1</h2>
+            <h2>jutta</h2>
             <img src="shoes1.1.jpg" alt="Product 1 Thumbnail" onclick="openModal('modal1')">
         </div>
 
