@@ -10,62 +10,79 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            height: 100%;
-            overflow: auto; /* Allow scrolling */
+            height: 100vh;
+            overflow: hidden;
         }
 
         .navbar {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             background-color: #333;
             padding: 10px 20px;
-            color: #fff;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
         }
 
-        .navbar-left .logo {
-            height: 40px; /* Adjust logo size as needed */
+        .navbar .logo {
+            width: 100px;
         }
 
-        .navbar-center {
+        .navbar-title {
+            font-size: 1.2em;
             flex: 1;
             text-align: center;
-            font-size: 1.2em;
         }
 
-        .navbar-right a {
-            color: #fff;
+        .navbar-nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-nav a {
+            color: white;
             text-decoration: none;
-            margin-left: 20px;
+            font-size: 1em;
+            padding: 10px;
         }
 
-        .navbar-right .contact-link {
+        .navbar-nav a:hover {
+            background-color: #555;
+            border-radius: 4px;
+        }
+
+        .navbar-nav .contact {
             margin-right: 20px;
         }
 
         .container {
+            margin-top: 60px; /* Adjust margin to make space for the fixed navbar */
             width: 100%;
-            min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             padding: 20px;
             background: #fff;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             box-sizing: border-box;
+            overflow: auto; /* Ensure content is scrollable */
         }
 
         .product-wrapper {
             display: flex;
+            justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
             width: 100%;
-            max-width: 1200px; /* Optional: Max width to ensure it doesn't grow too large */
-            margin: 0 auto; /* Center the wrapper */
         }
 
         .product {
-            width: calc(20% - 20px);
+            width: calc(50% - 20px);
             box-sizing: border-box;
             text-align: center;
             background: #fefefe;
@@ -81,7 +98,7 @@
 
         .product img {
             width: 100%;
-            max-width: 150px;
+            max-width: 200px;
             border: 1px solid #ddd;
             padding: 5px;
             cursor: pointer;
@@ -89,7 +106,7 @@
         }
 
         .product h2 {
-            font-size: 1em;
+            font-size: 1.2em;
             margin-top: 10px;
             color: #333;
         }
@@ -97,7 +114,7 @@
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
@@ -112,7 +129,7 @@
             margin: 5% auto;
             padding: 20px;
             border: 1px solid #888;
-            width: 80%; /* Set width to 80% */
+            width: 80%;
             max-width: 800px;
             position: relative;
             border-radius: 8px;
@@ -209,87 +226,83 @@
 
         @media (max-width: 768px) {
             .product {
-                width: calc(50% - 20px); /* Two products per row on mobile */
+                width: calc(50% - 20px);
             }
 
             .modal-content {
-                width: 95%; /* Adjust modal width for mobile */
+                width: 95%;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar-title {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Navigation Bar -->
 <div class="navbar">
-    <div class="navbar-left">
-        <img src="logo.png" alt="Logo" class="logo">
-    </div>
-    <div class="navbar-center">
-        <h1>Product Catalog</h1>
-    </div>
-    <div class="navbar-right">
-        <a href="#home">Home</a>
-        <a href="#contact" class="contact-link">Contact</a>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="navbar-title">Product Page</div>
+    <div class="navbar-nav">
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
     </div>
 </div>
 
 <div class="container">
     <div class="product-wrapper">
+        <!-- Add all 10 products here as before -->
         <!-- Product 1 -->
         <div class="product">
             <img src="shoes1.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal1')">
-            <h2>Biker Boots</h2>
+            <h2>Biker Boots Chappal</h2>
         </div>
-
         <!-- Product 2 -->
         <div class="product">
             <img src="shoes2.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal2')">
             <h2>Biker Boots</h2>
         </div>
-
         <!-- Product 3 -->
         <div class="product">
             <img src="shoes3.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal3')">
             <h2>Biker Boots</h2>
         </div>
-
         <!-- Product 4 -->
         <div class="product">
             <img src="shoes4.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal4')">
             <h2>Biker Boots</h2>
         </div>
-
         <!-- Product 5 -->
         <div class="product">
             <img src="shoes5.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal5')">
             <h2>Biker Boots</h2>
         </div>
-
         <!-- Product 6 -->
         <div class="product">
             <img src="shoes6.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal6')">
             <h2>Biker Boots</h2>
         </div>
-
         <!-- Product 7 -->
         <div class="product">
             <img src="shoes7.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal7')">
             <h2>Biker Boots</h2>
         </div>
-
         <!-- Product 8 -->
         <div class="product">
             <img src="shoes8.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal8')">
             <h2>Biker Boots</h2>
         </div>
-
         <!-- Product 9 -->
         <div class="product">
             <img src="shoes9.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal9')">
             <h2>Biker Boots</h2>
         </div>
-
         <!-- Product 10 -->
         <div class="product">
             <img src="shoes10.1.jpg" alt="Biker Boots Thumbnail" onclick="openModal('modal10')">
@@ -333,7 +346,7 @@
             <a class="next" onclick="plusSlides(1, 'modal2')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 2.</div>
-        <div class="price">$200.00</div>
+        <div class="price">$120.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product2-id')">Copy ID</button>
         <input type="hidden" id="product2-id" value="PRODUCT2ID456">
@@ -354,7 +367,7 @@
             <a class="next" onclick="plusSlides(1, 'modal3')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 3.</div>
-        <div class="price">$150.00</div>
+        <div class="price">$130.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product3-id')">Copy ID</button>
         <input type="hidden" id="product3-id" value="PRODUCT3ID789">
@@ -375,7 +388,7 @@
             <a class="next" onclick="plusSlides(1, 'modal4')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 4.</div>
-        <div class="price">$120.00</div>
+        <div class="price">$140.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product4-id')">Copy ID</button>
         <input type="hidden" id="product4-id" value="PRODUCT4ID012">
@@ -396,7 +409,7 @@
             <a class="next" onclick="plusSlides(1, 'modal5')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 5.</div>
-        <div class="price">$180.00</div>
+        <div class="price">$150.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product5-id')">Copy ID</button>
         <input type="hidden" id="product5-id" value="PRODUCT5ID345">
@@ -417,7 +430,7 @@
             <a class="next" onclick="plusSlides(1, 'modal6')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 6.</div>
-        <div class="price">$130.00</div>
+        <div class="price">$160.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product6-id')">Copy ID</button>
         <input type="hidden" id="product6-id" value="PRODUCT6ID678">
@@ -438,7 +451,7 @@
             <a class="next" onclick="plusSlides(1, 'modal7')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 7.</div>
-        <div class="price">$140.00</div>
+        <div class="price">$170.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product7-id')">Copy ID</button>
         <input type="hidden" id="product7-id" value="PRODUCT7ID901">
@@ -459,7 +472,7 @@
             <a class="next" onclick="plusSlides(1, 'modal8')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 8.</div>
-        <div class="price">$110.00</div>
+        <div class="price">$180.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product8-id')">Copy ID</button>
         <input type="hidden" id="product8-id" value="PRODUCT8ID234">
@@ -480,7 +493,7 @@
             <a class="next" onclick="plusSlides(1, 'modal9')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 9.</div>
-        <div class="price">$160.00</div>
+        <div class="price">$190.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product9-id')">Copy ID</button>
         <input type="hidden" id="product9-id" value="PRODUCT9ID567">
@@ -501,7 +514,7 @@
             <a class="next" onclick="plusSlides(1, 'modal10')">&#10095;</a>
         </div>
         <div class="description">This is the description for Product 10.</div>
-        <div class="price">$170.00</div>
+        <div class="price">$200.00</div>
         <button class="buy-btn">Buy Now</button>
         <button class="copy-id-btn" onclick="copyId('product10-id')">Copy ID</button>
         <input type="hidden" id="product10-id" value="PRODUCT10ID890">
@@ -509,17 +522,16 @@
 </div>
 
 <script>
-    let slideIndex = 1;
-
+    // Modal script
     function openModal(modalId) {
         document.getElementById(modalId).style.display = "block";
-        showSlides(slideIndex, modalId);
     }
 
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = "none";
     }
 
+    let slideIndex = 1;
     function plusSlides(n, modalId) {
         showSlides(slideIndex += n, modalId);
     }
@@ -535,14 +547,11 @@
         slides[slideIndex - 1].style.display = "block";
     }
 
-    function copyId(inputId) {
-        let copyText = document.getElementById(inputId);
+    function copyId(id) {
+        let copyText = document.getElementById(id);
         copyText.select();
-        copyText.setSelectionRange(0, 99999); // For mobile devices
         document.execCommand("copy");
-        alert("Copied the ID: " + copyText.value);
     }
 </script>
-
 </body>
 </html>
