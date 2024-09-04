@@ -162,8 +162,8 @@
 
         <!-- Product 2 -->
         <div class="product">
-            <h2>Product 2</h2>
             <img src="shoes2.1.jpg" alt="Product 2 Thumbnail" onclick="openModal('modal2')">
+            <h2>Biker Boots</h2>
         </div>
     </div>
 </div>
@@ -248,6 +248,12 @@
         const next = slider.querySelector('.next');
         prev.addEventListener('click', () => plusSlides(-1, slider.closest('.modal').id));
         next.addEventListener('click', () => plusSlides(1, slider.closest('.modal').id));
+    });
+
+    // Ensure slider starts at first slide
+    document.querySelectorAll('.modal').forEach(modal => {
+        const closeBtn = modal.querySelector('.close');
+        closeBtn.addEventListener('click', () => closeModal(modal.id));
     });
 </script>
 
